@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.entity.SweetsBean;
 
@@ -39,20 +40,33 @@ public class InsertSweetServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.setCharacterEncoding("UTF-8");
+		HttpSession session=request.getSession();
+		RequestDispatcher rd;
 		
-		SweetsBean bean = new SweetsBean();
+		if(!session.getAttribute("session_id").equals(null)) {
+			
+			request.setCharacterEncoding("UTF-8");
+			
+			SweetsBean bean = new SweetsBean();
+			
+			bean.setSweets_id(request.getString("sweets_id"));
+			bean.setSweets_name(request.getString("sweets=name"));
+			bean.setSweets_value(request.getInt("sweets_value"));
+			bean.setSweets_genre(request.getString("sweets_genre"));
+			bean.setShop_id(request.getString("shop_id"));
+			
+			InsertSweets(bean);
+			
+			
+			RequestDispatcher rd = request.getRequestDispatcher("show-insert-shop-servlet");
 		
-		bean.setSweets_id(request.getString("sweets_id"));
-		bean.setSweets_name(request.getString("sweets=name"));
-		bean.setSweets_value(request.getInt("sweets_value"));
-		bean.setSweets_genre(request.getString("sweets_genre"));
-		bean.setShop_id(request.getString("shop_id"));
-		
-		InsertSweets(bean);
-		
-		
-		RequestDispatcher rd = request.getRequestDispatcher("show-insert-shop-servlet");
+		} else {
+			
+			session.invalidate();
+			rd=request.getRequestDispatcher("Login.jsp");
+			
+		}
+
 		rd.forward(request, response);
 		
 	}
