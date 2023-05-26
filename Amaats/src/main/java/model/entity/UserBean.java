@@ -57,5 +57,4 @@ public class UserBean implements Serializable {
 		this.user_address = user_address;
 	}
 	
-
 }
