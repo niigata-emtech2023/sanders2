@@ -38,7 +38,7 @@ public class ShowInsertSweetsServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		RequestDispatcher rd= request.getRequestDispatcher("insert-sweets.jsp");
+		RequestDispatcher rd= request.getRequestDispatcher("InsertSweets.jsp");
 		rd.forward(request, response);
 	}
 
