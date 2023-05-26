@@ -12,6 +12,12 @@ import model.entity.UserBean;
 
 public class AccountDAO {
 	
+	/**
+	 * 
+	 * @param user_id
+	 * @param password
+	 * @return
+	 */
 	public boolean login(String user_id, String password) {
 			
 		String sql = "SELECT password FROM m_user WHERE user_id = ?";
