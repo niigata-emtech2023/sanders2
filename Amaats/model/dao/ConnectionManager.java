@@ -16,7 +16,7 @@ public class ConnectionManager {
 	private static final String USER = "embexU";
 	private static final String PASSWORD = "embexP";
 	
-	/* コネクションの作成 */
+	/* コネクション作成 */
 	public static Connection getConnection() throws SQLException, ClassNotFoundException {
 		
 		Class.forName("com.mysql.cj.jdbc.Driver");
