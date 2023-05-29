@@ -4,16 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>商品情報登録確認</title>
+<title>Insert title here</title>
 </head>
 <body>
-    <%@ include file="header.jsp" %>
-    <form action="InsertSweetsServlet" method="POST">
-    <%
-    %>
-    
-    
-    </form>
 
 </body>
 </html>
