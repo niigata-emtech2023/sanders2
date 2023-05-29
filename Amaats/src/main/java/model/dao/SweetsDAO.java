@@ -3,6 +3,8 @@ package model.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import model.entity.SweetsBean;
 
@@ -73,6 +75,32 @@ public class SweetsDAO {
 			processingNumber = pstmt.executeUpdate();
 		}
 		return processingNumber;
+	}
+	
+	public void insertCart(SweetsBean sweets) {
+		List<SweetsBean> cartList = new ArrayList<SweetsBean>();
+		
+		int totalValue = 0;
+		for (SweetsBean sweet : cartList) {
+			totalValue += sweet.getSweets_value();
+		}
+		cartList.add(sweets);
+	}
+	
+	public List<SweetsBean> checkCart() {
+		List<SweetsBean> cartList = new ArrayList<SweetsBean>();
+		
+		for (int i = 0; i < cartList.size(); i++) {
+			SweetsBean sweets = cartList.get(i);
+		}
+		
+		return cartList;
+	}
+	
+	public void emptyCart() {
+		List<SweetsBean> cartList = new ArrayList<SweetsBean>();
+
+		cartList.clear();
 	}
 }
 
