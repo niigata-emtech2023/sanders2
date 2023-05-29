@@ -8,7 +8,7 @@
 <link rel = "stylesheet" href = "style.css">
 </head>
 <body>
-	<img src = "image/amaats_logo.jpg" alt = "Amaats">
+	<img src = "image/amaats_logo.png" alt = "Amaats">
 	<span class = "alert">${alert}</span>
 	<form action = "insert-user-servlet" method = "POST">
 		名前：<input type = "text" name = "user_name"><br>
