@@ -13,14 +13,14 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class ShowDeleteAccountServlet
  */
-@WebServlet("/ShowDeleteAccountServlet")
-public class ShowDeleteAccountServlet extends HttpServlet {
+@WebServlet("/ShowDeleteUserAccountServlet")
+public class ShowDeleteUserAccountServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ShowDeleteAccountServlet() {
+    public ShowDeleteUserAccountServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

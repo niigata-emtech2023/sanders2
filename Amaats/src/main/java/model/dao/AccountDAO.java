@@ -102,8 +102,6 @@ public class AccountDAO {
 	
 	public List<UserBean> getUserList() throws SQLException, ClassNotFoundException {
 		
-<<<<<<< HEAD
-=======
 		String sql = "SELECT admin_password FROM m_user";
 		List<UserBean> userList = new ArrayList<UserBean>();
 		
@@ -129,7 +127,6 @@ public class AccountDAO {
 		
 		return userList;
 		
->>>>>>> branch 'master' of https://github.com/niigata-emtech2023/sanders2
 	}
 	
 	public List<ShopBean> getShopList() {
@@ -149,11 +146,10 @@ public class AccountDAO {
 			pstmt.setString(1, user.getUser_id());
 			pstmt.setString(2, user.getUser_name());
 			pstmt.setString(3, user.getPassword());
-<<<<<<< HEAD
+
 			pstmt.setString(5, user.getUser_adress());
-=======
-			pstmt.setString(4, user.getUser_address());
->>>>>>> branch 'master' of https://github.com/niigata-emtech2023/sanders2
+
+			pstmt.setString(4, user.getUser_adress());
 			
 			count = pstmt.executeUpdate();
 			

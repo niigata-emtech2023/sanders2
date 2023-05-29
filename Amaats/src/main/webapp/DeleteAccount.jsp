@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="model.entity.UserBean,java.util.List""model.entity.ShopBean.java.util.List"%>
+	pageEncoding="UTF-8" import="model.entity.UserBean,java.util.List"
+						 import="model.entity.ShopBean,java.util.List"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,7 +25,7 @@
 			<td><%=user.getUser_name()%></td>
 			<td>
 				<form action="ShowDeleteAccountServlet" method="POST">
-					<input type="hidden" name="code" value="<%=user.getUser_id()%>">
+					<input type="hidden" name="user_id" value="<%=user.getUser_id()%>">
 					<input type="submit" value="削除">
 				</form>
 			</td>
@@ -50,7 +51,7 @@
 			<td><%=shop.getShop_name()%></td>
 			<td>
 				<form action="ShowDeleteAccountServlet" method="POST">
-					<input type="hidden" name="code" value="<%=shop.getShop_id()%>">
+					<input type="hidden" name="shop_id" value="<%=shop.getShop_id()%>">
 					<input type="submit" value="削除">
 				</form>
 			</td>
