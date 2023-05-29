@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="model.entity.SweetsBean"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +16,7 @@
     
     商品ID：<%=bean.getSweets_id()%><br>
     商品名：<%=bean.getSweets_name()%><br>
-    カテゴリ：<%=bean.getSweets_category()%><br>
+    カテゴリ：<%=bean.getSweets_genre()%><br>
     価格：<%=bean.getSweets_value()%><br>
     商品情報：<%=bean.getSweets_info()%><br>
     
