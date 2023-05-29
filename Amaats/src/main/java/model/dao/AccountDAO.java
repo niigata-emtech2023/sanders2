@@ -135,41 +135,24 @@ public class AccountDAO {
 		
 	}
 	
-	public void insertNewUser(UserBean user) throws SQLException, ClassNotFoundException, NullPointerException {
+	public int insertNewUser(UserBean user) throws SQLException, ClassNotFoundException, NullPointerException {
 		
-		String sql1 = "INSERT INTO m_user VALUES (?, ?, ?, ?, ?)";
-		String sql2 = "INSERT INTO m_user VALUES (?, ?, ?, NULL, ?)";
+		int count = 0;
+		String sql = "INSERT INTO m_user(user_id, user_name, password, user_address) VALUES (?, ?, ?, ?)";
 		
-		try (Connection con = ConnectionManager.getConnection()) {
-			
-			boolean flag = false;
-			
-			user.getUser_genre();
-			
-			flag = true;
-			
-			PreparedStatement pstmt;
-			
-			if (flag) {
-				
-				pstmt = con.prepareStatement(sql1);
-				
-				pstmt.setString(4, user.getUser_genre());
-				
-			} else {
-				
-				pstmt = con.prepareStatement(sql2);
-				
-			}
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
 			
 			pstmt.setString(1, user.getUser_id());
 			pstmt.setString(2, user.getUser_name());
 			pstmt.setString(3, user.getPassword());
-			pstmt.setString(5, user.getUser_address());
+			pstmt.setString(4, user.getUser_address());
 			
-			pstmt.executeUpdate();
+			count = pstmt.executeUpdate();
 			
 		}
+		
+		return count;
 		
 	}
 	
