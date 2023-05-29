@@ -8,10 +8,11 @@
 </head>
 <body>
     <%@ include file="header.jsp" %>
+    <span>${alert}</span>
     <form action="check-insert-sweets-info-servlet" method="POST">
     商品名：<input type="text" name="sweets_name"><br>
     カテゴリ：
-    <select name="sweets_category">
+    <select name="sweets_genre">
         <option value="default">選択してください</option>
         <option value="cake">ケーキ</option>
         <option value="cokkie">クッキー</option>

@@ -9,10 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.entity.SweetsBean;
+
 /**
  * Servlet implementation class CheckInsertSweetsInfoServlet
  */
-@WebServlet("/CheckInsertSweetsInfoServlet")
+@WebServlet("/check-insert-sweets-info-servlet")
 public class CheckInsertSweetsInfoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -54,9 +56,20 @@ public class CheckInsertSweetsInfoServlet extends HttpServlet {
 		}
 		
 		
+		SweetsBean sweetsbean = new SweetsBean();
+		sweetsbean.setSweets_name(request.getParameter("sweets_name"));
+		sweetsbean.setSweets_genre(request.getParameter("sweets_genre"));
+		sweetsbean.setSweets_value(Integer.parseInt(request.getParameter("sweets_value")));
+		sweetsbean.setSweets_info(request.getParameter("sweets_info"));
+		
+		request.setAttribute("bean","sweetsbean");
+		
+		
+		
 		if(flag) {
 			rd=request.getRequestDispatcher("CheckInsertSweets.jsp");
 		}else {
+			request.setAttribute("alert","入力情報に不備があります");
 			rd=request.getRequestDispatcher("InsertSweets.jsp");
 		}
 		
