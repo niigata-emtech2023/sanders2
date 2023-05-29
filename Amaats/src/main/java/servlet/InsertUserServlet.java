@@ -84,13 +84,21 @@ public class InsertUserServlet extends HttpServlet {
 			userList = adao.getUserList();
 			
 			/* 同じユーザーIDがないか確認 */
-			for (UserBean user: userList) {
-			
-				if (user.getUser_id().equals(request.getParameter("user_id"))) {
+			try {
 				
-					flag = false;
-				
+				for (UserBean user: userList) {
+					
+					if (user.getUser_id().equals(request.getParameter("user_id"))) {
+						
+						flag = false;
+						
+					}
+					
 				}
+				
+			} catch (NullPointerException e) {
+				
+				
 				
 			}
 			

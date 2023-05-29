@@ -5,9 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>ログイン</title>
+<link rel = "stylesheet" href = "style.css">
 </head>
 <body>
-	<img src = "image/amaats_logo.jpg" alt = "Amaats"><br>
+	<img src = "image/amaats_logo.png" alt = "Amaats"><br>
 	<span class = "alert">${alert}</span>
 	<form action = "login-servlet" method = "POST">
 		ログインID：<input type = "text" name = "id"><br>
