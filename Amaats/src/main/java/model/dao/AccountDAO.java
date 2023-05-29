@@ -129,9 +129,31 @@ public class AccountDAO {
 		
 	}
 	
-	public List<ShopBean> getShopList() {
+	public List<ShopBean> getShopList() throws SQLException, ClassNotFoundException{
 		
+		String sql = "SELECT * FROM m_shop";
+		List<ShopBean> shopList = new ArrayList<ShopBean>();
 		
+		try (Connection con = ConnectionManager.getConnection();
+				Statement stmt = con.createStatement();
+				ResultSet res = stmt.executeQuery(sql)) {
+			
+			while (res.next()) {
+				
+				ShopBean sb = new ShopBean();
+				sb.setShop_id(res.getString("shop_id"));
+				sb.setShop_name(res.getString("shop_name"));
+				sb.setShop_password(res.getString("shop_password"));
+				sb.setShop_address(res.getString("shop_address"));
+				sb.setShop_tel(res.getString("shop_tel"));
+				
+				shopList.add(sb);
+				
+			}
+			
+		}
+		
+		return shopList;
 		
 	}
 	
@@ -165,7 +187,7 @@ public class AccountDAO {
 			String shop_id = bean.getShop_id();
 			String shop_name = bean.getShop_name();
 			String shop_password = bean.getShop_password();
-			String shop_adress = bean.getShop_adress();
+			String shop_adress = bean.getShop_address();
 			String shop_tel = bean.getShop_tel();
 
 			pstmt.setString(1, shop_id);
@@ -211,7 +233,7 @@ public class AccountDAO {
 			String shop_id = bean.getShop_id();
 			String shop_name = bean.getShop_name();
 			String shop_password = bean.getShop_password();
-			String shop_adress = bean.getShop_adress();
+			String shop_adress = bean.getShop_address();
 			String shop_tel = bean.getShop_tel();
 			
 			pstmt.setString(1, shop_name);
@@ -312,14 +334,14 @@ public class AccountDAO {
 				String shop_id = res.getString("shop_id");
 				String shop_name = res.getString("shop_name");
 				String shop_password = res.getString("shop_password");
-				String shop_adress = res.getString("shop_adress");
+				String shop_address = res.getString("shop_address");
 				String shop_tel = res.getString("shop_tel");
 
 				ShopBean shop = new ShopBean();
 				shop.setShop_id(shop_id);
 				shop.setShop_name(shop_name);
 				shop.setShop_password(shop_password);
-				shop.setShop_adress(shop_adress);
+				shop.setShop_address(shop_address);
 				shop.setShop_tel(shop_tel);
 
 				shopList.add(shop);
