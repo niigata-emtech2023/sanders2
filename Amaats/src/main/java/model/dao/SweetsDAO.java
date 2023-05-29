@@ -4,10 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-<<<<<<< HEAD
-=======
 import java.sql.Statement;
->>>>>>> branch 'master' of https://github.com/niigata-emtech2023/sanders2
 import java.util.ArrayList;
 import java.util.List;
 
@@ -116,133 +113,130 @@ public class SweetsDAO {
 		}
 		return processingNumber;
 	}
-	
-<<<<<<< HEAD
+
+
 	public void insertCart(SweetsBean sweets) {
 		List<SweetsBean> cartList = new ArrayList<SweetsBean>();
-		
+
 		int totalValue = 0;
 		for (SweetsBean sweet : cartList) {
 			totalValue += sweet.getSweets_value();
 		}
 		cartList.add(sweets);
 	}
-	
+
 	public List<SweetsBean> checkCart() {
 		List<SweetsBean> cartList = new ArrayList<SweetsBean>();
-		
+
 		for (int i = 0; i < cartList.size(); i++) {
 			SweetsBean sweets = cartList.get(i);
 		}
-		
+
 		return cartList;
 	}
-	
+
 	public void emptyCart() {
 		List<SweetsBean> cartList = new ArrayList<SweetsBean>();
 
 		cartList.clear();
 	}
-}
 
 
-=======
+
+
 	public List<SweetsBean> searchName(String sweets_name) throws SQLException, ClassNotFoundException {
-		
+
 		String sql = "SELECT * FROM m_sweets WHERE sweets_name LIKE ?";
 		List<SweetsBean> sweetsList = new ArrayList<SweetsBean>();
-		
+
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
-			
+
 			pstmt.setString(1, "%" + sql + "%");
-			
+
 			ResultSet res = pstmt.executeQuery();
-			
+
 			while (res.next()) {
-				
+
 				SweetsBean sb = new SweetsBean();
-				
+
 				sb.setSweets_id(res.getInt("sweets_id"));
 				sb.setSweets_name(res.getString("sweets_name"));
 				sb.setSweets_value(res.getInt("sweets_value"));
 				sb.setSweets_genre(res.getString("sweets_genre"));
 				sb.setShop_id(res.getString("shop_id"));
-				
+
 				sweetsList.add(sb);
-				
+
 			}
-			
+
 		}
-		
+
 		return sweetsList;
-		
+
 	}
-	
+
 	public List<SweetsBean> searchGenre(String sweets_genre) throws SQLException, ClassNotFoundException {
-		
+
 		String sql = "SELECT * FROM m_sweets WHERE sweets_genre LIKE ?";
 		List<SweetsBean> sweetsList = new ArrayList<SweetsBean>();
-		
+
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
-			
+
 			pstmt.setString(1, "%" + sql + "%");
-			
+
 			ResultSet res = pstmt.executeQuery();
-			
+
 			while (res.next()) {
-				
+
 				SweetsBean sb = new SweetsBean();
-				
+
 				sb.setSweets_id(res.getInt("sweets_id"));
 				sb.setSweets_name(res.getString("sweets_name"));
 				sb.setSweets_value(res.getInt("sweets_value"));
 				sb.setSweets_genre(res.getString("sweets_genre"));
 				sb.setShop_id(res.getString("shop_id"));
-				
+
 				sweetsList.add(sb);
-				
+
 			}
-			
+
 		}
-		
+
 		return sweetsList;
-		
+
 	}
-	
+
 	public List<SweetsBean> searchValue(int maxvalue, int minvalue) throws SQLException, ClassNotFoundException {
-		
+
 		String sql = "SELECT * FROM m_sweets WHERE sweets_value BETWEEN ? AND ?";
 		List<SweetsBean> sweetsList = new ArrayList<SweetsBean>();
-		
+
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
-			
+
 			pstmt.setInt(1, minvalue);
 			pstmt.setInt(1, maxvalue);
-			
+
 			ResultSet res = pstmt.executeQuery();
-			
+
 			while (res.next()) {
-				
+
 				SweetsBean sb = new SweetsBean();
-				
+
 				sb.setSweets_id(res.getInt("sweets_id"));
 				sb.setSweets_name(res.getString("sweets_name"));
 				sb.setSweets_value(res.getInt("sweets_value"));
 				sb.setSweets_genre(res.getString("sweets_id"));
 				sb.setShop_id(res.getString("shop_id"));
-				
+
 				sweetsList.add(sb);
-				
+
 			}
-			
+
 		}
-		
+
 		return sweetsList;
-		
 	}
-	
 }
->>>>>>> branch 'master' of https://github.com/niigata-emtech2023/sanders2
