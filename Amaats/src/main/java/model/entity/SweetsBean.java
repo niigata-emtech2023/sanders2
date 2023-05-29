@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class SweetsBean implements Serializable {
 
-	private String sweets_id;
+	private int sweets_id;
 	private String sweets_name;
 	private int sweets_value;
 	private String sweets_genre;
@@ -15,11 +15,11 @@ public class SweetsBean implements Serializable {
 
 	}
 
-	public String getSweets_id() {
+	public int getSweets_id() {
 		return sweets_id;
 	}
 
-	public void setSweets_id(String sweets_id) {
+	public void setSweets_id(int sweets_id) {
 		this.sweets_id = sweets_id;
 	}
 

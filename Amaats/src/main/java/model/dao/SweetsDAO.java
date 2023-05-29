@@ -29,7 +29,7 @@ public class SweetsDAO {
 
 			// 結果の操作
 			while (res.next()) {
-				String sweetsId = res.getString("sweets_id");
+				int sweetsId = res.getInt("sweets_id");
 				String sweetsName = res.getString("sweets_name");
 				int sweetsValue = res.getInt("sweets_value");
 				String sweetsGenre = res.getString("sweets_genre");
@@ -97,7 +97,7 @@ public class SweetsDAO {
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
 
 			// DTOからのデータの取り出し
-			String sweetsId = sweets.getSweets_id();
+			int sweetsId = sweets.getSweets_id();
 			String sweetsName = sweets.getSweets_name();
 			int sweetsValue = sweets.getSweets_value();
 			String  sweetsGenre = sweets.getSweets_genre();
@@ -114,7 +114,101 @@ public class SweetsDAO {
 		return processingNumber;
 	}
 	
-	public List<>
+	public List<SweetsBean> searchName(String sweets_name) throws SQLException, ClassNotFoundException {
+		
+		String sql = "SELECT * FROM m_sweets WHERE sweets_name LIKE ?";
+		List<SweetsBean> sweetsList = new ArrayList<SweetsBean>();
+		
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+			
+			pstmt.setString(1, "%" + sql + "%");
+			
+			ResultSet res = pstmt.executeQuery();
+			
+			while (res.next()) {
+				
+				SweetsBean sb = new SweetsBean();
+				
+				sb.setSweets_id(res.getInt("sweets_id"));
+				sb.setSweets_name(res.getString("sweets_name"));
+				sb.setSweets_value(res.getInt("sweets_value"));
+				sb.setSweets_genre(res.getString("sweets_genre"));
+				sb.setShop_id(res.getString("shop_id"));
+				
+				sweetsList.add(sb);
+				
+			}
+			
+		}
+		
+		return sweetsList;
+		
+	}
+	
+	public List<SweetsBean> searchGenre(String sweets_genre) throws SQLException, ClassNotFoundException {
+		
+		String sql = "SELECT * FROM m_sweets WHERE sweets_genre LIKE ?";
+		List<SweetsBean> sweetsList = new ArrayList<SweetsBean>();
+		
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+			
+			pstmt.setString(1, "%" + sql + "%");
+			
+			ResultSet res = pstmt.executeQuery();
+			
+			while (res.next()) {
+				
+				SweetsBean sb = new SweetsBean();
+				
+				sb.setSweets_id(res.getInt("sweets_id"));
+				sb.setSweets_name(res.getString("sweets_name"));
+				sb.setSweets_value(res.getInt("sweets_value"));
+				sb.setSweets_genre(res.getString("sweets_genre"));
+				sb.setShop_id(res.getString("shop_id"));
+				
+				sweetsList.add(sb);
+				
+			}
+			
+		}
+		
+		return sweetsList;
+		
+	}
+	
+	public List<SweetsBean> searchValue(int maxvalue, int minvalue) throws SQLException, ClassNotFoundException {
+		
+		String sql = "SELECT * FROM m_sweets WHERE sweets_value BETWEEN ? AND ?";
+		List<SweetsBean> sweetsList = new ArrayList<SweetsBean>();
+		
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+			
+			pstmt.setInt(1, minvalue);
+			pstmt.setInt(1, maxvalue);
+			
+			ResultSet res = pstmt.executeQuery();
+			
+			while (res.next()) {
+				
+				SweetsBean sb = new SweetsBean();
+				
+				sb.setSweets_id(res.getInt("sweets_id"));
+				sb.setSweets_name(res.getString("sweets_name"));
+				sb.setSweets_value(res.getInt("sweets_value"));
+				sb.setSweets_genre(res.getString("sweets_id"));
+				sb.setShop_id(res.getString("shop_id"));
+				
+				sweetsList.add(sb);
+				
+			}
+			
+		}
+		
+		return sweetsList;
+		
+	}
+	
 }
-
-
