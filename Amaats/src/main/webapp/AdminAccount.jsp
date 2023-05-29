@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import = "model.entity.AdminBean"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +12,6 @@
      <%
     AdminBean bean = (AdminBean)request.getAttribute("bean");
     %>
-    名前：<%=bean.getAdmin_name() %><br>
     ログインID：<%=bean.getAdmin_id() %><br>
     
     <form action="UpdateAdminAccount.jsp" method="POST">

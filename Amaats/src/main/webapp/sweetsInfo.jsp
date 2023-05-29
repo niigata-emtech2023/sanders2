@@ -27,10 +27,10 @@
 	</form>
 	
 	<form action="" method="POST">
-	    数量：<select num="sum">
+	    数量：<select name="sum">
 	        
 	        <% for(int i = 1 ; i<=30 ; i++){ %>
-	        <option value=<%=i%> method="POST">	
+	        <option value=<%=i%>>	
 	        <% }
 	        %>
 	    </select>

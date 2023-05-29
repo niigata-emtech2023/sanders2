@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import = "model.entity.UserBean"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +18,7 @@
     好きなジャンル：
     <%String user_genre;
     try{
-    	user_genre=bean.getUser_genre;
+    	user_genre=bean.getUser_genre();
     }catch(NullPointerException e){
     	user_genre="";
     }
