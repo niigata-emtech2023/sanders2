@@ -15,15 +15,16 @@ import model.entity.UserBean;
 public class AccountDAO {
 	
 	/**
-	 * 
+	 * ユーザーログイン認証
 	 * @param user_id
 	 * @param password
 	 * @return
 	 */
-	public boolean login(String user_id, String password) {
+	public boolean login(String user_id, String password) throws SQLException, ClassNotFoundException {
 			
 		String sql = "SELECT password FROM m_user WHERE user_id = ?";
-		boolean accept = false;
+		
+		boolean flag = false;
 		
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
@@ -32,22 +33,27 @@ public class AccountDAO {
 				ResultSet res = pstmt.executeQuery();
 				
 				res.next();
-				accept = true;
 				
-		} catch (SQLException | ClassNotFoundException e) {
-			
-			e.printStackTrace();
-			
+				flag = res.getString("password").equals(password);
+				
 		}
 		
-		return accept;
+		return flag;
 		
 	}
 	
-	public boolean loginShop(String shop_id, String shop_password) {
+	/**
+	 * 店舗ログイン認証
+	 * @param shop_id
+	 * @param shop_password
+	 * @return
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
+	public boolean loginShop(String shop_id, String shop_password) throws SQLException, ClassNotFoundException {
 		
 		String sql = "SELECT shop_password FROM m_shop WHERE shop_id = ?";
-		boolean accept = false;
+		boolean flag = false;
 		
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
@@ -56,22 +62,27 @@ public class AccountDAO {
 				ResultSet res = pstmt.executeQuery();
 				
 				res.next();
-				accept = true;
 				
-		} catch (SQLException | ClassNotFoundException e) {
-			
-			e.printStackTrace();
-			
+				flag = res.getString("shop_password").equals(shop_password);
+				
 		}
 		
-		return accept;
+		return flag;
 		
 	}
 	
-	public boolean loginAdmin(String admin_id, String admin_password) {
+	/**
+	 * サイト管理者ログイン認証
+	 * @param admin_id
+	 * @param admin_password
+	 * @return
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
+	public boolean loginAdmin(String admin_id, String admin_password) throws SQLException, ClassNotFoundException {
 		
 		String sql = "SELECT admin_password FROM m_user WHERE admin_id = ?";
-		boolean accept = false;
+		boolean flag = false;
 		
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
@@ -80,20 +91,45 @@ public class AccountDAO {
 				ResultSet res = pstmt.executeQuery();
 				
 				res.next();
-				accept = true;
 				
-		} catch (SQLException | ClassNotFoundException e) {
-			
-			e.printStackTrace();
-			
+				flag = res.getString("admin_password").equals(admin_password);
+				
 		}
 		
-		return accept;
+		return flag;
 		
 	}
 	
-	public List<UserBean> getUserList() {
+	public List<UserBean> getUserList() throws SQLException, ClassNotFoundException {
 		
+<<<<<<< HEAD
+=======
+		String sql = "SELECT admin_password FROM m_user";
+		List<UserBean> userList = new ArrayList<UserBean>();
+		
+		try (Connection con = ConnectionManager.getConnection();
+				Statement stmt = con.createStatement();
+				ResultSet res = stmt.executeQuery(sql)) {
+				
+			while (res.next()) {
+				
+				UserBean ub = new UserBean();
+				
+				ub.setUser_id(res.getString("user_id"));
+				ub.setUser_name(res.getString("user_name"));
+				ub.setPassword(res.getString("password"));
+				ub.setUser_genre(res.getString("user_genre"));
+				ub.setUser_address(res.getString("user_address"));
+				
+				userList.add(ub);
+				
+			}
+			
+		}
+		
+		return userList;
+		
+>>>>>>> branch 'master' of https://github.com/niigata-emtech2023/sanders2
 	}
 	
 	public List<ShopBean> getShopList() {
@@ -102,51 +138,28 @@ public class AccountDAO {
 		
 	}
 	
-	public void insertNewUser(UserBean user) {
+	public int insertNewUser(UserBean user) throws SQLException, ClassNotFoundException, NullPointerException {
 		
-		String sql1 = "INSERT INTO m_user VALUES (?, ?, ?, ?, ?)";
-		String sql2 = "INSERT INTO m_user VALUES (?, ?, ?, NULL, ?)";
+		int count = 0;
+		String sql = "INSERT INTO m_user(user_id, user_name, password, user_address) VALUES (?, ?, ?, ?)";
 		
-		try (Connection con = ConnectionManager.getConnection()) {
-			
-			boolean flag = false;
-			
-			try {
-				
-				user.getUser_genre();
-				
-				flag = true;
-				
-			} catch (NullPointerException e) {
-				
-			}
-			
-			PreparedStatement pstmt;
-			
-			if (flag) {
-				
-				pstmt = con.prepareStatement(sql1);
-				
-				pstmt.setString(4, user.getUser_genre());
-				
-			} else {
-				
-				pstmt = con.prepareStatement(sql2);
-				
-			}
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
 			
 			pstmt.setString(1, user.getUser_id());
 			pstmt.setString(2, user.getUser_name());
 			pstmt.setString(3, user.getPassword());
+<<<<<<< HEAD
 			pstmt.setString(5, user.getUser_adress());
+=======
+			pstmt.setString(4, user.getUser_address());
+>>>>>>> branch 'master' of https://github.com/niigata-emtech2023/sanders2
 			
-			pstmt.executeUpdate();
-			
-		} catch (SQLException | ClassNotFoundException e) {
-			
-			e.printStackTrace();
+			count = pstmt.executeUpdate();
 			
 		}
+		
+		return count;
 		
 	}
 	

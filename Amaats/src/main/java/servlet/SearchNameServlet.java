@@ -1,6 +1,9 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,17 +12,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.dao.SweetsDAO;
+import model.entity.SweetsBean;
+
 /**
- * Servlet implementation class ShowInsertSweetsServlet
+ * Servlet implementation class SearchNameServlet
  */
-@WebServlet("/show-insert-sweets-servlet")
-public class ShowInsertSweetsServlet extends HttpServlet {
+@WebServlet("/search-name-servlet")
+public class SearchNameServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ShowInsertSweetsServlet() {
+    public SearchNameServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,10 +42,28 @@ public class ShowInsertSweetsServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		
-		RequestDispatcher rd= request.getRequestDispatcher("InsertSweets.jsp");
+		request.setCharacterEncoding("UTF-8");
+		
+		SweetsDAO sdao = new SweetsDAO();
+		
+		List<SweetsBean> sweetsList = new ArrayList<SweetsBean>();
+		
+		try {
+			
+			sweetsList = sdao.searchName(request.getParameter("sweets_name"));
+			
+		} catch (SQLException | ClassNotFoundException e) {
+			
+			e.printStackTrace();
+			
+		}
+		
+		/* フォワード */
+		RequestDispatcher rd = request.getRequestDispatcher("SearchResult.jsp");
+		request.setAttribute("beanList", sweetsList);
 		rd.forward(request, response);
+		
 	}
 
 }

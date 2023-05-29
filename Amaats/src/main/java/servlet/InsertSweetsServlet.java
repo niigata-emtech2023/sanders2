@@ -10,19 +10,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.dao.SweetsDAO;
 import model.entity.SweetsBean;
 
 /**
  * Servlet implementation class InsertSweetServlet
  */
-@WebServlet("/InsertSweetServlet")
-public class InsertSweetServlet extends HttpServlet {
+@WebServlet("/InsertSweetsServlet")
+public class InsertSweetsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InsertSweetServlet() {
+    public InsertSweetsServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -42,6 +43,7 @@ public class InsertSweetServlet extends HttpServlet {
 		
 		HttpSession session=request.getSession();
 		RequestDispatcher rd;
+		SweetsDAO sdao=new SweetsDAO();
 		
 		if(!session.getAttribute("session_id").equals(null)) {
 			
@@ -55,10 +57,11 @@ public class InsertSweetServlet extends HttpServlet {
 			bean.setSweets_genre(request.getParameter("sweets_genre"));
 			bean.setShop_id(request.getParameter("shop_id"));
 			
-			InsertSweets(bean);
+			
+			sdao.InsertSweets(bean);
 			
 			
-			RequestDispatcher rd = request.getRequestDispatcher("show-insert-shop-servlet");
+			rd = request.getRequestDispatcher("SweetsInsertResult.jsp");
 		
 		} else {
 			

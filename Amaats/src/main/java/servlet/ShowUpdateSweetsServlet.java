@@ -10,19 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ShowInsertSweetsServlet
+ * 確認画面に遷移
  */
-@WebServlet("/show-insert-sweets-servlet")
-public class ShowInsertSweetsServlet extends HttpServlet {
+@WebServlet("/show-update-sweets-servlet")
+public class ShowUpdateSweetsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ShowInsertSweetsServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public ShowUpdateSweetsServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -36,9 +36,8 @@ public class ShowInsertSweetsServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
-		RequestDispatcher rd= request.getRequestDispatcher("InsertSweets.jsp");
+		// リクエストの転送
+		RequestDispatcher rd = request.getRequestDispatcher("update-sweets-check.jsp");
 		rd.forward(request, response);
 	}
 

@@ -8,18 +8,19 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class ShowInsertSweetsServlet
+ * Servlet implementation class LogoutServlet
  */
-@WebServlet("/show-insert-sweets-servlet")
-public class ShowInsertSweetsServlet extends HttpServlet {
+@WebServlet("/logout-servlet")
+public class LogoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ShowInsertSweetsServlet() {
+    public LogoutServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,10 +37,14 @@ public class ShowInsertSweetsServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		
-		RequestDispatcher rd= request.getRequestDispatcher("InsertSweets.jsp");
+		HttpSession session = request.getSession();
+		
+		session.invalidate();
+		
+		RequestDispatcher rd = request.getRequestDispatcher("Logout.html");
 		rd.forward(request, response);
+		
 	}
 
 }

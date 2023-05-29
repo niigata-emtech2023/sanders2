@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ShowInsertSweetsServlet
+ * Servlet implementation class ShowSweetsInfoServlet
  */
-@WebServlet("/show-insert-sweets-servlet")
-public class ShowInsertSweetsServlet extends HttpServlet {
+@WebServlet("/ShowSweetsInfoServlet")
+public class ShowSweetsInfoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ShowInsertSweetsServlet() {
+    public ShowSweetsInfoServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,8 +38,9 @@ public class ShowInsertSweetsServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		RequestDispatcher rd= request.getRequestDispatcher("InsertSweets.jsp");
-		rd.forward(request, response);
+		RequestDispatcher rd = request.getRequestDispatcher("sweets-info.jsp");
+		rd.forward(request, response);		
+		
 	}
 
 }
