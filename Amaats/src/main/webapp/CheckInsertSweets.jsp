@@ -18,9 +18,20 @@
     価格：<jsp:getProperty name="bean" property="sweets_value" /><br>
     商品情報：<jsp:getProperty name="bean" property="sweets_info" /><br>
     
-    <input type ="submit" value="いいえ">
     <input type ="submit" value="はい">
+    </form>
     
+    <form action="show-insert-sweets-servlet" method="POST">
+    この内容で商品を登録しますがよろしいですか？
+    <jsp:useBean id="bean" class="model.entity.SweetsBean" scope="request"/>
+    
+    商品ID：<jsp:getProperty name="bean" property="sweets_id" /><br>
+    商品名：<jsp:getProperty name="bean" property="sweets_name" /><br>
+    カテゴリ：<jsp:getProperty name="bean" property="sweets_category" /><br>
+    価格：<jsp:getProperty name="bean" property="sweets_value" /><br>
+    商品情報：<jsp:getProperty name="bean" property="sweets_info" /><br>
+    
+    <input type ="submit" value="いいえ">
     </form>
 
 </body>
