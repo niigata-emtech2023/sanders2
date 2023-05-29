@@ -61,7 +61,7 @@ public class InsertSweetsServlet extends HttpServlet {
 			sdao.InsertSweets(bean);
 			
 			
-			rd = request.getRequestDispatcher("show-insert-shop-servlet");
+			rd = request.getRequestDispatcher("SweetsInsertResult.jsp");
 		
 		} else {
 			
