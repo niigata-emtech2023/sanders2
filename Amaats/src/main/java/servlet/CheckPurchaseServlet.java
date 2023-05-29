@@ -1,8 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -11,21 +9,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.dao.SweetsDAO;
 import model.entity.SweetsBean;
 
 /**
- * Servlet implementation class SearchGenreServlet
+ * Servlet implementation class CheckPurchaseServlet
  */
-@WebServlet("/search-genre-servlet")
-public class SearchGenreServlet extends HttpServlet {
+@WebServlet("/CheckPurchaseServlet")
+public class CheckPurchaseServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SearchGenreServlet() {
+    public CheckPurchaseServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -42,28 +41,28 @@ public class SearchGenreServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		// TODO Auto-generated method stub
+		//doGet(request, response);
 		request.setCharacterEncoding("UTF-8");
 		
-		SweetsDAO sdao = new SweetsDAO();
+		int quantity = Integer.parseInt(request.getParameter("quantity"));
+		String url = null;
 		
-		List<SweetsBean> sweetsList = new ArrayList<SweetsBean>();
-		
-		try {
-			
-			sweetsList = sdao.searchGenre(request.getParameter("sweets_genre"));
-			
-		} catch (SQLException | ClassNotFoundException e) {
-			
-			e.printStackTrace();
-			
+		HttpSession session = request.getSession();
+		if (session.getAttribute("user_id") != null) {
+			try {
+				SweetsDAO dao = new SweetsDAO();
+				List<SweetsBean> cartList = dao.checkCart();
+				url = "CheckPurchase.jsp";
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else {
+			url = "Login.jsp";
 		}
 		
-		/* フォワード */
-		RequestDispatcher rd = request.getRequestDispatcher("SearchResult.jsp");
-		request.setAttribute("beanList", sweetsList);
+		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);
-		
 	}
 
 }

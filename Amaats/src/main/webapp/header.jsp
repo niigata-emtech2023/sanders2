@@ -8,7 +8,9 @@
 </head>
 <body>
 	<div style = "text-align:left">
-		<input type = "button">
+		<form action = "logout-servlet" method = "POST">
+			<input type = "submit" value = "ログアウト">
+		</form>
 	</div>
 	<div style = "text-align:center">
 		<form action = "search-name-servlet" method = "POST">

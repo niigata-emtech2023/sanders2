@@ -4,7 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+<<<<<<< HEAD
+=======
 import java.sql.Statement;
+>>>>>>> branch 'master' of https://github.com/niigata-emtech2023/sanders2
 import java.util.ArrayList;
 import java.util.List;
 
@@ -114,6 +117,36 @@ public class SweetsDAO {
 		return processingNumber;
 	}
 	
+<<<<<<< HEAD
+	public void insertCart(SweetsBean sweets) {
+		List<SweetsBean> cartList = new ArrayList<SweetsBean>();
+		
+		int totalValue = 0;
+		for (SweetsBean sweet : cartList) {
+			totalValue += sweet.getSweets_value();
+		}
+		cartList.add(sweets);
+	}
+	
+	public List<SweetsBean> checkCart() {
+		List<SweetsBean> cartList = new ArrayList<SweetsBean>();
+		
+		for (int i = 0; i < cartList.size(); i++) {
+			SweetsBean sweets = cartList.get(i);
+		}
+		
+		return cartList;
+	}
+	
+	public void emptyCart() {
+		List<SweetsBean> cartList = new ArrayList<SweetsBean>();
+
+		cartList.clear();
+	}
+}
+
+
+=======
 	public List<SweetsBean> searchName(String sweets_name) throws SQLException, ClassNotFoundException {
 		
 		String sql = "SELECT * FROM m_sweets WHERE sweets_name LIKE ?";
@@ -212,3 +245,4 @@ public class SweetsDAO {
 	}
 	
 }
+>>>>>>> branch 'master' of https://github.com/niigata-emtech2023/sanders2

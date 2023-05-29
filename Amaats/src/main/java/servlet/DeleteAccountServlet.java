@@ -1,9 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,21 +8,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import model.dao.SweetsDAO;
-import model.entity.SweetsBean;
+import model.dao.AccountDAO;
 
 /**
- * Servlet implementation class SearchGenreServlet
+ * Servlet implementation class DeleteAccountServlet
  */
-@WebServlet("/search-genre-servlet")
-public class SearchGenreServlet extends HttpServlet {
+@WebServlet("/DeleteAccountServlet")
+public class DeleteAccountServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SearchGenreServlet() {
+    public DeleteAccountServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -42,28 +39,28 @@ public class SearchGenreServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		//doGet(request, response);
+		String url = null;
+		HttpSession session = request.getSession();
+		String user_id = (String) session.getAttribute("user_id");
+		String shop_id = (String) session.getAttribute("shop_id");
 		
-		request.setCharacterEncoding("UTF-8");
-		
-		SweetsDAO sdao = new SweetsDAO();
-		
-		List<SweetsBean> sweetsList = new ArrayList<SweetsBean>();
-		
-		try {
-			
-			sweetsList = sdao.searchGenre(request.getParameter("sweets_genre"));
-			
-		} catch (SQLException | ClassNotFoundException e) {
-			
-			e.printStackTrace();
-			
+		if (user_id != null) {
+			try {
+				AccountDAO dao = new AccountDAO();
+				dao.deleteUser(user_id);
+				dao.deleteShop(shop_id);
+				url = "DeleteAccount.jsp";
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else {
+			url = "Login.jsp";
 		}
 		
-		/* フォワード */
-		RequestDispatcher rd = request.getRequestDispatcher("SearchResult.jsp");
-		request.setAttribute("beanList", sweetsList);
+		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);
-		
 	}
 
 }

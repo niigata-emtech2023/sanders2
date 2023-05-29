@@ -1,7 +1,11 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.dao.SweetsDAO;
+import model.entity.SweetsBean;
 
 /**
  * Servlet implementation class SearchNameServlet
@@ -46,9 +51,18 @@ public class SearchNameServlet extends HttpServlet {
 		
 		try {
 			
-			sdao.searchName(request.getParameter("sweets_name"));
+			sweetsList = sdao.searchName(request.getParameter("sweets_name"));
 			
-		} catch
+		} catch (SQLException | ClassNotFoundException e) {
+			
+			e.printStackTrace();
+			
+		}
+		
+		/* フォワード */
+		RequestDispatcher rd = request.getRequestDispatcher("SearchResult.jsp");
+		request.setAttribute("beanList", sweetsList);
+		rd.forward(request, response);
 		
 	}
 
