@@ -41,7 +41,7 @@ public class InsertUserServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		AccountDAO adao = new AccountDAO();
-		List<UserBean> userList = adao.getUserList();
+		List<UserBean> userList = new ArrayList<UserBean>();
 		boolean flag = true;
 		
 		if (request.getParameter("user_id").length() <= 0) {
@@ -50,11 +50,33 @@ public class InsertUserServlet extends HttpServlet {
 			
 		}
 		
-		for (UserBean user: userList) {
+		if (request.getParameter("user_name").length() <= 0) {
 			
-			if (user.getUser_id().equals(request.getParameter("user_id")));
+			flag = false;
 			
 		}
+		
+		if (request.getParameter("user_id").length() <= 0) {
+			
+			flag = false;
+			
+		}
+		
+		try {
+			
+			userList = adao.getUserList();
+			
+			for (UserBean user: userList) {
+			
+			if (user.getUser_id().equals(request.getParameter("user_id"))) {
+				
+				flag = false;
+				
+			}
+			
+		}
+		
+		
 		
 	}
 
