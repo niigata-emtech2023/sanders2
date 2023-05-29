@@ -7,7 +7,8 @@
 <title>ログイン</title>
 </head>
 <body>
-	<img src = "image/amaats_logo.jpg" alt = "Amaats">
+	<img src = "image/amaats_logo.jpg" alt = "Amaats"><br>
+	<span class = "alert">${alert}</span>
 	<form action = "login-servlet" method = "POST">
 		ログインID：<input type = "text" name = "id"><br>
 		パスワード：<input type = "password" name = "password"><br>
