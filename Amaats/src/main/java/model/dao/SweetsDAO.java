@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import model.entity.SweetsBean;
 
 public class SweetsDAO {
+	
 	/**
 	 *  商品の登録
 	 * @param sweets
@@ -14,7 +15,7 @@ public class SweetsDAO {
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
 	 */
-	public int insert(SweetsBean sweets) throws SQLException, ClassNotFoundException {
+	public int insertSweets(SweetsBean sweets) throws SQLException, ClassNotFoundException {
 		int count = 0; //処理件数
 		//商品の追加
 		// データベースへの接続の取得、PreparedStatementの取得
@@ -48,7 +49,7 @@ public class SweetsDAO {
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
 	 */
-	public int update(SweetsBean sweets) throws SQLException, ClassNotFoundException {
+	public int updateSweets(SweetsBean sweets) throws SQLException, ClassNotFoundException {
 		int processingNumber = 0; //処理件数
 
 		String sql = "UPDATE m_sweets SET sweets_name = ?, sweets_value = ?, sweets_grene = ? WHERE sweets_id = ?";
