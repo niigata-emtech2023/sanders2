@@ -2,12 +2,52 @@ package model.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import model.entity.SweetsBean;
 
 public class SweetsDAO {
-	
+	/**
+	 * 商品一覧
+	 * @return sweetsList
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
+	public List<SweetsBean> getSweetsList()
+			throws SQLException, ClassNotFoundException {
+
+		List<SweetsBean> sweetsList = new ArrayList<SweetsBean>();
+
+		// データベースへの接続の取得、Statementの取得、SQLステートメントの実行
+		try (Connection con = ConnectionManager.getConnection();
+				Statement stmt = con.createStatement();
+				ResultSet res = stmt.executeQuery("SELECT * FROM m_sweets")) {
+
+			// 結果の操作
+			while (res.next()) {
+				String sweetsId = res.getString("sweets_id");
+				String sweetsName = res.getString("sweets_name");
+				int sweetsValue = res.getInt("sweets_value");
+				String sweetsGenre = res.getString("sweets_genre");
+				String shopId = res.getString("shop_id");
+
+
+				SweetsBean sweets = new SweetsBean();
+				sweets.setSweets_id(sweetsId);
+				sweets.setSweets_name(sweetsName);
+				sweets.setSweets_value(sweetsValue);
+				sweets.setSweets_genre(sweetsGenre);
+				sweets.setShop_id(shopId);
+
+				sweetsList.add(sweets);
+			}
+		}
+		return sweetsList;
+	}
 	/**
 	 *  商品の登録
 	 * @param sweets
@@ -50,7 +90,7 @@ public class SweetsDAO {
 	public int updateSweets(SweetsBean sweets) throws SQLException, ClassNotFoundException {
 		int processingNumber = 0; //処理件数
 
-		String sql = "UPDATE m_sweets SET sweets_name = ?, sweets_value = ?, sweets_grene = ? WHERE sweets_id = ?";
+		String sql = "UPDATE m_sweets SET sweets_name = ?, sweets_value = ?, sweets_grene = ? WHERE sweets_name = ?";
 
 		// データベースへの接続の取得、PreparedStatementの取得
 		try (Connection con = ConnectionManager.getConnection();
@@ -66,7 +106,7 @@ public class SweetsDAO {
 			pstmt.setString(1, sweetsName);
 			pstmt.setInt(2, sweetsValue);
 			pstmt.setString(3, sweetsGenre);
-			pstmt.setString(4, sweetsId);
+			pstmt.setString(4, sweetsName);
 
 			// SQLステートメントの実行
 			processingNumber = pstmt.executeUpdate();
