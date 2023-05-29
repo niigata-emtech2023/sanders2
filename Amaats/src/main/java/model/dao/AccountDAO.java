@@ -102,8 +102,6 @@ public class AccountDAO {
 	
 	public List<UserBean> getUserList() throws SQLException, ClassNotFoundException {
 		
-<<<<<<< HEAD
-=======
 		String sql = "SELECT admin_password FROM m_user";
 		List<UserBean> userList = new ArrayList<UserBean>();
 		
@@ -129,12 +127,33 @@ public class AccountDAO {
 		
 		return userList;
 		
->>>>>>> branch 'master' of https://github.com/niigata-emtech2023/sanders2
 	}
 	
-	public List<ShopBean> getShopList() {
+	public List<ShopBean> getShopList() throws SQLException, ClassNotFoundException{
 		
+		String sql = "SELECT * FROM m_shop";
+		List<ShopBean> shopList = new ArrayList<ShopBean>();
 		
+		try (Connection con = ConnectionManager.getConnection();
+				Statement stmt = con.createStatement();
+				ResultSet res = stmt.executeQuery(sql)) {
+			
+			while (res.next()) {
+				
+				ShopBean sb = new ShopBean();
+				sb.setShop_id(res.getString("shop_id"));
+				sb.setShop_name(res.getString("shop_name"));
+				sb.setShop_password(res.getString("shop_password"));
+				sb.setShop_address(res.getString("shop_address"));
+				sb.setShop_tel(res.getString("shop_tel"));
+				
+				shopList.add(sb);
+				
+			}
+			
+		}
+		
+		return shopList;
 		
 	}
 	
@@ -149,12 +168,7 @@ public class AccountDAO {
 			pstmt.setString(1, user.getUser_id());
 			pstmt.setString(2, user.getUser_name());
 			pstmt.setString(3, user.getPassword());
-<<<<<<< HEAD
-			pstmt.setString(5, user.getUser_adress());
-=======
 			pstmt.setString(4, user.getUser_address());
->>>>>>> branch 'master' of https://github.com/niigata-emtech2023/sanders2
-			
 			count = pstmt.executeUpdate();
 			
 		}
@@ -173,7 +187,7 @@ public class AccountDAO {
 			String shop_id = bean.getShop_id();
 			String shop_name = bean.getShop_name();
 			String shop_password = bean.getShop_password();
-			String shop_adress = bean.getShop_adress();
+			String shop_adress = bean.getShop_address();
 			String shop_tel = bean.getShop_tel();
 
 			pstmt.setString(1, shop_id);
@@ -197,7 +211,7 @@ public class AccountDAO {
 			String user_name = bean.getUser_name();
 			String password = bean.getPassword();
 			String user_genre = bean.getUser_genre();
-			String user_adress = bean.getUser_adress();
+			String user_adress = bean.getUser_address();
 			
 			pstmt.setString(1, user_name);
 			pstmt.setString(2, password);
@@ -219,7 +233,7 @@ public class AccountDAO {
 			String shop_id = bean.getShop_id();
 			String shop_name = bean.getShop_name();
 			String shop_password = bean.getShop_password();
-			String shop_adress = bean.getShop_adress();
+			String shop_adress = bean.getShop_address();
 			String shop_tel = bean.getShop_tel();
 			
 			pstmt.setString(1, shop_name);
@@ -320,14 +334,14 @@ public class AccountDAO {
 				String shop_id = res.getString("shop_id");
 				String shop_name = res.getString("shop_name");
 				String shop_password = res.getString("shop_password");
-				String shop_adress = res.getString("shop_adress");
+				String shop_address = res.getString("shop_address");
 				String shop_tel = res.getString("shop_tel");
 
 				ShopBean shop = new ShopBean();
 				shop.setShop_id(shop_id);
 				shop.setShop_name(shop_name);
 				shop.setShop_password(shop_password);
-				shop.setShop_adress(shop_adress);
+				shop.setShop_address(shop_address);
 				shop.setShop_tel(shop_tel);
 
 				shopList.add(shop);
