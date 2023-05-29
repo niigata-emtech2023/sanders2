@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import model.entity.AdminBean;
@@ -18,10 +20,9 @@ public class AccountDAO {
 	 * @param password
 	 * @return
 	 */
-	public boolean login(String user_id, String password) {
+	public boolean login(String user_id, String password) throws SQLException, ClassNotFoundException {
 			
 		String sql = "SELECT password FROM m_user WHERE user_id = ?";
-		boolean accept = false;
 		
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
@@ -30,22 +31,16 @@ public class AccountDAO {
 				ResultSet res = pstmt.executeQuery();
 				
 				res.next();
-				accept = true;
 				
-		} catch (SQLException | ClassNotFoundException e) {
-			
-			e.printStackTrace();
-			
 		}
 		
-		return accept;
+		return true;
 		
 	}
 	
-	public boolean loginShop(String shop_id, String shop_password) {
+	public boolean loginShop(String shop_id, String shop_password) throws SQLException, ClassNotFoundException {
 		
 		String sql = "SELECT shop_password FROM m_shop WHERE shop_id = ?";
-		boolean accept = false;
 		
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
@@ -54,22 +49,16 @@ public class AccountDAO {
 				ResultSet res = pstmt.executeQuery();
 				
 				res.next();
-				accept = true;
 				
-		} catch (SQLException | ClassNotFoundException e) {
-			
-			e.printStackTrace();
-			
 		}
 		
-		return accept;
+		return true;
 		
 	}
 	
-	public boolean loginAdmin(String admin_id, String admin_password) {
+	public boolean loginAdmin(String admin_id, String admin_password) throws SQLException, ClassNotFoundException {
 		
 		String sql = "SELECT admin_password FROM m_user WHERE admin_id = ?";
-		boolean accept = false;
 		
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
@@ -78,21 +67,39 @@ public class AccountDAO {
 				ResultSet res = pstmt.executeQuery();
 				
 				res.next();
-				accept = true;
 				
-		} catch (SQLException | ClassNotFoundException e) {
-			
-			e.printStackTrace();
-			
 		}
 		
-		return accept;
+		return true;
 		
 	}
 	
-	public List<UserBean> getUserList() {
+	public List<UserBean> getUserList() throws SQLException, ClassNotFoundException {
 		
+		String sql = "SELECT admin_password FROM m_user";
+		List<UserBean> userList = new ArrayList<UserBean>();
 		
+		try (Connection con = ConnectionManager.getConnection();
+				Statement stmt = con.createStatement();
+				ResultSet res = stmt.executeQuery(sql)) {
+				
+			while (res.next()) {
+				
+				UserBean ub = new UserBean();
+				
+				ub.setUser_id(res.getString("user_id"));
+				ub.setUser_name(res.getString("user_name"));
+				ub.setPassword(res.getString("password"));
+				ub.setUser_genre(res.getString("user_genre"));
+				ub.setUser_address(res.getString("user_address"));
+				
+				userList.add(ub);
+				
+			}
+			
+		}
+		
+		return userList;
 		
 	}
 	
@@ -102,7 +109,7 @@ public class AccountDAO {
 		
 	}
 	
-	public void insertNewUser(UserBean user) {
+	public void insertNewUser(UserBean user) throws SQLException, ClassNotFoundException, NullPointerException {
 		
 		String sql1 = "INSERT INTO m_user VALUES (?, ?, ?, ?, ?)";
 		String sql2 = "INSERT INTO m_user VALUES (?, ?, ?, NULL, ?)";
@@ -111,15 +118,9 @@ public class AccountDAO {
 			
 			boolean flag = false;
 			
-			try {
-				
-				user.getUser_genre();
-				
-				flag = true;
-				
-			} catch (NullPointerException e) {
-				
-			}
+			user.getUser_genre();
+			
+			flag = true;
 			
 			PreparedStatement pstmt;
 			
@@ -141,10 +142,6 @@ public class AccountDAO {
 			pstmt.setString(5, user.getUser_address());
 			
 			pstmt.executeUpdate();
-			
-		} catch (SQLException | ClassNotFoundException e) {
-			
-			e.printStackTrace();
 			
 		}
 		

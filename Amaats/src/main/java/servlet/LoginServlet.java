@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,7 +16,7 @@ import model.dao.AccountDAO;
 /**
  * Servlet implementation class LoginServlet
  */
-@WebServlet("/LoginServlet")
+@WebServlet("/login-servlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -44,27 +45,41 @@ public class LoginServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		RequestDispatcher rd;
 		
-		if (adao.login(request.getParameter("id"), request.getParameter("password"))) {
+		try {
 			
-			session.setAttribute("session_id", request.getParameter("id"));
-			session.setAttribute("authority", "user");
-			rd = request.getRequestDispatcher("show-sweets-list-servlet");
+			if (adao.login(request.getParameter("id"), request.getParameter("password"))) {
+				
+				session.setAttribute("session_id", request.getParameter("id"));
+				session.setAttribute("authority", "user");
+				rd = request.getRequestDispatcher("show-sweets-list-servlet");
+				
+			} else if (adao.loginShop(request.getParameter("id"), request.getParameter("password"))) {
+				
+				session.setAttribute("session_id", request.getParameter("id"));
+				session.setAttribute("authority", "shop");
+				rd = request.getRequestDispatcher("show-sweets-list-servlet");
+				
+			} else if (adao.loginAdmin(request.getParameter("id"), request.getParameter("password"))) {
+				
+				session.setAttribute("session_id", request.getParameter("id"));
+				session.setAttribute("authority", "admin");
+				rd = request.getRequestDispatcher("show-sweets-list-servlet");
+				
+			} else {
+				
+				rd = request.getRequestDispatcher("Login.jsp");
+				
+			}
 			
-		} else if (adao.loginShop(request.getParameter("id"), request.getParameter("password"))) {
-			
-			session.setAttribute("session_id", request.getParameter("id"));
-			session.setAttribute("authority", "shop");
-			rd = request.getRequestDispatcher("show-sweets-list-servlet");
-			
-		} else if (adao.loginAdmin(request.getParameter("id"), request.getParameter("password"))) {
-			
-			session.setAttribute("session_id", request.getParameter("id"));
-			session.setAttribute("authority", "admin");
-			rd = request.getRequestDispatcher("show-sweets-list-servlet");
-			
-		} else {
+		} catch (SQLException e) {
 			
 			rd = request.getRequestDispatcher("Login.jsp");
+			request.setAttribute("alert", "ログインIDまたはパスワードが間違っています。");
+			
+		} catch (ClassNotFoundException e) {
+			
+			rd = request.getRequestDispatcher("Login.jsp");
+			request.setAttribute("alert", "データベースにアクセスできませんでした。");
 			
 		}
 		
