@@ -68,13 +68,14 @@ public class LoginServlet extends HttpServlet {
 			} else {
 				
 				rd = request.getRequestDispatcher("Login.jsp");
+				request.setAttribute("alert", "ログインIDまたはパスワードが間違っています。");
 				
 			}
 			
 		} catch (SQLException e) {
 			
 			rd = request.getRequestDispatcher("Login.jsp");
-			request.setAttribute("alert", "ログインIDまたはパスワードが間違っています。");
+			request.setAttribute("alert", "データベースの操作を完了できませんでした。");
 			
 		} catch (ClassNotFoundException e) {
 			

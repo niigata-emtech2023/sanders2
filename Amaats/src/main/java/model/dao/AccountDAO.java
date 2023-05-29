@@ -24,6 +24,8 @@ public class AccountDAO {
 			
 		String sql = "SELECT password FROM m_user WHERE user_id = ?";
 		
+		boolean flag = false;
+		
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
 				
@@ -32,9 +34,11 @@ public class AccountDAO {
 				
 				res.next();
 				
+				flag = res.getString("password").equals(password);
+				
 		}
 		
-		return true;
+		return flag;
 		
 	}
 	
@@ -49,6 +53,7 @@ public class AccountDAO {
 	public boolean loginShop(String shop_id, String shop_password) throws SQLException, ClassNotFoundException {
 		
 		String sql = "SELECT shop_password FROM m_shop WHERE shop_id = ?";
+		boolean flag = false;
 		
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
@@ -58,9 +63,11 @@ public class AccountDAO {
 				
 				res.next();
 				
+				flag = res.getString("shop_password").equals(shop_password);
+				
 		}
 		
-		return true;
+		return flag;
 		
 	}
 	
@@ -75,6 +82,7 @@ public class AccountDAO {
 	public boolean loginAdmin(String admin_id, String admin_password) throws SQLException, ClassNotFoundException {
 		
 		String sql = "SELECT admin_password FROM m_user WHERE admin_id = ?";
+		boolean flag = false;
 		
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
@@ -84,9 +92,11 @@ public class AccountDAO {
 				
 				res.next();
 				
+				flag = res.getString("admin_password").equals(admin_password);
+				
 		}
 		
-		return true;
+		return flag;
 		
 	}
 	

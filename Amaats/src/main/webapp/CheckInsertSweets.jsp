@@ -8,7 +8,7 @@
 </head>
 <body>
     <%@ include file="header.jsp" %>
-    <form action="InsertSweetsServlet" method="POST">
+    <form action="insert-sweets-servlet" method="POST">
     この内容で商品を登録しますがよろしいですか？
     <jsp:useBean id="bean" class="model.entity.SweetsBean" scope="request"/>
     

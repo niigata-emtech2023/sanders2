@@ -8,7 +8,7 @@
 </head>
 <body>
     <%@ include file="header.jsp" %>
-    <form action="ShowInsertSweetsServlet" method="POST">
+    <form action="show-insert-sweets-servlet" method="POST">
     以下の内容で商品の登録が完了しました
     <%
     SweetsBean bean = (SweetsBean) request.getAttribute("bean");
