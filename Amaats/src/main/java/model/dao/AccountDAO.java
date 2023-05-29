@@ -15,7 +15,7 @@ import model.entity.UserBean;
 public class AccountDAO {
 	
 	/**
-	 * 
+	 * ユーザーログイン認証
 	 * @param user_id
 	 * @param password
 	 * @return
@@ -38,6 +38,14 @@ public class AccountDAO {
 		
 	}
 	
+	/**
+	 * 店舗ログイン認証
+	 * @param shop_id
+	 * @param shop_password
+	 * @return
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
 	public boolean loginShop(String shop_id, String shop_password) throws SQLException, ClassNotFoundException {
 		
 		String sql = "SELECT shop_password FROM m_shop WHERE shop_id = ?";
@@ -56,6 +64,14 @@ public class AccountDAO {
 		
 	}
 	
+	/**
+	 * サイト管理者ログイン認証
+	 * @param admin_id
+	 * @param admin_password
+	 * @return
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
 	public boolean loginAdmin(String admin_id, String admin_password) throws SQLException, ClassNotFoundException {
 		
 		String sql = "SELECT admin_password FROM m_user WHERE admin_id = ?";

@@ -54,7 +54,7 @@ public class UpdateSweetsServlet extends HttpServlet {
 
 		try {
 			// DAOの利用
-			processingNumber = dao.update(sweets);
+			processingNumber = dao.updateSweets(sweets);
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
@@ -63,7 +63,7 @@ public class UpdateSweetsServlet extends HttpServlet {
 		request.setAttribute("processingNumber", processingNumber);
 
 		// リクエストの転送
-		RequestDispatcher rd = request.getRequestDispatcher("sweets-update-result.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("SweetsUpdateResult.jsp");
 		rd.forward(request, response);
 	}
 
