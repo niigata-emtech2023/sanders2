@@ -3,21 +3,21 @@ import java.io.Serializable;
 
 
 	public class ReviewBean implements Serializable{
-	private String review_id;
+	private int review_id;
 	private String review_text;
 	private String user_id;
-	private String sweets_id;
+	private int sweets_id;
 	
 	/*コンストラクタ*/
 	public ReviewBean() {
 		
 	}
 
-	public String getReview_id() {
+	public int getReview_id() {
 		return review_id;
 	}
 
-	public void setReview_id(String review_id) {
+	public void setReview_id(int review_id) {
 		this.review_id = review_id;
 	}
 
@@ -37,13 +37,14 @@ import java.io.Serializable;
 		this.user_id = user_id;
 	}
 
-	public String getSweets_id() {
+	public int getSweets_id() {
 		return sweets_id;
 	}
 
-	public void setSweets_id(String sweets_id) {
+	public void setSweets_id(int sweets_id) {
 		this.sweets_id = sweets_id;
 	}
+
 	
 
 }
