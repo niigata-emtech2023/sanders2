@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="model.entity.SweetsBean"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,18 +13,21 @@
 		request.setCharacterEncoding("UTF-8");
 	%>
 	商品情報を以下の内容に変更します。よろしいですか？<br>
-	<jsp:useBean id="sweets" scope="session" class="model.entity.SweetsBean" />
+	<%
+	SweetsBean bean = (SweetsBean)request.getAttribute("bean");
+    %>
+    
 	
-	<jsp:setProperty name="sweets" property="sweets_name" param="sweets_name" />
-	<jsp:setProperty name="sweets" property="sweetsValue" param="sweets_value" />
-	<jsp:setProperty name="sweets" property="sweets_grene" param="sweets_grene" />
-	
-	商品ID：<jsp:getProperty name="sweets" property="sweets_id" /><br>
-	商品名：<jsp:getProperty name="sweets" property="sweets_name" /><br>
-	値段：<jsp:getProperty name="sweets" property="sweets_value" /><br>
-	カテゴリ：<jsp:getProperty name="sweets" property="sweets_genre" /><br>
+	商品ID：<%=bean.getSweets_id() %><br>
+	商品名：<%=bean.getSweets_name() %><br>
+	値段：<%=bean.getSweets_value() %><br>
+	カテゴリ：<%=bean.getSweets_genre() %><br>
 
 	<form action="update-sweets-servlet" method="POST">
+	<input type="hidden" name = "sweets_id" value=<%=bean.getSweets_id() %>>
+	<input type="hidden" name = "sweets_name" value=<%=bean.getSweets_name() %>>
+	<input type="hidden" name = "sweets_value" value=<%=bean.getSweets_value() %>>
+	<input type="hidden" name = "sweets_genre" value=<%=bean.getSweets_genre() %>>
 		<input type="submit" value="はい">
 	</form>
 
