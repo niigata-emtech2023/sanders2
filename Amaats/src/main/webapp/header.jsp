@@ -13,12 +13,14 @@
 			<input type = "submit" value = "ログアウト">
 		</form>
 	</div>
+	
 	<div style = "text-align:center">
 		<form action = "search-name-servlet" method = "POST">
 			<input type = "text" name = "sweets_name">
 			<input type = "submit" value = "検索">
 		</form>
 	</div>
+	
 	<div style = "text-align:right">
 		<input type = "button">
 	</div>
