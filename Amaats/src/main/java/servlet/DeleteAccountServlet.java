@@ -15,7 +15,7 @@ import model.dao.AccountDAO;
 /**
  * Servlet implementation class DeleteAccountServlet
  */
-@WebServlet("/DeleteAccountServlet")
+@WebServlet("/delete-account-servlet")
 public class DeleteAccountServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

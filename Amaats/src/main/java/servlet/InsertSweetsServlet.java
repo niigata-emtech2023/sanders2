@@ -17,7 +17,7 @@ import model.entity.SweetsBean;
 /**
  * Servlet implementation class InsertSweetServlet
  */
-@WebServlet("/InsertSweetsServlet")
+@WebServlet("/insert-sweets-servlet")
 public class InsertSweetsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
