@@ -10,13 +10,13 @@
 	<div style = "display:inline-flex">
 	<form action = "search-genre-servlet" method = "POST">
 		<select name = "genre">
-       		<option value="default">選択してください</option>
+       		<option value="default">ジャンル検索</option>
         	<option value="cake">ケーキ</option>
         	<option value="cokkie">クッキー</option>
         	<option value="chocolate">チョコレート</option>
 		</select>
 		<input type = "submit" value = "検索">
-	</form>
+	</form>　　　　　
 	<form action = "search-value-servlet" method = "POST">
 		<input type = "text" name = "minvalue">～
 		<input type = "text" name = "maxvalue">

@@ -61,7 +61,7 @@ public class LoginServlet extends HttpServlet {
 			}
 			
 		} catch (SQLException e1) {
-			
+			e1.printStackTrace();
 			try {
 				
 				if (adao.loginShop(request.getParameter("id"), request.getParameter("password"))) {
@@ -78,7 +78,7 @@ public class LoginServlet extends HttpServlet {
 				}
 				
 			} catch (SQLException e2) {
-				
+				e2.printStackTrace();
 				try {
 					
 					if (adao.loginAdmin(request.getParameter("id"), request.getParameter("password"))) {
@@ -95,7 +95,7 @@ public class LoginServlet extends HttpServlet {
 					}
 					
 				} catch (SQLException e3) {
-					
+					e3.printStackTrace();
 					rd = request.getRequestDispatcher("Login.jsp");
 					request.setAttribute("alert", "ログインIDまたはパスワードが間違っています。");
 					

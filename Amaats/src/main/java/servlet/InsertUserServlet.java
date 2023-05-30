@@ -43,6 +43,8 @@ public class InsertUserServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		request.setCharacterEncoding("UTF-8");
+		
 		AccountDAO adao = new AccountDAO();
 		List<UserBean> userList = new ArrayList<UserBean>();
 		RequestDispatcher rd;
@@ -110,8 +112,8 @@ public class InsertUserServlet extends HttpServlet {
 				ub.setUser_name(request.getParameter("user_name"));
 				ub.setPassword(request.getParameter("password"));
 				ub.setUser_address(request.getParameter("user_address"));
-				adao.insertNewUser(ub);
-				
+				int count = adao.insertNewUser(ub);
+				System.out.println(count);
 				rd = request.getRequestDispatcher("UserInsertResult.jsp");
 				
 			} else {
