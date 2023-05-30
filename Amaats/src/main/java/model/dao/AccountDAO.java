@@ -178,7 +178,8 @@ public class AccountDAO {
 	}
 	
 	public void insertNewShop(ShopBean shop) throws ClassNotFoundException, SQLException {
-		String sql = "INSERT INTO m_shop VALUES (?, ?, ?, ?, ?)";
+		
+		String sql = "INSERT INTO m_shop VALUES (?, ?, ?, NULL, NULL)";
 		
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
@@ -187,14 +188,10 @@ public class AccountDAO {
 			String shop_id = bean.getShop_id();
 			String shop_name = bean.getShop_name();
 			String shop_password = bean.getShop_password();
-			String shop_adress = bean.getShop_address();
-			String shop_tel = bean.getShop_tel();
 
 			pstmt.setString(1, shop_id);
 			pstmt.setString(2, shop_name);
 			pstmt.setString(3, shop_password);
-			pstmt.setString(4, shop_adress);
-			pstmt.setString(5, shop_tel);
 			
 			pstmt.executeUpdate();
 		}
