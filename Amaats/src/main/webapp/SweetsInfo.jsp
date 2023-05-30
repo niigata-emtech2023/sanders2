@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="model.entity.SweetsBean" import="model.entity.ReviewBean.java.until.list"%>
+    pageEncoding="UTF-8" import="model.entity.SweetsBean,model.entity.ReviewBean,java.util.List"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,8 +52,8 @@
 	
 	<%for(ReviewBean review : reviewList){%>
 		<tr>
-		<td><%=review.getUser_id %></td>
-		<td><%=review.getReview_text %></td>
+		<td><%=review.getUser_id() %></td>
+		<td><%=review.getReview_text() %></td>
 		</tr>
 	<% } %>
 	
@@ -62,7 +62,7 @@
 	}
 	%>
 	
-	
+
 	
 	
 	<%@ include file="footer.jsp" %>
