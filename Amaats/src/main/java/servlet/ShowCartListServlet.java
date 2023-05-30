@@ -18,7 +18,7 @@ import model.entity.SweetsBean;
 /**
  * Servlet implementation class ShowCartList
  */
-@WebServlet("/ShowCartListServlet")
+@WebServlet("/show-cart-list-servlet")
 public class ShowCartListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -34,8 +34,9 @@ public class ShowCartListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		doPost(request, response);
+		
 	}
 
 	/**

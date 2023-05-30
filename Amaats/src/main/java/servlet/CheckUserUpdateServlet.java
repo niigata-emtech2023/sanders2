@@ -16,7 +16,7 @@ import model.entity.UserBean;
 /**
  * Servlet implementation class CheckUserUpdateServlet
  */
-@WebServlet("/CheckUserUpdateServlet")
+@WebServlet("/check-user-update-servlet")
 public class CheckUserUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

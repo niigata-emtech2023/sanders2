@@ -8,18 +8,19 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class ShowSweetsInfoServlet
+ * Servlet implementation class ShowShopListServlet
  */
-@WebServlet("/show-sweets-info-servlet")
-public class ShowSweetsInfoServlet extends HttpServlet {
+@WebServlet("/show-shop-list-servlet")
+public class ShowShopListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ShowSweetsInfoServlet() {
+    public ShowShopListServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,18 +29,30 @@ public class ShowSweetsInfoServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		doPost(request, response);
+		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		
-		RequestDispatcher rd = request.getRequestDispatcher("sweets-info.jsp");
-		rd.forward(request, response);		
+		HttpSession session = request.getSession();
+		RequestDispatcher rd;
+		
+		if (!session.getAttribute("session_id").equals(null)) {
+			
+			rd = request.getRequestDispatcher("ShopList.jsp");
+
+		} else {
+
+			rd = request.getRequestDispatcher("Login.jsp");
+
+		}
+
+		rd.forward(request, response);
 		
 	}
 
