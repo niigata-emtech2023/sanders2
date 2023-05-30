@@ -42,8 +42,8 @@ public class ShopBean implements Serializable{
 		return shop_adress;
 	}
 
-	public void setShop_adress(String shop_adress) {
-		this.shop_adress = shop_adress;
+	public void setShop_adress(String shop_address) {
+		this.shop_adress = shop_address;
 	}
 
 	public String getShop_tel() {

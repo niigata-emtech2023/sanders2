@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
+<<<<<<< HEAD
 	pageEncoding="UTF-8" import="model.entity.UserBean,java.util.List"
 						 import="model.entity.ShopBean,java.util.List"%>
+=======
+	pageEncoding="UTF-8" import="model.entity.UserBean,java.util.List,model.entity.ShopBean"%>
+>>>>>>> branch 'master' of https://github.com/niigata-emtech2023/sanders2
 <!DOCTYPE html>
 <html>
 <head>

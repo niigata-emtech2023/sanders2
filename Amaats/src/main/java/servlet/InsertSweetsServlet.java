@@ -51,14 +51,14 @@ public class InsertSweetsServlet extends HttpServlet {
 			
 			SweetsBean bean = new SweetsBean();
 			
-			bean.setSweets_id(request.getParameter("sweets_id"));
+			bean.setSweets_id(Integer.parseInt(request.getParameter("sweets_id")));
 			bean.setSweets_name(request.getParameter("sweets=name"));
 			bean.setSweets_value(Integer.parseInt(request.getParameter("sweets_value")));
 			bean.setSweets_genre(request.getParameter("sweets_genre"));
 			bean.setShop_id(request.getParameter("shop_id"));
 			
 			
-			sdao.InsertSweets(bean);
+			sdao.insertSweets(bean);
 			
 			
 			rd = request.getRequestDispatcher("SweetsInsertResult.jsp");

@@ -53,7 +53,7 @@ public class UserBean implements Serializable {
 		return user_adress;
 	}
 
-	public void setUser_address(String user_adress) {
+	public void setUser_adress(String user_adress) {
 		this.user_adress = user_adress;
 	}
 	

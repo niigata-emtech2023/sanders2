@@ -10,20 +10,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.dao.AccountDAO;
-import model.entity.UserBean;
-
 /**
- * Servlet implementation class CheckUserUpdateServlet
+ * Servlet implementation class ShowAccountServlet
  */
-@WebServlet("/CheckUserUpdateServlet")
-public class CheckUserUpdateServlet extends HttpServlet {
+@WebServlet("/show-account-servlet")
+public class ShowAccountServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CheckUserUpdateServlet() {
+    public ShowAccountServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,33 +37,39 @@ public class CheckUserUpdateServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//doGet(request, response);
-		request.setCharacterEncoding("UTF-8");
 		
-		String url = null;
-		String user_id = request.getParameter("user_id");
+		HttpSession session = request.getSession();
+		String authority = (String) session.getAttribute("authority");
+		RequestDispatcher rd;
 		
-		AccountDAO dao = new AccountDAO();
-		
-		if (user_id != null) {
-			try {
-			UserBean user = dao.selectUser(user_id);
-
-			HttpSession session = request.getSession();
-
-			session.setAttribute("user", user);
+		try {
 			
-			url = "updateUserCheck.jsp";
-			} catch (Exception e) {
-				e.printStackTrace();
+			if (authority.equals("user")) {
+				
+				rd = request.getRequestDispatcher("UserAccount.jsp");
+				
+			} else if (authority.equals("shop")) {
+				
+				rd = request.getRequestDispatcher("ShopAccount.jsp");
+				
+			} else if (authority.equals("admin")) {
+				
+				rd = request.getRequestDispatcher("AdminAccount.jsp");
+				
+			} else {
+				
+				rd = request.getRequestDispatcher("Login.jsp");
+				
 			}
-		} else {
-			url = "Login.jsp";
+			
+		} catch (NullPointerException e) {
+			
+			rd = request.getRequestDispatcher("Login.jsp");
+			
 		}
 		
-		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);
+		
 	}
 
 }

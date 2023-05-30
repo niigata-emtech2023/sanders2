@@ -1,6 +1,8 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,25 +10,25 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import model.dao.AccountDAO;
+import model.entity.ShopBean;
 import model.entity.UserBean;
 
 /**
- * Servlet implementation class CheckUserUpdateServlet
+ * Servlet implementation class ShowAccountList
  */
-@WebServlet("/CheckUserUpdateServlet")
-public class CheckUserUpdateServlet extends HttpServlet {
+@WebServlet("/ShowAccountList")
+public class ShowAccountList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public CheckUserUpdateServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public ShowAccountList() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -42,30 +44,23 @@ public class CheckUserUpdateServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
-		request.setCharacterEncoding("UTF-8");
-		
-		String url = null;
-		String user_id = request.getParameter("user_id");
-		
+
+		List<UserBean> userList = null;
+		List<ShopBean> shopList = null;
+
 		AccountDAO dao = new AccountDAO();
-		
-		if (user_id != null) {
-			try {
-			UserBean user = dao.selectUser(user_id);
 
-			HttpSession session = request.getSession();
-
-			session.setAttribute("user", user);
-			
-			url = "updateUserCheck.jsp";
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else {
-			url = "Login.jsp";
+		try {
+			userList = dao.getUserList();
+			shopList = dao.getShopList();
+		} catch (SQLException | ClassNotFoundException e) {
+			e.printStackTrace();
 		}
-		
-		RequestDispatcher rd = request.getRequestDispatcher(url);
+
+		request.setAttribute("userList", userList);
+		request.setAttribute("shopList", shopList);
+
+		RequestDispatcher rd = request.getRequestDispatcher("AccountList.jsp");
 		rd.forward(request, response);
 	}
 

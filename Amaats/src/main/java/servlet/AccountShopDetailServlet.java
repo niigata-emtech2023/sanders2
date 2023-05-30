@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,19 +12,19 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.dao.AccountDAO;
-import model.entity.UserBean;
+import model.entity.ShopBean;
 
 /**
- * Servlet implementation class CheckUserUpdateServlet
+ * Servlet implementation class AccountShopDetailServlet
  */
-@WebServlet("/CheckUserUpdateServlet")
-public class CheckUserUpdateServlet extends HttpServlet {
+@WebServlet("/AccountShopDetailServlet")
+public class AccountShopDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CheckUserUpdateServlet() {
+    public AccountShopDetailServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -42,29 +43,30 @@ public class CheckUserUpdateServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
+		
 		request.setCharacterEncoding("UTF-8");
-		
+		String shop_id = request.getParameter("shop_id");
 		String url = null;
-		String user_id = request.getParameter("user_id");
-		
+
 		AccountDAO dao = new AccountDAO();
-		
-		if (user_id != null) {
-			try {
-			UserBean user = dao.selectUser(user_id);
 
-			HttpSession session = request.getSession();
+		try {
+			if (shop_id != null) {
+				ShopBean shop = dao.selectShop(shop_id);
 
-			session.setAttribute("user", user);
-			
-			url = "updateUserCheck.jsp";
-			} catch (Exception e) {
-				e.printStackTrace();
+				HttpSession session = request.getSession();
+
+				session.setAttribute("shop", shop);
+
+				url = "AccountShopDetail.jsp";
+			} else {
+				url = "Login.jsp";
 			}
-		} else {
-			url = "Login.jsp";
+
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
 		}
-		
+
 		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);
 	}

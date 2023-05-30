@@ -8,7 +8,6 @@
 <title>アカウント編集画面</title>
 </head>
 <body>
-	
 	<form action="CheckUserUpdateServlet" method="post">
 		ユーザーID：${user.user_id}<br>
 		氏名：<input type="text" name="user_name" value="${user.user_name}"><br>
@@ -17,6 +16,5 @@
 		住所：<input type="text" name="user_adress"value="${user.user_adress}"><br>
 		<input type="submit" value="変更する">
 	</form>
-
 </body>
 </html>

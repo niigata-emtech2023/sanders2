@@ -11,19 +11,19 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.dao.AccountDAO;
-import model.entity.UserBean;
+import model.entity.ShopBean;
 
 /**
- * Servlet implementation class CheckUserUpdateServlet
+ * Servlet implementation class CheckShopUpdate
  */
-@WebServlet("/CheckUserUpdateServlet")
-public class CheckUserUpdateServlet extends HttpServlet {
+@WebServlet("/CheckShopUpdateServlet")
+public class CheckShopUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CheckUserUpdateServlet() {
+    public CheckShopUpdateServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -42,22 +42,23 @@ public class CheckUserUpdateServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
+		
 		request.setCharacterEncoding("UTF-8");
 		
 		String url = null;
-		String user_id = request.getParameter("user_id");
+		String shop_id = request.getParameter("shop_id");
 		
 		AccountDAO dao = new AccountDAO();
 		
-		if (user_id != null) {
+		if (shop_id != null) {
 			try {
-			UserBean user = dao.selectUser(user_id);
+			ShopBean shop = dao.selectShop(shop_id);
 
 			HttpSession session = request.getSession();
 
-			session.setAttribute("user", user);
+			session.setAttribute("shop", shop);
 			
-			url = "updateUserCheck.jsp";
+			url = "updateShoprCheck.jsp";
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

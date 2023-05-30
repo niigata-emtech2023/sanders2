@@ -13,6 +13,7 @@
 		List<SweetsBean> sweetsList
 			= (List<SweetsBean>) request.getAttribute("sweetsList");
 	%>
+	<jsp:include page = "header.jsp" />
 	<table>
 		<tr>
 			
@@ -45,5 +46,6 @@
 			}
 		%>
 	</table>
+	<jsp:include page = "footer.jsp" />
 </body>
 </html>

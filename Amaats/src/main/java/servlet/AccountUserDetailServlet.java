@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,19 +15,19 @@ import model.dao.AccountDAO;
 import model.entity.UserBean;
 
 /**
- * Servlet implementation class CheckUserUpdateServlet
+ * Servlet implementation class AccountDetailServlet
  */
-@WebServlet("/CheckUserUpdateServlet")
-public class CheckUserUpdateServlet extends HttpServlet {
+@WebServlet("/AccountUserDetailServlet")
+public class AccountUserDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public CheckUserUpdateServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public AccountUserDetailServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -42,29 +43,30 @@ public class CheckUserUpdateServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
+
 		request.setCharacterEncoding("UTF-8");
-		
-		String url = null;
 		String user_id = request.getParameter("user_id");
-		
+		String url = null;
+
 		AccountDAO dao = new AccountDAO();
-		
-		if (user_id != null) {
-			try {
-			UserBean user = dao.selectUser(user_id);
 
-			HttpSession session = request.getSession();
+		try {
+			if (user_id != null) {
+				UserBean user = dao.selectUser(user_id);
 
-			session.setAttribute("user", user);
-			
-			url = "updateUserCheck.jsp";
-			} catch (Exception e) {
-				e.printStackTrace();
+				HttpSession session = request.getSession();
+
+				session.setAttribute("user", user);
+
+				url = "AccountUserDetailUser.jsp";
+			} else {
+				url = "Login.jsp";
 			}
-		} else {
-			url = "Login.jsp";
+
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
 		}
-		
+
 		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);
 	}

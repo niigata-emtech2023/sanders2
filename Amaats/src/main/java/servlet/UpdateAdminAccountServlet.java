@@ -1,29 +1,28 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import model.dao.AccountDAO;
-import model.entity.UserBean;
+import model.entity.ShopBean;
 
 /**
- * Servlet implementation class CheckUserUpdateServlet
+ * Servlet implementation class UpdateAdminAccountServlet
  */
-@WebServlet("/CheckUserUpdateServlet")
-public class CheckUserUpdateServlet extends HttpServlet {
+@WebServlet("/UpdateAdminAccountServlet")
+public class UpdateAdminAccountServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CheckUserUpdateServlet() {
+    public UpdateAdminAccountServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,33 +39,29 @@ public class CheckUserUpdateServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//doGet(request, response);
-		request.setCharacterEncoding("UTF-8");
 		
-		String url = null;
-		String user_id = request.getParameter("user_id");
+		AccountDAO adao = new AccountDAO();
+		AdminBean ab = new AdminBean();
 		
-		AccountDAO dao = new AccountDAO();
+		ab.setAdmin_id(request.get);
+		ab.setAdmin_password(request.get);
 		
-		if (user_id != null) {
-			try {
-			UserBean user = dao.selectUser(user_id);
-
-			HttpSession session = request.getSession();
-
-			session.setAttribute("user", user);
+		try {
 			
-			url = "updateUserCheck.jsp";
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else {
-			url = "Login.jsp";
+			adao.UpdateAdmin(ab);
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+			
+		} catch (ClassNotFoundException e) {
+			
+			e.printStackTrace();
+			
 		}
 		
-		RequestDispatcher rd = request.getRequestDispatcher(url);
-		rd.forward(request, response);
+	}
+		
 	}
 
 }
