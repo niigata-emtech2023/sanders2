@@ -16,7 +16,7 @@ import model.entity.ShopBean;
 /**
  * Servlet implementation class CheckShopUpdate
  */
-@WebServlet("/CheckShopUpdateServlet")
+@WebServlet("/check-shop-update-servlet")
 public class CheckShopUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
