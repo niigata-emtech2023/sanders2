@@ -3,6 +3,7 @@ package servlet;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -42,6 +43,7 @@ public class UpdateUserAccountServlet extends HttpServlet {
 		
 		AccountDAO adao = new AccountDAO();
 		UserBean ub = new UserBean();
+		RequestDispatcher rd;
 		
 		ub.setUser_id(request.getParameter("user_id"));
 		ub.setUser_name(request.getParameter("user_name"));
@@ -52,16 +54,16 @@ public class UpdateUserAccountServlet extends HttpServlet {
 		try {
 			
 			adao.UpdateUser(ub);
+			rd = request.getRequestDispatcher("UpdateAccountResult.jsp");
 			
-		} catch (SQLException e) {
-			
-			e.printStackTrace();
-			
-		} catch (ClassNotFoundException e) {
-			
-			e.printStackTrace();
+		} catch (SQLException | ClassNotFoundException e) {
+
+			rd = request.getRequestDispatcher("UpdateAccountResult.jsp");
+			request.setAttribute("alert", "データベース操作が完了できませんでした。");
 			
 		}
+		
+		rd.forward(request, response);
 		
 	}
 

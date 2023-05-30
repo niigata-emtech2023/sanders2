@@ -48,29 +48,28 @@ public class InsertSweetsServlet extends HttpServlet {
 		
 		if(!session.getAttribute("session_id").equals(null)) {
 			
-			request.setCharacterEncoding("UTF-8");
-			
-			SweetsBean bean = new SweetsBean();
-			
-			bean.setSweets_id(Integer.parseInt(request.getParameter("sweets_id")));
-			bean.setSweets_name(request.getParameter("sweets=name"));
-			bean.setSweets_value(Integer.parseInt(request.getParameter("sweets_value")));
-			bean.setSweets_genre(request.getParameter("sweets_genre"));
-			bean.setShop_id(request.getParameter("shop_id"));
-			
-			
 			try {
+				
+				request.setCharacterEncoding("UTF-8");
+				
+				SweetsBean bean = new SweetsBean();
+				
+				bean.setSweets_id(Integer.parseInt(request.getParameter("sweets_id")));
+				bean.setSweets_name(request.getParameter("sweets=name"));
+				bean.setSweets_value(Integer.parseInt(request.getParameter("sweets_value")));
+				bean.setSweets_genre(request.getParameter("sweets_genre"));
+				bean.setShop_id(request.getParameter("shop_id"));
+				
 				sdao.insertSweets(bean);
-			} catch (ClassNotFoundException e) {
 				
-				e.printStackTrace();
-			} catch (SQLException e) {
+				rd = request.getRequestDispatcher("SweetsInsertResult.jsp");
 				
-				e.printStackTrace();
+			} catch (SQLException | ClassNotFoundException e) {
+				
+				rd =request.getRequestDispatcher("InsertSweet.jap");
+				request.setAttribute("alert", "データベース操作で問題が発生しました");
+				
 			}
-			
-			
-			rd = request.getRequestDispatcher("SweetsInsertResult.jsp");
 		
 		} else {
 			
