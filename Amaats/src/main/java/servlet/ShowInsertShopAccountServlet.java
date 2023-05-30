@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,21 +8,19 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import model.dao.AccountDAO;
-import model.entity.UserBean;
+import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class CheckUpdateUserAccountServlet
+ * Servlet implementation class ShowInsertShopAccountServlet
  */
-@WebServlet("/check-update-user-account-servlet")
-public class UpdateUserAccountServlet extends HttpServlet {
+@WebServlet("/ShowInsertShopAccountServlet")
+public class ShowInsertShopAccountServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateUserAccountServlet() {
+    public ShowInsertShopAccountServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,25 +38,16 @@ public class UpdateUserAccountServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		AccountDAO adao = new AccountDAO();
-		UserBean ub = new UserBean();
+		HttpSession session = request.getSession();
 		RequestDispatcher rd;
 		
-		ub.setUser_id(request.getParameter("user_id"));
-		ub.setUser_name(request.getParameter("user_name"));
-		ub.setPassword(request.getParameter("password"));
-		ub.setUser_genre(request.getParameter("user_genre"));
-		ub.setUser_address(request.getParameter("user_address"));
-		
-		try {
+		if (!session.getAttribute("session_id").equals(null)) {
 			
-			adao.UpdateUser(ub);
-			rd = request.getRequestDispatcher("UpdateAccountResult.jsp");
+			rd = request.getRequestDispatcher("InsertShopAccount.jsp");
 			
-		} catch (SQLException | ClassNotFoundException e) {
-
-			rd = request.getRequestDispatcher("UpdateAccountResult.jsp");
-			request.setAttribute("alert", "データベース操作が完了できませんでした。");
+		} else {
+			
+			rd = request.getRequestDispatcher("Login.jsp");
 			
 		}
 		

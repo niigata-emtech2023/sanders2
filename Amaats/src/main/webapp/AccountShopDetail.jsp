@@ -7,6 +7,7 @@
 <title>店舗詳細画面</title>
 </head>
 <body>
+	<%@ include file="header.jsp" %>
 	店舗ID：${shop.shop_id}<br>
 	店舗名：${shop.shop_name}<br>
 	パスワード：${shop.shop_password}<br>
@@ -16,5 +17,6 @@
 	<form action="ShowUserAccountServlet" method="POST">
 		<input type="submit" value="一覧表示">
 	</form>
+	<jsp:include page="footer.jsp" />
 </body>
 </html>

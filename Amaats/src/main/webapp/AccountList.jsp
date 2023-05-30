@@ -7,6 +7,7 @@
 <title>アカウント一覧表示</title>
 </head>
 <body>
+	<%@ include file="header.jsp" %>
 	<table>
 		<tr>
 			<th>ユーザーID</th>
@@ -19,7 +20,7 @@
 				<td>${user.user_id}</td>
 				<td>${user.user_name}</td>
 				<td>
-					<form action="" method="POST">
+					<form action="AccountUserDetailServlet" method="POST">
 						<input type="hidden" name="user_id" value="${user.user_id}">
 						<input type="submit" value="詳細表示">
 					</form>
@@ -40,7 +41,7 @@
 				<td>${shop.shop_id}</td>
 				<td>${shop.shop_name}</td>
 				<td>
-					<form action="" method="POST">
+					<form action="AccountShopDetailServlet" method="POST">
 						<input type="hidden" name="shop_id" value="${shop.shop_id}">
 						<input type="submit" value="詳細表示">
 					</form>
@@ -49,5 +50,6 @@
 		</c:forEach>
 
 	</table>
+	<jsp:include page="footer.jsp" />
 </body>
 </html>

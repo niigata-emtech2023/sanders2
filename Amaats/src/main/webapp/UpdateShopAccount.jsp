@@ -7,6 +7,7 @@
 <title>店舗編集画面</title>
 </head>
 <body>
+	<%@ include file="header.jsp" %>
 	<form action="CheckShopUpdateServlet" method="post">
 		店舗ID：${shop.shop_id}<br>
 		店舗名：<input type="text" name="user_name" value="${shop.shop_name}"><br>
@@ -15,5 +16,6 @@
 		電話番号：<input type="text" name="user_adress"value="${shop.shop_tel}"><br>
 		<input type="submit" value="変更する">
 	</form>
+	<jsp:include page="footer.jsp" />
 </body>
 </html>
