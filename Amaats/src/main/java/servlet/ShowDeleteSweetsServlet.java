@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class ShowDeleteSweetsServlet
  */
-@WebServlet("/ShowDeleteSweetsServlet")
+@WebServlet("/show-delete-sweets-servlet")
 public class ShowDeleteSweetsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

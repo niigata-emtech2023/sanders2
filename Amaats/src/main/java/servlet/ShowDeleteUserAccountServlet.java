@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class ShowDeleteAccountServlet
  */
-@WebServlet("/ShowDeleteUserAccountServlet")
+@WebServlet("/show-delete-user-account-servlet")
 public class ShowDeleteUserAccountServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

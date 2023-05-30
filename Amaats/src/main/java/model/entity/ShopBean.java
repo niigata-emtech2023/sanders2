@@ -6,7 +6,7 @@ public class ShopBean implements Serializable{
 	private String shop_id;
 	private String shop_name;
 	private String shop_password;
-	private String shop_adress;
+	private String shop_address;
 	private String shop_tel;
 	
 	/*コンストラクタ*/
@@ -38,12 +38,12 @@ public class ShopBean implements Serializable{
 		this.shop_password = shop_password;
 	}
 
-	public String getShop_adress() {
-		return shop_adress;
+	public String getShop_address() {
+		return shop_address;
 	}
 
-	public void setShop_adress(String shop_address) {
-		this.shop_adress = shop_address;
+	public void setShop_address(String shop_address) {
+		this.shop_address = shop_address;
 	}
 
 	public String getShop_tel() {

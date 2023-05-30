@@ -14,7 +14,7 @@ import model.dao.SweetsDAO;
 /**
  * Servlet implementation class MenuServlet
  */
-@WebServlet("/MenuServlet")
+@WebServlet("/menu-servlet")
 public class MenuServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

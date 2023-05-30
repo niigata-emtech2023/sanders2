@@ -17,7 +17,7 @@ import model.entity.SweetsBean;
 /**
  * Servlet implementation class CheckPurchaseServlet
  */
-@WebServlet("/CheckPurchaseServlet")
+@WebServlet("/check-purchase-servlet")
 public class CheckPurchaseServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

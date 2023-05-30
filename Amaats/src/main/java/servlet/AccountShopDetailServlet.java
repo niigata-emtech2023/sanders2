@@ -17,7 +17,7 @@ import model.entity.ShopBean;
 /**
  * Servlet implementation class AccountShopDetailServlet
  */
-@WebServlet("/AccountShopDetailServlet")
+@WebServlet("/account-shop-detail-servlet")
 public class AccountShopDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
