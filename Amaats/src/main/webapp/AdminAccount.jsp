@@ -18,6 +18,5 @@
         <input type="submit" value="編集する">
     </form>
     <jsp:include page="footer.jsp" />
-    
 </body>
 </html>
