@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -58,7 +59,15 @@ public class InsertSweetsServlet extends HttpServlet {
 			bean.setShop_id(request.getParameter("shop_id"));
 			
 			
-			sdao.insertSweets(bean);
+			try {
+				sdao.insertSweets(bean);
+			} catch (ClassNotFoundException e) {
+				
+				e.printStackTrace();
+			} catch (SQLException e) {
+				
+				e.printStackTrace();
+			}
 			
 			
 			rd = request.getRequestDispatcher("SweetsInsertResult.jsp");
