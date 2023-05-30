@@ -81,7 +81,7 @@ public class AccountDAO {
 	 */
 	public boolean loginAdmin(String admin_id, String admin_password) throws SQLException, ClassNotFoundException {
 		
-		String sql = "SELECT admin_password FROM m_user WHERE admin_id = ?";
+		String sql = "SELECT admin_password FROM m_admin WHERE admin_id = ?";
 		boolean flag = false;
 		
 		try (Connection con = ConnectionManager.getConnection();
