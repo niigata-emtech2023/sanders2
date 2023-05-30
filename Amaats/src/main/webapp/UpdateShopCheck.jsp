@@ -20,7 +20,7 @@
 	店舗ID：<%=bean.getShop_id() %><br>
 	店舗名：<%=bean.getShop_name() %><br>
 	パスワード：<%=bean.getShop_password() %><br>
-	住所：<%=bean.getShop_adress() %><br>
+	住所：<%=bean.getShop_address() %><br>
 	電話番号：<%=bean.getShop_tel() %><br>
 	
 	
