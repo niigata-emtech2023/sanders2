@@ -18,7 +18,7 @@
     価格：<%=bean.getSweets_value()%><br>
     商品情報：<%=bean.getSweets_info()%><br>
 
-	<form action="sweets-alter-form-servlet" method="POST">
+	<form action="update-sweets-from-servlet" method="POST">
 	    <input type="submit" value="変更する">
 	</form>
 
