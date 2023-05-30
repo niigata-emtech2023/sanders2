@@ -52,7 +52,7 @@ public class ShowSweetsListServlet extends HttpServlet {
 		request.setAttribute("sweetsList", sweetsList);
 
 		// リクエストの転送
-		RequestDispatcher rd = request.getRequestDispatcher("sweets-list.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("SweetsList.jsp");
 		rd.forward(request, response);
 	}	
 }
