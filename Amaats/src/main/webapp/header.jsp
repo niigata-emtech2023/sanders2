@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="hamburger.css">
 </head>
-<body>
+<body class = "header">
 	<div style = "text-align:left">
 		<form action = "logout-servlet" method = "POST">
 			<input type = "submit" value = "ログアウト">
@@ -31,7 +31,7 @@
 		<ul>
 			<% String authority = (String) session.getAttribute("authority");
 			   if (authority.equals("admin")) {%>
-			   	<li><a href="insert-shop-account-servlet">店舗アカウント登録</a></li>
+			   	<li><a href="show-insert-shop-account-servlet">店舗アカウント登録</a></li>
 			   	<li><a href="show-account-list-servlet">アカウント一覧</a></li>
 			   	<li><a href="show-delete-user-account-servlet">アカウント削除</a></li>
 			   	<li><a href="show-account-servlet">アカウント確認</a></li>
