@@ -43,6 +43,8 @@ public class InsertUserServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		request.setCharacterEncoding("UTF-8");
+		
 		AccountDAO adao = new AccountDAO();
 		List<UserBean> userList = new ArrayList<UserBean>();
 		RequestDispatcher rd;
@@ -107,11 +109,11 @@ public class InsertUserServlet extends HttpServlet {
 				
 				UserBean ub = new UserBean();
 				ub.setUser_id(request.getParameter("user_id"));
-				ub.setUser_id(request.getParameter("user_name"));
-				ub.setUser_id(request.getParameter("password"));
-				ub.setUser_id(request.getParameter("user_address"));
-				adao.insertNewUser(ub);
-				
+				ub.setUser_name(request.getParameter("user_name"));
+				ub.setPassword(request.getParameter("password"));
+				ub.setUser_address(request.getParameter("user_address"));
+				int count = adao.insertNewUser(ub);
+				System.out.println(count);
 				rd = request.getRequestDispatcher("UserInsertResult.jsp");
 				
 			} else {
@@ -122,7 +124,7 @@ public class InsertUserServlet extends HttpServlet {
 			}
 			
 		} catch (SQLException e) {
-			
+			e.printStackTrace();
 			request.setAttribute("alert", "ユーザー登録ができるか確認が取れませんでした。");
 			rd = request.getRequestDispatcher("InsertUser.jsp");
 			

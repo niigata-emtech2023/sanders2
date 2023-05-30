@@ -8,10 +8,27 @@
 </head>
 <body>
 	<jsp:include page = "header.jsp">
-	登録が完了しました。
-	<form action="InsertAccountServlet" method="post">
-		<input type="submit" value="メニュー画面に戻る">
+	
+	この内容で登録しますがよろしいですか？<br>
+	<br>
+	店舗ID：<%=request.getParameter("shop_id")%><br>
+	店舗名：<%=request.getParameter("shop_name")%><br>
+	パスワード：
+	<% for (int i = 1; i <= request.getParameter("password").length(); i++) { %>
+	*
+	<% } %><br>
+	<div style = "display:inline-flex">
+	<form action = "InsertShopAccount.jsp" method = "POST">
+		<input type = "submit" value = "いいえ">
 	</form>
+	<form action = "insert-shop-account-servlet" method = "POST">
+		<input type = "hidden" name = "shop_id" value = "<%=request.getParameter("shop_id")%>">
+		<input type = "hidden" name = "shop_name" value = "<%=request.getParameter("shop_name")%>">
+		<input type = "hidden" name = "password" value = "<%=request.getParameter("password")%>">
+		<input type = "submit" value = "はい">
+	</form>
+	</div>
+	
 	<jsp:include page = "footer.jsp">
 </body>
 </html>

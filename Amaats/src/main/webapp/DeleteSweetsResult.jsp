@@ -4,9 +4,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>削除完了</title>
 </head>
 <body>
-hello
+ 
+ <form action="show-delete-sweets-servlet" method="POST">
+ 
+ 削除が完了しました。
+ 
+ <input type ="submit" value="戻る">
+ </form>
 </body>
 </html>

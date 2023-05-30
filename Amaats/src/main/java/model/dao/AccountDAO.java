@@ -80,8 +80,9 @@ public class AccountDAO {
 	 * @throws ClassNotFoundException
 	 */
 	public boolean loginAdmin(String admin_id, String admin_password) throws SQLException, ClassNotFoundException {
-
-		String sql = "SELECT admin_password FROM m_user WHERE admin_id = ?";
+		
+		String sql = "SELECT admin_password FROM m_admin WHERE admin_id = ?";
+		
 		boolean flag = false;
 
 		try (Connection con = ConnectionManager.getConnection();
@@ -168,8 +169,9 @@ public class AccountDAO {
 	}
 	
 	public List<UserBean> getUserList() throws SQLException, ClassNotFoundException {
-
-		String sql = "SELECT admin_password FROM m_user";
+		
+		String sql = "SELECT * FROM m_user";
+		
 		List<UserBean> userList = new ArrayList<UserBean>();
 
 		try (Connection con = ConnectionManager.getConnection();

@@ -53,31 +53,68 @@ public class LoginServlet extends HttpServlet {
 				session.setAttribute("authority", "user");
 				rd = request.getRequestDispatcher("show-sweets-list-servlet");
 				
-			} else if (adao.loginShop(request.getParameter("id"), request.getParameter("password"))) {
-				
-				session.setAttribute("session_id", request.getParameter("id"));
-				session.setAttribute("authority", "shop");
-				rd = request.getRequestDispatcher("show-sweets-list-servlet");
-				
-			} else if (adao.loginAdmin(request.getParameter("id"), request.getParameter("password"))) {
-				
-				session.setAttribute("session_id", request.getParameter("id"));
-				session.setAttribute("authority", "admin");
-				rd = request.getRequestDispatcher("show-sweets-list-servlet");
-				
 			} else {
 				
-				rd = request.getRequestDispatcher("Login.jsp");
-				request.setAttribute("alert", "ログインIDまたはパスワードが間違っています。");
+				System.out.println("not in user");
+				throw new SQLException();
 				
 			}
 			
-		} catch (SQLException e) {
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+			try {
+				
+				if (adao.loginShop(request.getParameter("id"), request.getParameter("password"))) {
+					
+					session.setAttribute("session_id", request.getParameter("id"));
+					session.setAttribute("authority", "shop");
+					rd = request.getRequestDispatcher("show-sweets-list-servlet");
+					
+				} else {
+					
+					System.out.println("not in shop");
+					throw new SQLException();
+					
+				}
+				
+			} catch (SQLException e2) {
+				e2.printStackTrace();
+				try {
+					
+					if (adao.loginAdmin(request.getParameter("id"), request.getParameter("password"))) {
+						
+						session.setAttribute("session_id", request.getParameter("id"));
+						session.setAttribute("authority", "admin");
+						rd = request.getRequestDispatcher("show-sweets-list-servlet");
+						
+					} else {
+						
+						System.out.println("not in admin");
+						throw new SQLException();
+						
+					}
+					
+				} catch (SQLException e3) {
+					e3.printStackTrace();
+					rd = request.getRequestDispatcher("Login.jsp");
+					request.setAttribute("alert", "ログインIDまたはパスワードが間違っています。");
+					
+				} catch (ClassNotFoundException e3) {
+					
+					rd = request.getRequestDispatcher("Login.jsp");
+					request.setAttribute("alert", "データベースにアクセスできませんでした。");
+					
+				}
+				
+			} catch (ClassNotFoundException e2) {
+				
+				rd = request.getRequestDispatcher("Login.jsp");
+				request.setAttribute("alert", "データベースにアクセスできませんでした。");
+				
+			}
+
 			
-			rd = request.getRequestDispatcher("Login.jsp");
-			request.setAttribute("alert", "データベースの操作を完了できませんでした。");
-			
-		} catch (ClassNotFoundException e) {
+		} catch (ClassNotFoundException e1) {
 			
 			rd = request.getRequestDispatcher("Login.jsp");
 			request.setAttribute("alert", "データベースにアクセスできませんでした。");
