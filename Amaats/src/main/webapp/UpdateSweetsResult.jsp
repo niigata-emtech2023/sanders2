@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>従業員情報-変更登録結果</title>
+<title>商品情報-変更登録結果</title>
 </head>
 <body>
 
