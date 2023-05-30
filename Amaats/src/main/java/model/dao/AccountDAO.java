@@ -118,7 +118,7 @@ public class AccountDAO {
 				user.setUser_name(res.getString("user_name"));
 				user.setPassword(res.getString("password"));
 				user.setUser_genre(res.getString("user_genre"));
-				user.setUser_adress(res.getString("user_adress"));
+				user.setUser_address(res.getString("user_adress"));
 			}
 		}
 		return user;
@@ -186,7 +186,7 @@ public class AccountDAO {
 				ub.setUser_name(res.getString("user_name"));
 				ub.setPassword(res.getString("password"));
 				ub.setUser_genre(res.getString("user_genre"));
-				ub.setUser_adress(res.getString("user_address"));
+				ub.setUser_address(res.getString("user_address"));
 
 				userList.add(ub);
 
@@ -238,11 +238,11 @@ public class AccountDAO {
 			pstmt.setString(2, user.getUser_name());
 			pstmt.setString(3, user.getPassword());
 
-			pstmt.setString(5, user.getUser_adress());
+			pstmt.setString(5, user.getUser_address());
 
-			pstmt.setString(4, user.getUser_adress());
+			pstmt.setString(4, user.getUser_address());
 
-			pstmt.setString(4, user.getUser_adress());
+			pstmt.setString(4, user.getUser_address());
 
 			count = pstmt.executeUpdate();
 
@@ -286,7 +286,7 @@ public class AccountDAO {
 			String user_name = bean.getUser_name();
 			String password = bean.getPassword();
 			String user_genre = bean.getUser_genre();
-			String user_adress = bean.getUser_adress();
+			String user_adress = bean.getUser_address();
 
 			pstmt.setString(1, user_name);
 			pstmt.setString(2, password);
@@ -389,7 +389,7 @@ public class AccountDAO {
 				user.setUser_name(user_name);
 				user.setPassword(password);
 				user.setUser_genre(user_genre);
-				user.setUser_adress(user_adress);
+				user.setUser_address(user_adress);
 
 				userList.add(user);
 			}

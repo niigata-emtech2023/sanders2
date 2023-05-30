@@ -8,7 +8,7 @@ public class UserBean implements Serializable {
 	private String user_name;
 	private String password;
 	private String user_genre;
-	private String user_adress;
+	private String user_address;
 	
 	
 	/* コンストラクタ */
@@ -49,12 +49,12 @@ public class UserBean implements Serializable {
 		this.user_genre = user_genre;
 	}
 
-	public String getUser_adress() {
-		return user_adress;
+	public String getUser_address() {
+		return user_address;
 	}
 
-	public void setUser_adress(String user_adress) {
-		this.user_adress = user_adress;
+	public void setUser_address(String user_adress) {
+		this.user_address = user_adress;
 	}
 	
 }
