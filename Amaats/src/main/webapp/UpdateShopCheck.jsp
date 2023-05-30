@@ -20,7 +20,7 @@
 	店舗ID：<%=bean.getShop_id() %><br>
 	店舗名：<%=bean.getShop_name() %><br>
 	パスワード：<%=bean.getShop_password() %><br>
-	住所：<%=bean.getShop_adress() %><br>
+	住所：<%=bean.getShop_address() %><br>
 	電話番号：<%=bean.getShop_tel() %><br>
 	
 	
@@ -28,7 +28,7 @@
 		<input type="hidden" name = "user_id" value=<%=bean.getShop_id() %>>
 		<input type="hidden" name = "user_name" value=<%=bean.getShop_name() %>>
 		<input type="hidden" name = "password" value=<%=bean.getShop_password() %>>
-		<input type="hidden" name = "user_genre" value=<%=bean.getShop_adress() %>>
+		<input type="hidden" name = "user_genre" value=<%=bean.getShop_address() %>>
 		<input type="hidden" name = "user_address" value=<%=bean.getShop_tel() %>>
 		<input type="submit" value="はい">
 	</form>

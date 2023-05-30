@@ -11,16 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class ShowDeleteSweetsServlet
+ * Servlet implementation class ShowShopListServlet
  */
-@WebServlet("/show-delete-sweets-servlet")
-public class ShowDeleteSweetsServlet extends HttpServlet {
+@WebServlet("/show-shop-list-servlet")
+public class ShowShopListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ShowDeleteSweetsServlet() {
+    public ShowShopListServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,14 +38,13 @@ public class ShowDeleteSweetsServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		
 		HttpSession session = request.getSession();
 		RequestDispatcher rd;
 		
 		if (!session.getAttribute("session_id").equals(null)) {
 			
-			rd = request.getRequestDispatcher("DeleteSweets.jsp");
+			rd = request.getRequestDispatcher("ShopList.jsp");
 
 		} else {
 
@@ -54,7 +53,7 @@ public class ShowDeleteSweetsServlet extends HttpServlet {
 		}
 
 		rd.forward(request, response);
-
+		
 	}
-	
+
 }

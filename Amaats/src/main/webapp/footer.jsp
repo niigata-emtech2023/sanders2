@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <link rel = "stylesheet" href = "style.css">
 </head>
-<body>
+<body class = "footer">
 	<div style = "display:inline-flex">
 	<form action = "search-genre-servlet" method = "POST">
 		<select name = "genre">

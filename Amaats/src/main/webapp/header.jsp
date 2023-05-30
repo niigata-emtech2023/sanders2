@@ -13,12 +13,14 @@
 			<input type = "submit" value = "ログアウト">
 		</form>
 	</div>
+	
 	<div style = "text-align:center">
 		<form action = "search-name-servlet" method = "POST">
 			<input type = "text" name = "sweets_name">
 			<input type = "submit" value = "検索">
 		</form>
 	</div>
+	
 	<div style = "text-align:right">
 		<input type = "button">
 	</div>
@@ -34,7 +36,7 @@
 		<li><a href="#">ログアウト</a></li>
 			<% String authority = (String) session.getAttribute("authority");
 			   if (authority.equals("admin")) {%>
-			   	<li><a href="insert-shop-account-servlet">店舗アカウント登録</a></li>
+			   	<li><a href="show-insert-shop-account-servlet">店舗アカウント登録</a></li>
 			   	<li><a href="show-account-list-servlet">アカウント一覧</a></li>
 			   	<li><a href="show-delete-user-account-servlet">アカウント削除</a></li>
 			   	<li><a href="show-account-servlet">アカウント確認</a></li>

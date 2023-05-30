@@ -13,8 +13,8 @@
 	<form action = "check-insert-shop-account-servlet" method = "POST">
 		店舗ID：<input type = "text" name = "shop_id"><br>
 		店舗名：<input type = "text" name = "shop_name"><br>
-		パスワード：<input type = "password" name = "password">
-		パスワード確認：<input type = "password" name = "passcon">
+		パスワード：<input type = "password" name = "password"><br>
+		パスワード確認：<input type = "password" name = "passcon"><br>
 		<input type = "submit" value = "登録">
 	</form>
 	<jsp:include page = "footer.jsp" />
