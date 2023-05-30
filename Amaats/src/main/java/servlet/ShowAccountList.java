@@ -18,7 +18,7 @@ import model.entity.UserBean;
 /**
  * Servlet implementation class ShowAccountList
  */
-@WebServlet("/ShowAccountList")
+@WebServlet("/show-account-list")
 public class ShowAccountList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
