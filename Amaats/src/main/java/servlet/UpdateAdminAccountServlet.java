@@ -10,12 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.dao.AccountDAO;
-import model.entity.ShopBean;
+import model.entity.AdminBean;
 
 /**
  * Servlet implementation class UpdateAdminAccountServlet
  */
-@WebServlet("/UpdateAdminAccountServlet")
+@WebServlet("/update-admin-account-servlet")
 public class UpdateAdminAccountServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -43,8 +43,8 @@ public class UpdateAdminAccountServlet extends HttpServlet {
 		AccountDAO adao = new AccountDAO();
 		AdminBean ab = new AdminBean();
 		
-		ab.setAdmin_id(request.get);
-		ab.setAdmin_password(request.get);
+		ab.setAdmin_id(request.getParameter("admin_id"));
+		ab.setAdmin_password(request.getParameter("admin_password"));
 		
 		try {
 			
@@ -59,8 +59,6 @@ public class UpdateAdminAccountServlet extends HttpServlet {
 			e.printStackTrace();
 			
 		}
-		
-	}
 		
 	}
 

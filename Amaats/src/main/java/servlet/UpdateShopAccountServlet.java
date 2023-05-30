@@ -15,7 +15,7 @@ import model.entity.ShopBean;
 /**
  * Servlet implementation class UpdateShopAccountServlet
  */
-@WebServlet("/UpdateShopAccountServlet")
+@WebServlet("/update-shop-accountservlet")
 public class UpdateShopAccountServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -43,15 +43,15 @@ public class UpdateShopAccountServlet extends HttpServlet {
 		AccountDAO adao = new AccountDAO();
 		ShopBean sb = new ShopBean();
 		
-		ub.setShop_id(request.get);
-		ub.setShop_name(request.get);
-		ub.setShop_password(request.get);
-		ub.setShop_address(request.get);
-		ub.setShop_tel(request.get);
+		sb.setShop_id(request.getParameter("shop_id"));
+		sb.setShop_name(request.getParameter("shop_name"));
+		sb.setShop_password(request.getParameter("shop_password"));
+		sb.setShop_address(request.getParameter("shop_address"));
+		sb.setShop_tel(request.getParameter("shop_tel"));
 		
 		try {
 			
-			adao.UpdateUser(ub);
+			adao.UpdateShop(sb);
 			
 		} catch (SQLException e) {
 			
