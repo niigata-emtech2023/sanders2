@@ -7,7 +7,9 @@
 <title>店舗一覧</title>
 </head>
 <body>
+	<header>
 	<%@ include file="header.jsp" %>
+	</header>
 	
 	<%	AccountDAO adao = new AccountDAO();
 		List<ShopBean> shopList = adao.getShopList(); %>
@@ -32,6 +34,8 @@
 			<%}%>
 		</table>
 	
+	<footer>
 	<%@ include file="footer.jsp" %>
+	</footer>
 </body>
 </html>
