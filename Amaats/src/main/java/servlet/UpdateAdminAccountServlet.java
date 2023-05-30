@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.dao.AccountDAO;
-import model.entity.ShopBean;
+import model.entity.AdminBean;
 
 /**
  * Servlet implementation class UpdateAdminAccountServlet
@@ -59,8 +59,6 @@ public class UpdateAdminAccountServlet extends HttpServlet {
 			e.printStackTrace();
 			
 		}
-		
-	}
 		
 	}
 

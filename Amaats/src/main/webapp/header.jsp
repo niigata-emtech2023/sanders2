@@ -30,8 +30,8 @@
 		<div class="cp_menu">
 		<ul>
 		<li><a href="#">店舗情報一覧</a></li>
-		<li><a href="#">アカウント</a></li>
-		<li><a href="logout-servlet">ログアウト</a></li>
+		<li><a href="#">アカウント表示</a></li>
+		<li><a href="#">ログアウト</a></li>
 		</ul>
 		</div>
 	</div>
