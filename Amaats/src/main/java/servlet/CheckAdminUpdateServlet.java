@@ -16,7 +16,7 @@ import model.entity.AdminBean;
 /**
  * Servlet implementation class CheckSAdminpdateServlet
  */
-@WebServlet("/CheckAdminUpdateServlet")
+@WebServlet("/check-admin-update-servlet")
 public class CheckAdminUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
