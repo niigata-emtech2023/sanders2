@@ -18,7 +18,7 @@ import model.entity.SweetsBean;
 /**
  * Servlet implementation class ShowCartList
  */
-@WebServlet("/ShowCartListServlet")
+@WebServlet("/show-cart-list-servlet")
 public class ShowCartListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
