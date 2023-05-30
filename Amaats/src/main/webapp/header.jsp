@@ -29,9 +29,24 @@
 		<label for="cp_toggle04"><span></span></label>
 		<div class="cp_menu">
 		<ul>
-		<li><a href="#">店舗情報一覧</a></li>
-		<li><a href="#">アカウント</a></li>
-		<li><a href="logout-servlet">ログアウト</a></li>
+			<% String authority = (String) session.getAttribute("authority");
+			   if (authority.equals("admin")) {%>
+			   	<li><a href="insert-shop-account-servlet">店舗アカウント登録</a></li>
+			   	<li><a href="show-account-list-servlet">アカウント一覧</a></li>
+			   	<li><a href="show-delete-user-account-servlet">アカウント削除</a></li>
+			   	<li><a href="show-account-servlet">アカウント確認</a></li>
+				<li><a href="logout-servlet">ログアウト</a></li>
+			<%} else if (authority.equals("shop")) {%>
+				<li><a href="show-insert-sweets-servlet">商品情報登録</a></li>
+				<li><a href="show-update-sweets-servlet">商品情報編集</a></li>
+				<li><a href="show-delete-sweets-servlet">商品情報削除</a></li>
+				<li><a href="show-account-servlet">アカウント確認</a></li>
+				<li><a href="logout-servlet">ログアウト</a></li>
+			<%} else {%>
+				<li><a href="#">店舗一覧表示</a></li>
+				<li><a href="show-account-servlet">アカウント確認</a></li>
+				<li><a href="logout-servlet">ログアウト</a></li>
+			<%}%>
 		</ul>
 		</div>
 	</div>
