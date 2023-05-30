@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="model.entity.SweetsBean" %>
+    pageEncoding="UTF-8" import="model.entity.SweetsBean" import="model.entity.ReviewBean.java.until.list"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,11 +39,30 @@
 	
 	<form action="ReviewServlet" method="POST">
 	    口コミ登録<br>
-	    <textarea name="" cols="40" rows="4">
+	    <textarea name="review_text" cols="40" rows="4">
 	    </textarea>
 	    <input type="submit" value="登録">
-	    
 	</form>
+	
+	<%
+	List<ReviewBean> reviewList = (List<ReviewBean>)request.getAttribute("reviewList");
+	
+	if(reviewList.size() != 0){%>
+	<h3>口コミ</h3>
+	
+	<%for(ReviewBean review : reviewList){%>
+		<tr>
+		<td><%=review.getUser_id %></td>
+		<td><%=review.getReview_text %></td>
+		</tr>
+	<% } %>
+	
+	<%}else{
+	%>口コミはまだありません<%
+	}
+	%>
+	
+	
 	
 	
 	<%@ include file="footer.jsp" %>
