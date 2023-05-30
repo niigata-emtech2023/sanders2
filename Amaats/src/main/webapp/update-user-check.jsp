@@ -18,7 +18,7 @@
     UserBean bean = (UserBean)request.getAttribute("bean");
     %>
 
-	<%= %>
+	
 	ユーザID：<%=bean.getUser_id() %><br>
 	氏名：<%=bean.getUser_name() %><br>
 	パスワード：<%=bean.getPassword() %><br>
