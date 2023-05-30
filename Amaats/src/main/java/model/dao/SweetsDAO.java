@@ -81,7 +81,7 @@ public class SweetsDAO {
 		return count;
 	}
 	/**
-	 * 
+	 * 商品編集
 	 * @param sweets スイーツオブジェクト
 	 * @return processingNumber 処理件数
 	 * @throws SQLException
@@ -115,6 +115,40 @@ public class SweetsDAO {
 	}
 
 
+
+	/**
+	 * 商品削除
+	 * @param sweets
+	 * @return
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
+	public int deleteSweets(SweetsBean sweets) throws SQLException, ClassNotFoundException {
+		int processingNumber = 0;
+		String sql = "DELETE  FROM m_sweets WHERE sweets_id = ?";
+
+		// データベースへの接続の取得、PreparedStatementの取得
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+
+			SweetsBean bean = new SweetsBean();
+
+			int sweets_id = bean.getSweets_id();
+
+			// プレースホルダへの値の設定
+			pstmt.setInt(1, sweets_id);
+
+
+			// SQLステートメントの実行
+			processingNumber = pstmt.executeUpdate();
+		}
+		return processingNumber;
+	}
+
+	/**
+	 * カートに商品追加
+	 * @param sweets
+	 */
 	public void insertCart(SweetsBean sweets) {
 		List<SweetsBean> cartList = new ArrayList<SweetsBean>();
 
@@ -135,6 +169,10 @@ public class SweetsDAO {
 		return cartList;
 	}
 
+
+	/**
+	 * カートを空にする
+	 */
 	public void emptyCart() {
 		List<SweetsBean> cartList = new ArrayList<SweetsBean>();
 
@@ -143,7 +181,13 @@ public class SweetsDAO {
 
 
 
-
+	/**
+	 * 商品の名前検索
+	 * @param sweets_name
+	 * @return sweetsList
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
 	public List<SweetsBean> searchName(String sweets_name) throws SQLException, ClassNotFoundException {
 
 		String sql = "SELECT * FROM m_sweets WHERE sweets_name LIKE ?";
@@ -175,7 +219,13 @@ public class SweetsDAO {
 		return sweetsList;
 
 	}
-
+	/**
+	 * ジャンルで商品検索
+	 * @param sweets_genre
+	 * @return
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
 	public List<SweetsBean> searchGenre(String sweets_genre) throws SQLException, ClassNotFoundException {
 
 		String sql = "SELECT * FROM m_sweets WHERE sweets_genre LIKE ?";
@@ -207,7 +257,14 @@ public class SweetsDAO {
 		return sweetsList;
 
 	}
-
+	/**
+	 * 価格の上限、下限で商品検索
+	 * @param maxvalue
+	 * @param minvalue
+	 * @return sweetsList
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
 	public List<SweetsBean> searchValue(int maxvalue, int minvalue) throws SQLException, ClassNotFoundException {
 
 		String sql = "SELECT * FROM m_sweets WHERE sweets_value BETWEEN ? AND ?";
