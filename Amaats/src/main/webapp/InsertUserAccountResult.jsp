@@ -14,7 +14,7 @@
 	店舗ID：<%=request.getParameter("shop_id")%><br>
 	店舗名：<%=request.getParameter("shop_name")%><br>
 	パスワード：
-	<% if (int i = 1; i <= request.getParameter("password").size(); i++) { %>
+	<% for (int i = 1; i <= request.getParameter("password").size(); i++) { %>
 	*
 	<% } %><br>
 	<div style = "display:inline-flex">
