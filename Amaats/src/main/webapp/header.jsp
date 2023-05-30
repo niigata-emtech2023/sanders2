@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="hamburger.css">
 </head>
-<body class = "header">
+<body>
 	<div style = "text-align:left">
 		<form action = "logout-servlet" method = "POST">
 			<input type = "submit" value = "ログアウト">
