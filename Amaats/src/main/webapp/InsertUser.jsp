@@ -8,8 +8,8 @@
 <link rel = "stylesheet" href = "style.css">
 </head>
 <body>
-	<img src = "image/amaats_logo.png" alt = "Amaats">
-	<span class = "alert">${alert}</span>
+	<img src = "image/amaats_logo.png" alt = "Amaats"><br>
+	<span class = "alert">${alert}</span><br>
 	<form action = "insert-user-servlet" method = "POST">
 		名前：<input type = "text" name = "user_name"><br>
 		ログインID：<input type = "text" name = "user_id"><br>

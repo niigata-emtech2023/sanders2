@@ -107,9 +107,9 @@ public class InsertUserServlet extends HttpServlet {
 				
 				UserBean ub = new UserBean();
 				ub.setUser_id(request.getParameter("user_id"));
-				ub.setUser_id(request.getParameter("user_name"));
-				ub.setUser_id(request.getParameter("password"));
-				ub.setUser_id(request.getParameter("user_address"));
+				ub.setUser_name(request.getParameter("user_name"));
+				ub.setPassword(request.getParameter("password"));
+				ub.setUser_address(request.getParameter("user_address"));
 				adao.insertNewUser(ub);
 				
 				rd = request.getRequestDispatcher("UserInsertResult.jsp");
@@ -122,7 +122,7 @@ public class InsertUserServlet extends HttpServlet {
 			}
 			
 		} catch (SQLException e) {
-			
+			e.printStackTrace();
 			request.setAttribute("alert", "ユーザー登録ができるか確認が取れませんでした。");
 			rd = request.getRequestDispatcher("InsertUser.jsp");
 			

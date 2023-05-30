@@ -102,7 +102,7 @@ public class AccountDAO {
 	
 	public List<UserBean> getUserList() throws SQLException, ClassNotFoundException {
 		
-		String sql = "SELECT admin_password FROM m_user";
+		String sql = "SELECT * FROM m_user";
 		List<UserBean> userList = new ArrayList<UserBean>();
 		
 		try (Connection con = ConnectionManager.getConnection();
