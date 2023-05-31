@@ -107,24 +107,24 @@ public class CheckInsertUserAccountServlet extends HttpServlet {
 			/* 入力情報に不備がなければ確認、あれば戻る */
 			if (flag) {
 				
-				rd = request.getRequestDispatcher("CheckUserInsertAccount.jsp");
+				rd = request.getRequestDispatcher("CheckInsertUserAccount.jsp");
 				
 			} else {
 				
 				request.setAttribute("alert", "入力情報に不備があります");
-				rd = request.getRequestDispatcher("InsertUser.jsp");
+				rd = request.getRequestDispatcher("InsertUserAccount.jsp");
 				
 			}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
 			request.setAttribute("alert", "ユーザー登録ができるか確認が取れませんでした。");
-			rd = request.getRequestDispatcher("InsertUser.jsp");
+			rd = request.getRequestDispatcher("InsertUserAccount.jsp");
 			
 		} catch (ClassNotFoundException e) {
 			
 			request.setAttribute("alert", "データベースにアクセスできませんでした。");
-			rd = request.getRequestDispatcher("InsertUser.jsp");
+			rd = request.getRequestDispatcher("InsertUserAccount.jsp");
 			
 		}
 		

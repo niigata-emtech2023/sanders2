@@ -8,7 +8,7 @@
 <link rel = "stylesheet" href = "style.css">
 </head>
 <body>
-<div class="header"><jsp:include page = "header.jsp">
+<div class="header"><jsp:include page = "header.jsp" />
 	</div>
 	<%
 		List<UserBean> userList = (List<UserBean>) request.getAttribute("userList");
@@ -26,8 +26,9 @@
 			<td><%=user.getUser_id()%></td>
 			<td><%=user.getUser_name()%></td>
 			<td>
-				<form action="ShowDeleteAccountServlet" method="POST">
-					<input type="hidden" name="user_id" value="<%=user.getUser_id()%>">
+				<form action="CheckDeleteUserAccount.jsp" method="POST">
+					<input type="hidden" name="type" value="user">
+					<input type="hidden" name="user" value="<%=user%>">
 					<input type="submit" value="削除">
 				</form>
 			</td>
@@ -52,8 +53,9 @@
 			<td><%=shop.getShop_id()%></td>
 			<td><%=shop.getShop_name()%></td>
 			<td>
-				<form action="ShowDeleteAccountServlet" method="POST">
-					<input type="hidden" name="shop_id" value="<%=shop.getShop_id()%>">
+				<form action="CheckDeleteShopAccount.jsp" method="POST">
+					<input type="hidden" name="type" value="shop">
+					<input type="hidden" name="shop" value="<%=shop%>">
 					<input type="submit" value="削除">
 				</form>
 			</td>
@@ -62,6 +64,6 @@
 			}
 		%>
 	</table>
-	<jsp:include page = "footer.jsp">
+	<jsp:include page = "footer.jsp" />
 </body>
 </html>

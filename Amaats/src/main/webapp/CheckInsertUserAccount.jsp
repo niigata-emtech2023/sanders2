@@ -7,9 +7,7 @@
 <title>ユーザー新規登録確認</title>
 <link rel="stylesheet" href = "style.css">
 </head>
-<body>
-	    <div class = "header"><%@ include file="header.jsp" %></div>
-	
+<body>	
 	この内容で登録しますがよろしいですか？<br>
 	<br>
 	名前：<%=request.getParameter("user_name")%><br>
@@ -36,7 +34,5 @@
 		<input type = "submit" value = "はい">
 	</form>
 	</div>
-	
-	<div class = "footer"><%@ include file="footer.jsp" %></div>
 </body>
 </html>

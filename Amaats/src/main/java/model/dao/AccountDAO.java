@@ -237,11 +237,6 @@ public class AccountDAO {
 			pstmt.setString(1, user.getUser_id());
 			pstmt.setString(2, user.getUser_name());
 			pstmt.setString(3, user.getPassword());
-
-			pstmt.setString(5, user.getUser_address());
-
-			pstmt.setString(4, user.getUser_address());
-
 			pstmt.setString(4, user.getUser_address());
 
 			count = pstmt.executeUpdate();

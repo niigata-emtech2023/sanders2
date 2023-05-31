@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -41,25 +42,39 @@ public class DeleteAccountServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
-		String url = null;
-		HttpSession session = request.getSession();
-		String user_id = (String) session.getAttribute("user_id");
-		String shop_id = (String) session.getAttribute("shop_id");
+		HttpSession session=request.getSession();
+		RequestDispatcher rd;
+		AccountDAO adao=new AccountDAO();
 		
-		if (user_id != null) {
-			try {
-				AccountDAO dao = new AccountDAO();
-				dao.deleteUser(user_id);
-				dao.deleteShop(shop_id);
-				url = "DeleteAccount.jsp";
-			} catch (Exception e) {
-				e.printStackTrace();
+		try {
+		
+		if(!session.getAttribute("session_id").equals(null)) {
+			
+			if (request.getParameter("type").equals("shop")) {
+				
+				String shop_id = request.getParameter("shop_id");
+				adao.deleteShop(shop_id);
+				
+			} else {
+				
+				String user_id = request.getParameter("user_id");
+				adao.deleteUser(user_id);
+				
 			}
-		} else {
-			url = "Login.jsp";
+			
+			rd = request.getRequestDispatcher("DeleteAccouhntResult.jsp");
+			
+		}else {
+			session.invalidate();
+			rd=request.getRequestDispatcher("Login.jsp");
+			
 		}
-		
-		RequestDispatcher rd = request.getRequestDispatcher(url);
+		}catch(ClassNotFoundException e) {
+			rd=request.getRequestDispatcher("show-delete-user-account-servlet");
+		}catch(SQLException e) {
+			rd=request.getRequestDispatcher("show-delete-user-account-servlet");
+			
+		}
 		rd.forward(request, response);
 	}
 
