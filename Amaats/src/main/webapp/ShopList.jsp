@@ -9,7 +9,8 @@
 </head>
 <body>
 	<header>
-	<%@ include file="header.jsp" %>
+	<div class="header"><%@ include file="header.jsp" %>
+	</div>
 	</header>
 	
 	<%	AccountDAO adao = new AccountDAO();

@@ -5,9 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>アカウント情報確認画面</title>
+<link rel = "stylesheet" href = "style.css">
 </head>
 <body>
-    <%@ include file="header.jsp" %>
+    <div class="header"><%@ include file="header.jsp" %>
+    </div>
     
     <%
     ShopBean bean = (ShopBean)request.getAttribute("bean");

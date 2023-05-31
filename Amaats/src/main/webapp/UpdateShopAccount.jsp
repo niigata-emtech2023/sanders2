@@ -5,9 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>店舗編集画面</title>
+<link rel = "stylesheet" href = "style.css">
 </head>
 <body>
-	<%@ include file="header.jsp" %>
+	<div class="header"><%@ include file="header.jsp" %>
+	</div>
 	<form action="CheckShopUpdateServlet" method="post">
 		店舗ID：${shop.shop_id}<br>
 		店舗名：<input type="text" name="user_name" value="${shop.shop_name}"><br>

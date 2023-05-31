@@ -5,9 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>商品情報-変更登録結果</title>
+<link rel = "stylesheet" href = "style.css">
 </head>
 <body>
-
+	<div class="header"><%@ include file="header.jsp" %>
+	</div>
 	<%
 		int processingNumber = (Integer) request.getAttribute("processingNumber");
 		if (processingNumber > 0) {
@@ -32,7 +34,7 @@
 //
 	<% session.invalidate(); %>
 	
-
+	<jsp:include page="footer.jsp" />
 
 </body>
 </html>

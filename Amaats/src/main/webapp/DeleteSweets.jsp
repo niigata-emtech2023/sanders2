@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>商品情報削除画面</title>
-<link rel="stylesheet" href = "style.css">
+<link rel = "stylesheet" href = "style.css">
 </head>
 <body>
     <div class = "header"><%@ include file="header.jsp" %></div>
@@ -42,7 +42,7 @@
 		</tr>
 		<% }
 		%>
-		
+		<jsp:include page = "footer.jsp">
 
 </body>
 </html>

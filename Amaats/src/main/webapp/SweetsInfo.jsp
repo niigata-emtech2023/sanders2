@@ -5,9 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Amaats 商品詳細ページ</title>
+<link rel = "stylesheet" href = "style.css">
 </head>
 <body>
-    <%@ include file="header.jsp" %>
+    <div class="header"><%@ include file="header.jsp" %>
+    </div>
     
     <%
     SweetsBean bean = (SweetsBean)request.getAttribute("bean");

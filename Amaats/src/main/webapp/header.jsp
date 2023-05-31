@@ -31,6 +31,9 @@
 		<label for="cp_toggle04"><span></span></label>
 		<div class="cp_menu">
 		<ul>
+		<li><a href="#">店舗情報一覧</a></li>
+		<li><a href="#">アカウント表示</a></li>
+		<li><a href="#">ログアウト</a></li>
 			<% String authority = (String) session.getAttribute("authority");
 			   if (authority.equals("admin")) {%>
 			   	<li><a href="show-insert-shop-account-servlet">店舗アカウント登録</a></li>

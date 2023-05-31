@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>ユーザー新規登録確認画面</title>
-<link rel="stylesheet" href = "style.css">
+<link rel = "stylesheet" href = "style.css">
 </head>
 <body>
 	<div class = "header"><jsp:include page = "header.jsp"></div>

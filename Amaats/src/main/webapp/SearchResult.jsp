@@ -5,8 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>検索結果</title>
+<link rel = "stylesheet" href = "style.css">
 </head>
 <body>
+	<div class="header"><%@ include file="header.jsp" %>
+    </div>
 		<%
 		List<SweetsBean> sweetsList
 			= (List<SweetsBean>) request.getAttribute("sweetsList");
@@ -44,5 +47,6 @@
 		%>
 		</tbody>
 	</table>
+	<%@ include file="footer.jsp" %>
 </body>
 </html>

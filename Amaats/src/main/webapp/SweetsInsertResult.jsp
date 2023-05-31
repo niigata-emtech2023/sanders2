@@ -5,9 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>商品情報登録確認画面</title>
+<link rel = "stylesheet" href = "style.css">
 </head>
 <body>
-    <%@ include file="header.jsp" %>
+    <div class="header"><%@ include file="header.jsp" %>
+    </div>
     <form action="show-insert-sweets-servlet" method="POST">
     以下の内容で商品の登録が完了しました
     <%
@@ -22,6 +24,7 @@
     
     <input type ="submit" value="戻る">
     </form>
+    <%@ include file="footer.jsp" %>
 
 </body>
 </html>
