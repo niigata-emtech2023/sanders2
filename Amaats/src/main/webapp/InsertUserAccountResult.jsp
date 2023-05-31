@@ -8,8 +8,7 @@
 <link rel = "stylesheet" href = "style.css">
 </head>
 <body>
-	<div class="header"><jsp:include page = "header.jsp">
-	</div>
+	<div class = "header"><jsp:include page = "header.jsp"></div>
 	
 	この内容で登録しますがよろしいですか？<br>
 	<br>
@@ -31,6 +30,6 @@
 	</form>
 	</div>
 	
-	<jsp:include page = "footer.jsp">
+	<div class = "footer"><jsp:include page = "footer.jsp"></div>
 </body>
 </html>

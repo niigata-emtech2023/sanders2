@@ -5,9 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>店舗アカウント登録確認</title>
+<link rel="stylesheet" href = "style.css">
 </head>
 <body>
-	<jsp:include page = "header.jsp">
+	    <div class = "header"><%@ include file="header.jsp" %></div>
 	
 	この内容で登録しますがよろしいですか？<br>
 	<br>
@@ -29,6 +30,6 @@
 	</form>
 	</div>
 	
-	<jsp:include page = "footer.jsp">
+	<div class = "footer"><%@ include file="footer.jsp" %></div>
 </body>
 </html>

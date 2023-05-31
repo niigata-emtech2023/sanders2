@@ -5,9 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>カート画面</title>
+<link rel="stylesheet" href = "style.css">
 </head>
 <body>
-
+    <div class = "header"><%@ include file="header.jsp" %></div>
 	<form action="CheckPurchaseServlet" method="post">
 		<%
 			List<SweetsBean> cartList = (List<SweetsBean>) request.getAttribute("cartList");
@@ -43,5 +44,7 @@
 	%>
 		<input type="submit" value="購入する">
 	</form>
+	
+	<div class = "footer"><%@ include file="footer.jsp" %></div>
 </body>
 </html>

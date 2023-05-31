@@ -46,19 +46,19 @@ public class CheckInsertShopAccountServlet extends HttpServlet {
 			request.setCharacterEncoding("UTF-8");
 			boolean flag = true;
 
-			if (request.getParameter("shop_id").length() > 0 && request.getParameter("shop_id").length() <= 10) {
+			if (request.getParameter("shop_id").length() <= 0 || request.getParameter("shop_id").length() > 10) {
 
 				flag = false;
 
 			}
 
-			if (request.getParameter("shop_name").length() > 0 && request.getParameter("shop_id").length() <= 32) {
+			if (request.getParameter("shop_name").length() <= 0 || request.getParameter("shop_id").length() > 32) {
 
 				flag = false;
 
 			}
 
-			if (request.getParameter("password").length() > 0 && request.getParameter("password").length() <= 16) {
+			if (request.getParameter("password").length() <= 0 || request.getParameter("password").length() > 16) {
 
 				flag = false;
 
@@ -75,7 +75,11 @@ public class CheckInsertShopAccountServlet extends HttpServlet {
 				rd = request.getRequestDispatcher("CheckInsertShopAccount.jsp");
 
 			} else {
-
+				
+				request.setAttribute("shop_name", request.getParameter("shop_name"));
+				request.setAttribute("shop_id", request.getParameter("shop_id"));
+				request.setAttribute("password", request.getParameter("password"));
+				request.setAttribute("passcon", request.getParameter("passcon"));
 				rd = request.getRequestDispatcher("InsertShopAccount.jsp");
 				request.setAttribute("alert", "入力情報に不備があります。");
 

@@ -5,8 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>削除確認画面</title>
+<link rel="stylesheet" href = "style.css">
 </head>
 <body>
+    <div class = "header"><%@ include file="header.jsp" %></div>
 	このアカウントを削除しますが,
 	<br> 本当によろしいですか？
 	<jsp:useBean id="user" scope="request" class="model.entity.UserBean" />
@@ -33,5 +35,6 @@
 			<input type="submit" value="はい">
 		</form>
 	</div>
+	<div class = "footer"><%@ include file="footer.jsp" %></div>
 </body>
 </html>

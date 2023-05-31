@@ -8,8 +8,7 @@
 <link rel = "stylesheet" href = "style.css">
 </head>
 <body>
-    <div class="header"><jsp:include page = "header.jsp">
-	</div>
+    <div class = "header"><%@ include file="header.jsp" %></div>
     <% 
     List<SweetsBean> sweetsList = (List<SweetsBean>)request.getAttribute("sweetsList");
     %>

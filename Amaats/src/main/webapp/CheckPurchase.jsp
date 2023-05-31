@@ -5,8 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>購入確認画面</title>
+<link rel="stylesheet" href = "style.css">
 </head>
 <body>
+    <div class = "header"><%@ include file="header.jsp" %></div>
 	ご注文内容<br>
 	<form action="CompletePurchaseServlet" method="post">
 	<%
@@ -33,5 +35,6 @@
 		</table>
 		<input type="submit" value="注文を確定する">
 	</form>
+	<div class = "footer"><%@ include file="footer.jsp" %></div>
 </body>
 </html>

@@ -5,8 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>商品削除：確認画面</title>
+<link rel="stylesheet" href = "style.css">
 </head>
 <body>
+    <div class = "header"><%@ include file="header.jsp" %></div>
 	<%
 	request.setCharacterEncoding("UTF-8");
 	%>
@@ -26,7 +28,7 @@
 
 
 
-
+<div>
 	<form action="delete-sweets-servlet" method="POST">
 		<input type="hidden" name="sweets_id" value=<%=bean.getSweets_id()%>>
 		<input type="hidden" name="sweets_name"value=<%=bean.getSweets_name()%>> 
@@ -36,17 +38,11 @@
 		<input type="hidden"name="shop_id" value=<%=bean.getShop_id()%>> 
 		<input type="submit" value="はい">
 	</form>
-
-
-
-
-
-	<div>
+	
 		<form action="show-delete-sweets-servlet" method="POST">
 			<input type="submit" value="いいえ">
 		</form>
-
-
 	</div>
+	<div class = "footer"><%@ include file="footer.jsp" %></div>
 </body>
 </html>

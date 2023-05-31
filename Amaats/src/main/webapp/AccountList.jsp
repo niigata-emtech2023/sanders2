@@ -5,9 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>アカウント一覧表示</title>
+<link rel="stylesheet" href = "style.css">
 </head>
 <body>
-	<%@ include file="header.jsp" %>
+	<div class = "header"><%@ include file="header.jsp" %></div>
 	<table>
 		<tr>
 			<th>ユーザーID</th>
@@ -50,6 +51,6 @@
 		</c:forEach>
 
 	</table>
-	<jsp:include page="footer.jsp" />
+	<div class = "footer"><%@ include file="footer.jsp" %></div>
 </body>
 </html>
