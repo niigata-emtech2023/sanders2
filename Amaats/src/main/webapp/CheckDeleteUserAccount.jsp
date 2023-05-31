@@ -11,22 +11,21 @@
     <div class = "header"><%@ include file="header.jsp" %></div>
     
 	このアカウントを削除しますが,
-	<br> 本当によろしいですか？
-	<jsp:useBean id="user" scope="request" class="model.entity.UserBean" />
+	<br> 本当によろしいですか？<br>
 	
-	ユーザID：<jsp:getProperty name="user" property="user_id" /><br>
-	氏名：<jsp:getProperty name="user" property="user_name" /><br>
-	パスワード：<jsp:getProperty name="user" property="password" /><br>
-	好きなジャンル：<jsp:getProperty name="user" property="user_genre" /><br>
-	住所：<jsp:getProperty name="user" property="user_address" /><br>
+	ユーザID：<%=request.getParameter("user_id")%><br>
+	氏名：<%=request.getParameter("user_name")%><br>
+	パスワード：<%=request.getParameter("password")%><br>
+	好きなジャンル：<%=request.getParameter("user_genre")%><br>
+	住所：<%=request.getParameter("user_address")%><br>
 	
 	<div style = "display:inline-flex">
-		<form action="ShowDeleteAccountServlet" method="POST">
+		<form action="show-delete-account-servlet" method="POST">
 			<input type="submit" value="いいえ">
 		</form>
-		<form action="DeleteAccountServlet" method="POST">
+		<form action="delete-account-servlet" method="POST">
 			<input type="hidden" name="type" value="shop">
-			<input type="hidden" name="user_id" value="<jsp:getProperty name="user" property="user_id" />">
+			<input type="hidden" name="user_id" value="<%=request.getParameter("user_id")%>">
 			<input type="submit" value="はい">
 		</form>
 	</div>
