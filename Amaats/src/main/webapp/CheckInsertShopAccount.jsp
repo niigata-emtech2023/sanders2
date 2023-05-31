@@ -9,8 +9,8 @@
 </head>
 <body>
 	<div id="wrapper">
-		<div class="header"><%@ include file="header.jsp"%></div>
 
+		<div class="header"><%@ include file="header.jsp"%></div>
 		<div id="contents">
 			この内容で登録しますがよろしいですか？<br> 店舗ID：<%=request.getParameter("shop_id")%><br>
 			店舗名：<%=request.getParameter("shop_name")%><br> パスワード：
@@ -36,8 +36,8 @@
 				</form>
 			</div>
 		</div>
-		<div class="footer"><%@ include file="footer.jsp"%></div>
 
+		<div class = "footer"><%@ include file="footer.jsp" %></div>
 	</div>
 </body>
 </html>
