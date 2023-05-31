@@ -15,7 +15,6 @@
 		    
 		    <form action="/Amaats/Main" method="post" enctype="multipart/form-data">
 		    写真:<input type="file" name="pict"><br>
-		    <button type="submit">送信</button>
 		    </form>
 		    
 		    <form action="check-insert-sweets-info-servlet" method="POST">
