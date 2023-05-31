@@ -12,7 +12,7 @@
 		<div class="header"><%@ include file="header.jsp" %>
 		</div>
 		<div id = "contents">
-			<form action="CheckShopUpdateServlet" method="post">
+			<form action="check-shop-update-servlet" method="post">
 				店舗ID：${shop.shop_id}<br>
 				店舗名：<input type="text" name="user_name" value="${shop.shop_name}"><br>
 				パスワード：<input type="password" name="password" value="${shop.shop.password}"><br>
