@@ -33,5 +33,6 @@
 			<input type="submit" value="はい">
 		</form>
 	</div>
+	<%@ include file="footer.jsp" %>
 </body>
 </html>

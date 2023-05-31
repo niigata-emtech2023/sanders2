@@ -17,6 +17,6 @@
     <form action="UpdateAdminAccount.jsp" method="POST">
         <input type="submit" value="編集する">
     </form>
-    <jsp:include page="footer.jsp" />
+    <%@ include file="footer.jsp" %>
 </body>
 </html>

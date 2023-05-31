@@ -17,6 +17,6 @@
 	<form action="ShowUserAccountServlet" method="POST">
 		<input type="submit" value="一覧表示">
 	</form>
-	<jsp:include page="footer.jsp" />
+	<%@ include file="footer.jsp" %>
 </body>
 </html>

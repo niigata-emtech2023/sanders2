@@ -33,5 +33,6 @@
 		</table>
 		<input type="submit" value="注文を確定する">
 	</form>
+	<%@ include file="footer.jsp" %>
 </body>
 </html>

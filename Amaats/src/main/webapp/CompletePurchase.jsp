@@ -7,9 +7,12 @@
 <title>購入確定画面</title>
 </head>
 <body>
+	<%@ include file="header.jsp" %>
 	ご注文ありがとうございました。
 	<form action="MenuServlet" method="post">
 		<inout type="submit" value="メニュー画面に戻る">
 	</form>
+	
+	<%@ include file="footer.jsp" %>
 </body>
 </html>

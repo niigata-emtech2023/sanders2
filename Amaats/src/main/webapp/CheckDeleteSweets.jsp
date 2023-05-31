@@ -26,7 +26,7 @@
 
 
 
-
+<div>
 	<form action="delete-sweets-servlet" method="POST">
 		<input type="hidden" name="sweets_id" value=<%=bean.getSweets_id()%>>
 		<input type="hidden" name="sweets_name"value=<%=bean.getSweets_name()%>> 
@@ -36,17 +36,11 @@
 		<input type="hidden"name="shop_id" value=<%=bean.getShop_id()%>> 
 		<input type="submit" value="はい">
 	</form>
-
-
-
-
-
-	<div>
+	
 		<form action="show-delete-sweets-servlet" method="POST">
 			<input type="submit" value="いいえ">
 		</form>
-
-
 	</div>
+	<%@ include file="footer.jsp" %>
 </body>
 </html>
