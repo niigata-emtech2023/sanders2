@@ -13,7 +13,7 @@
 	<form action="check-shop-update-servlet" method="post">
 		店舗ID：${shop.shop_id}<br>
 		店舗名：<input type="text" name="user_name" value="${shop.shop_name}"><br>
-		パスワード：<input type="password" name="password" value="${shop.shop.password}"><br>
+		パスワード：<input type="password" name="password" value="${shop.shop_password}"><br>
 		住所：<input type="text" name="user_genre"value="${shop.shop_adress}"><br>
 		電話番号：<input type="text" name="user_adress"value="${shop.shop_tel}"><br>
 		<input type="submit" value="変更する">

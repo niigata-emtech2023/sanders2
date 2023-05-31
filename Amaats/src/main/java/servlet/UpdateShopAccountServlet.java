@@ -46,7 +46,7 @@ public class UpdateShopAccountServlet extends HttpServlet {
 		sb.setShop_id(request.getParameter("shop_id"));
 		sb.setShop_name(request.getParameter("shop_name"));
 		sb.setShop_password(request.getParameter("shop_password"));
-		sb.setShop_address(request.getParameter("shop_address"));
+		sb.setShop_adress(request.getParameter("shop_address"));
 		sb.setShop_tel(request.getParameter("shop_tel"));
 		
 		try {

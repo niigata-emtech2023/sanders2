@@ -16,7 +16,7 @@
     %>
     店舗名：<%=bean.getShop_name() %><br>
     ログインID：<%=bean.getShop_id() %><br>
-    住所：<%=bean.getShop_address() %><br>
+    住所：<%=bean.getShop_adress() %><br>
     電話番号：<%=bean.getShop_tel() %><br>
     
     <form action="UpdateShopAccount.jsp" method="POST">
