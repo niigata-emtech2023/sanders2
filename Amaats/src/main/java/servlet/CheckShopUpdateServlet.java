@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.dao.AccountDAO;
+import model.entity.ShopBean;
 
 /**
  * Servlet implementation class CheckShopUpdate
@@ -49,6 +50,8 @@ public class CheckShopUpdateServlet extends HttpServlet {
 		if (shop_id != null) {
 			
 			try {
+				ShopBean sb=new ShopBean();
+				
 				
 				boolean flag = true;
 				
@@ -66,8 +69,14 @@ public class CheckShopUpdateServlet extends HttpServlet {
 				
 				if (flag) {
 					
+					sb.setShop_name(request.getParameter("shop_name"));
+					sb.setShop_id(request.getParameter("shop_id"));
+					sb.setShop_password(request.getParameter("shop_password"));
+					sb.setShop_address(request.getParameter("shop_address"));
+					sb.setShop_tel(request.getParameter("shop_tel"));
+					
 					url = "UpdateShopCheck.jsp";
-					request.setAttribute("bean", adao.getShopAccount(shop_id));
+					request.setAttribute("bean", sb);
 					
 				} else {
 					
