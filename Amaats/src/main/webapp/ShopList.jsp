@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>店舗一覧</title>
+<link rel = "stylesheet" href = "style.css">
 </head>
 <body>
 	<header>

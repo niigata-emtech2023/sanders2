@@ -5,14 +5,20 @@ body {
 	text-align: center;
 }
 
-header {
+.header {
 	
 	background-color: #ffaaaa;
+	top: 0;
+	left: 0;
+	height: 100px;
 	
 }
 
-footer {
+.footer {
 	
 	background-color: #ffaaaa;
+	bottom: 0;
+	left: 0;
+	height: 100px;
 	
 }
