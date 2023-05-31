@@ -196,7 +196,7 @@ public class SweetsDAO {
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
 
-			pstmt.setString(1, "%" + sql + "%");
+			pstmt.setString(1, "%" + sweets_name + "%");
 
 			ResultSet res = pstmt.executeQuery();
 
@@ -234,7 +234,7 @@ public class SweetsDAO {
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
 
-			pstmt.setString(1, "%" + sql + "%");
+			pstmt.setString(1, "%" + sweets_genre + "%");
 
 			ResultSet res = pstmt.executeQuery();
 
