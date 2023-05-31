@@ -42,5 +42,9 @@
 		</div>
 		<div class="footer"><jsp:include page="footer.jsp" /></div>
 	</div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/niigata-emtech2023/sanders2
 </body>
 </html>

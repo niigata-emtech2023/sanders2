@@ -56,5 +56,9 @@
 			</table>
 		</div>
 	</div>
+<<<<<<< HEAD
+=======
+	<div class="footer"><jsp:include page = "footer.jsp" /></div>
+>>>>>>> branch 'master' of https://github.com/niigata-emtech2023/sanders2
 </body>
 </html>
