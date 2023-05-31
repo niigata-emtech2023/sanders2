@@ -56,6 +56,9 @@
 			</table>
 		</div>
 	</div>
-	<div class="footer"><jsp:include page = "footer.jsp" /></div>
+	<% String authority = (String) session.getAttribute("authority"); 
+		   if (authority.equals("user")) {%>
+		<div class="footer"><jsp:include page = "footer.jsp"/></div>
+		<% } %>
 </body>
 </html>

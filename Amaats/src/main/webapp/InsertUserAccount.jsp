@@ -11,6 +11,7 @@
 	<div id = "wrapper">
 		<div id = "contents">
 			<img src = "image/amaats_logo.png" alt = "Amaats" id="logo"><br>
+			<h2>ユーザー新規登録</h2>
 			<span class = "alert">${alert}</span><br>
 			<form action = "check-insert-user-account-servlet" method = "POST">
 				<div class="textsize">

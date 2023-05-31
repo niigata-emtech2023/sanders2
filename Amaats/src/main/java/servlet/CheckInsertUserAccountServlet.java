@@ -92,7 +92,8 @@ public class CheckInsertUserAccountServlet extends HttpServlet {
 					
 					if (user.getUser_id().equals(request.getParameter("user_id"))) {
 						
-						flag = false;
+						rd = request.getRequestDispatcher("InsertUserAccount.jsp");
+						request.setAttribute("alert", "このログインIDは使用されています。");
 						
 					}
 					
@@ -111,8 +112,9 @@ public class CheckInsertUserAccountServlet extends HttpServlet {
 				
 			} else {
 				
-				request.setAttribute("alert", "入力情報に不備があります");
+				request.setAttribute("alert", "入力情報に不備があります。");
 				rd = request.getRequestDispatcher("InsertUserAccount.jsp");
+				rd.forward(request, response);
 				
 			}
 			

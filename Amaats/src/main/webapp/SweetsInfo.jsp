@@ -14,6 +14,19 @@
     <div id = "contents">
 	    <%
 	    SweetsBean bean = (SweetsBean)request.getAttribute("bean");
+	    
+	    try {
+	    	
+	    	bean.getSweets_name();
+	    	
+	    } catch (NullPointerException e) {
+	    	
+	    	bean.setSweets_name("");
+	    	bean.setSweets_genre("");
+	    	bean.setSweets_value(0);
+	    	bean.setSweets_info("");
+	    	
+	    }
 	    %>
 	    
 	    商品名：<%=bean.getSweets_name()%><br>
