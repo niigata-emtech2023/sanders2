@@ -2,8 +2,6 @@ package servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -43,95 +41,29 @@ public class InsertUserServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.setCharacterEncoding("UTF-8");
-		
 		AccountDAO adao = new AccountDAO();
-		List<UserBean> userList = new ArrayList<UserBean>();
 		RequestDispatcher rd;
-		boolean flag = true;
-		
-		/* 入力情報に不備がないか確認 */
-		if (request.getParameter("user_id").length() <= 0) {
-			
-			flag = false;
-			
-		}
-		
-		if (request.getParameter("user_name").length() <= 0) {
-			
-			flag = false;
-			
-		}
-		
-		if (request.getParameter("password").length() <= 0) {
-			
-			flag = false;
-			
-		}
-		
-		if (!request.getParameter("passcon").equals(request.getParameter("password"))) {
-			
-			flag = false;
-			
-		}
-		
-		if (request.getParameter("user_address").length() <= 0) {
-			
-			flag = false;
-			
-		}
 		
 		try {
 			
-			userList = adao.getUserList();
+			UserBean ub = new UserBean();
+			ub.setUser_id(request.getParameter("user_id"));
+			ub.setUser_name(request.getParameter("user_name"));
+			ub.setPassword(request.getParameter("password"));
+			ub.setUser_address(request.getParameter("user_address"));
+			adao.insertNewUser(ub);
 			
-			/* 同じユーザーIDがないか確認 */
-			try {
-				
-				for (UserBean user: userList) {
-					
-					if (user.getUser_id().equals(request.getParameter("user_id"))) {
-						
-						flag = false;
-						
-					}
-					
-				}
-				
-			} catch (NullPointerException e) {
-				
-				
-				
-			}
-			
-			/* 入力情報に不備がなければ登録、あれば戻る */
-			if (flag) {
-				
-				UserBean ub = new UserBean();
-				ub.setUser_id(request.getParameter("user_id"));
-				ub.setUser_name(request.getParameter("user_name"));
-				ub.setPassword(request.getParameter("password"));
-				ub.setUser_address(request.getParameter("user_address"));
-				int count = adao.insertNewUser(ub);
-				System.out.println(count);
-				rd = request.getRequestDispatcher("UserInsertResult.jsp");
-				
-			} else {
-				
-				request.setAttribute("alert", "入力情報に不備があります");
-				rd = request.getRequestDispatcher("InsertUser.jsp");
-				
-			}
+			rd = request.getRequestDispatcher("InsertUserResult.jsp");
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
-			request.setAttribute("alert", "ユーザー登録ができるか確認が取れませんでした。");
-			rd = request.getRequestDispatcher("InsertUser.jsp");
+			
+			rd = request.getRequestDispatcher("InsertUserResult.jsp");
+			request.setAttribute("alert", "データベースの操作に失敗しました。");
 			
 		} catch (ClassNotFoundException e) {
 			
-			request.setAttribute("alert", "データベースにアクセスできませんでした。");
-			rd = request.getRequestDispatcher("InsertUser.jsp");
+			rd = request.getRequestDispatcher("InsertUserResult.jsp");
+			request.setAttribute("alert", "データベースに接続できませんでした。");
 			
 		}
 		

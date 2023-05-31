@@ -18,14 +18,14 @@ import model.entity.UserBean;
 /**
  * Servlet implementation class ShowAccountList
  */
-@WebServlet("/show-account-list")
-public class ShowAccountList extends HttpServlet {
+@WebServlet("/show-account-list-servlet")
+public class ShowAccountListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public ShowAccountList() {
+	public ShowAccountListServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}

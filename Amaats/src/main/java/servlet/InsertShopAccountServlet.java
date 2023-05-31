@@ -54,15 +54,15 @@ public class InsertShopAccountServlet extends HttpServlet {
 			try {
 				
 				sb.setShop_id(request.getParameter("shop_id"));
-				sb.setShop_name(request.getParameter("shop_id"));
-				sb.setShop_password(request.getParameter("shop_id"));
+				sb.setShop_name(request.getParameter("shop_name"));
+				sb.setShop_password(request.getParameter("password"));
 				
 				adao.insertNewShop(sb);
 				
 				rd = request.getRequestDispatcher("InsertShopAccountResult.jsp");
 				
 			} catch (SQLException | ClassNotFoundException e) {
-				
+				e.printStackTrace();
 				rd = request.getRequestDispatcher("InsertShopAccount.jsp");
 				request.setAttribute("alert", "データベースの操作を完了できませんでした。");
 				
