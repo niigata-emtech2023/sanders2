@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.dao.AccountDAO;
-import model.entity.AdminBean;
 
 /**
  * Servlet implementation class CheckSAdminpdateServlet
@@ -42,25 +41,41 @@ public class CheckAdminUpdateServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
-		
+		HttpSession session = request.getSession();
 		String url = null;
-		String admin_id = request.getParameter("admin_id");
-		
-		AccountDAO dao = new AccountDAO();
+		String admin_id = (String) session.getAttribute("session_id");
+		AccountDAO adao = new AccountDAO();
 		
 		if (admin_id != null) {
-			try {
-			AdminBean admin = dao.selectAdmin(admin_id);
-
-			HttpSession session = request.getSession();
-
-			session.setAttribute("admin", admin);
 			
-			url = "updateAdminCheck.jsp";
+			try {
+				
+				boolean flag = true;
+				
+				if (request.getParameter("admin_password").length() > 16 || request.getParameter("admin_password").length() <= 0) {
+					
+					flag = false;
+					
+				}
+				
+				if (flag) {
+					
+					url = "UpdateAdminCheck.jsp";
+					request.setAttribute("bean", adao.getAdminAccount(admin_id));
+					
+				} else {
+					
+					url = "UpdateAdminAccount.jsp";
+					request.setAttribute("alert", "入力情報に不備があります。");
+					
+				}
+			
+			
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		} else {
+			session.invalidate();
 			url = "Login.jsp";
 		}
 		

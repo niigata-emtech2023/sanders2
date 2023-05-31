@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.dao.AccountDAO;
-import model.entity.UserBean;
 
 /**
  * Servlet implementation class CheckUserUpdateServlet
@@ -42,31 +41,59 @@ public class CheckUserUpdateServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
-		request.setCharacterEncoding("UTF-8");
-		
+		HttpSession session = request.getSession();
 		String url = null;
-		String user_id = request.getParameter("user_id");
-		
-		AccountDAO dao = new AccountDAO();
+		String user_id = (String) session.getAttribute("session_id");
+		AccountDAO adao = new AccountDAO();
 		
 		if (user_id != null) {
-			try {
-			UserBean user = dao.selectUser(user_id);
-
-			HttpSession session = request.getSession();
-
-			session.setAttribute("user", user);
 			
-			url = "updateUserCheck.jsp";
+			try {
+				
+				boolean flag = true;
+				
+				if (request.getParameter("password").length() > 16 || request.getParameter("password").length() <= 0) {
+					
+					flag = false;
+					
+				}
+				
+				if (request.getParameter("user_name").length() > 16 || request.getParameter("user_name").length() <= 0) {
+					
+					flag = false;
+					
+				}
+				
+				if (request.getParameter("user_address").length() > 16 || request.getParameter("user_address").length() <= 0) {
+					
+					flag = false;
+					
+				}
+				
+				if (flag) {
+					
+					url = "UpdateUserCheck.jsp";
+					request.setAttribute("bean", adao.getUserAccount(user_id));
+					
+				} else {
+					
+					url = "UpdateUserAccount.jsp";
+					request.setAttribute("alert", "入力情報に不備があります。");
+					
+				}
+			
+			
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		} else {
+			session.invalidate();
 			url = "Login.jsp";
 		}
 		
 		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);
+	
 	}
 
 }

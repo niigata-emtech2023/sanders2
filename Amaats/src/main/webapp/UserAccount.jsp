@@ -8,7 +8,7 @@
 <link rel = "stylesheet" href = "style.css">
 </head>
 <body>
-    <div class="header"><jsp:include page = "header.jsp">
+    <div class="header"><jsp:include page = "header.jsp" />
     </div>
     <%
     UserBean bean = (UserBean)request.getAttribute("bean");

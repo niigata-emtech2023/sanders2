@@ -11,7 +11,7 @@
 <body>
 	<div class="header"><%@ include file="header.jsp" %>
 	</div>
-	<form action="CheckUserUpdateServlet" method="post">
+	<form action="check-user-update-servlet" method="post">
 		ユーザーID：${user.user_id}<br>
 		氏名：<input type="text" name="user_name" value="${user.user_name}"><br>
 		パスワード：<input type="password" name="password" value="${user.password}"><br>
