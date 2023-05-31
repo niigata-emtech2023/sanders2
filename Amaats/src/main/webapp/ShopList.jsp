@@ -25,7 +25,7 @@
 			<% for (ShopBean shop: shopList) {%>
 			<tr>
 				<td><%=shop.getShop_name()%></td>
-				<td><%=shop.getShop_adress()%></td>
+				<td><%=shop.getShop_address()%></td>
 				<td>
 					<form action = "search-result-servlet" method = "POST">
 						<input type = "hidden" name = "shop_id" value = "<%=shop.getShop_id()%>">
