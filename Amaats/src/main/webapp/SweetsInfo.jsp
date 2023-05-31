@@ -29,6 +29,13 @@
 	    }
 	    %>
 	    
+	    
+	    <%
+	    String name=(String)request.getAttribute("name");
+	    String word=(String)request.getAttribute("word");
+	    String filename=(String)request.getAttribute("filename");
+	    %>
+	    <img src="/Amaats/upload/<%=filename %>">
 	    商品名：<%=bean.getSweets_name()%><br>
 	    カテゴリ：<%=bean.getSweets_genre()%><br>
 	    価格：<%=bean.getSweets_value()%><br>
