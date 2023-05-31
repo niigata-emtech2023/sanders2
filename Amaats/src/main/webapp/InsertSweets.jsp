@@ -12,6 +12,12 @@
 	    <div class = "header"><%@ include file="header.jsp" %></div>
 	    <div id="contents">
 		    <span>${alert}</span>
+		    
+		    <form action="/Amaats/Main" method="post" enctype="multipart/form-data">
+		    写真:<input type="file" name="pict"><br>
+		    <button type="submit">送信</button>
+		    </form>
+		    
 		    <form action="check-insert-sweets-info-servlet" method="POST">
 		    商品名：<input type="text" name="sweets_name"><br>
 		    カテゴリ：
