@@ -14,7 +14,7 @@
 		List<SweetsBean> sweetsList
 			= (List<SweetsBean>) request.getAttribute("sweetsList");
 	%>
-	<table>
+	<table border = "1">
 		<tr>
 			
 			<th>商品名</th>

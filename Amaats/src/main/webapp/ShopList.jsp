@@ -16,7 +16,7 @@
 	<%	AccountDAO adao = new AccountDAO();
 		List<ShopBean> shopList = adao.getShopList(); %>
 		
-		<table>
+		<table border = "1">
 			<tr>
 				<th>店舗名</th>
 				<th>住所</th>
@@ -27,7 +27,7 @@
 				<td><%=shop.getShop_name()%></td>
 				<td><%=shop.getShop_address()%></td>
 				<td>
-					<form action = "search-result-servlet" method = "POST">
+					<form action = "search-shop-servlet" method = "POST">
 						<input type = "hidden" name = "shop_id" value = "<%=shop.getShop_id()%>">
 						<input type = "submit" value = "商品一覧">
 					</form>
