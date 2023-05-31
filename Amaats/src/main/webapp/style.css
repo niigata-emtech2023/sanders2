@@ -22,3 +22,34 @@ body {
 	height: 100px;
 	
 }
+
+input[type=text],[type=password]{
+	width:200px;
+	height:20px;
+	font-size: 70%;
+}
+
+#logo {
+	height: 300px;
+	width: 300px;
+}
+
+.logintext {
+	font-size: 25px;
+	margin: 30px;
+}
+
+.loginbutton {
+	width: 100px;
+	height: 30px;
+}
+
+.logouttext {
+	font-size: 25px;
+	padding: 40px;
+}
+
+.alert {
+	color: red;
+	font-size: 20px;
+}

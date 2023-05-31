@@ -8,13 +8,15 @@
 <link rel = "stylesheet" href = "style.css">
 </head>
 <body>
-	<img src = "image/amaats_logo.png" alt = "Amaats"><br>
+	<img src = "image/amaats_logo.png" alt = "Amaats" id="logo"><br>
 	<span class = "alert">${alert}</span>
 	<form action = "login-servlet" method = "POST">
-		ログインID：<input type = "text" name = "id"><br>
-		パスワード：<input type = "password" name = "password"><br>
-		<a href = "InsertUser.jsp">新規会員登録</a><br>
-		<input type = "submit" value = "ログイン">
+		<div class="logintext">
+			ログインID：<input type = "text" name = "id"><br>
+			パスワード：<input type = "password" name = "password"><br>
+			<a href = "InsertUser.jsp">新規会員登録</a><br>
+		</div>
+		<input type = "submit" value = "ログイン" class="loginbutton">
 	</form>
 </body>
 </html>
