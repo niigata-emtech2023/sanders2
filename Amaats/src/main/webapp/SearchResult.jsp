@@ -10,11 +10,13 @@
 <body>
 	<div class="header"><%@ include file="header.jsp" %>
     </div>
-		<%
+	<%
 		List<SweetsBean> sweetsList
 			= (List<SweetsBean>) request.getAttribute("sweetsList");
 	%>
+	<% try { sweetsList.size();%>
 	<table><caption>検索結果一覧</caption>
+	
 		<thead><tr>
 			<th>商品名</th>
 			<th>値段</th>
@@ -47,6 +49,9 @@
 		%>
 		</tbody>
 	</table>
+	<% } catch (NullPointerException e) { %>
+	該当する商品はありませんでした。<br>
+	<% } %>
 	<%@ include file="footer.jsp" %>
 </body>
 </html>

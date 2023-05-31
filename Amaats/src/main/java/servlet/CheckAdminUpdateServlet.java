@@ -41,6 +41,7 @@ public class CheckAdminUpdateServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
+		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 		String url = null;
 		String admin_id = (String) session.getAttribute("session_id");
@@ -59,8 +60,8 @@ public class CheckAdminUpdateServlet extends HttpServlet {
 				}
 				
 				if (flag) {
-					
 					url = "UpdateAdminCheck.jsp";
+					request.setAttribute("admin_password", request.getParameter("admin_password"));
 					request.setAttribute("bean", adao.getAdminAccount(admin_id));
 					
 				} else {
