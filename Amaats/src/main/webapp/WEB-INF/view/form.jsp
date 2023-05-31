@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>アップロードテスト</title>
+<title>画像アップロード</title>
 </head>
 <body>
 <form action="/Amaats/Main" method="post" enctype="multipart/form-data">
