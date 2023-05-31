@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.dao.AccountDAO;
 import model.entity.ShopBean;
 
 /**
@@ -45,7 +44,6 @@ public class CheckShopUpdateServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		String url = null;
 		String shop_id = (String) session.getAttribute("session_id");
-		AccountDAO adao = new AccountDAO();
 		
 		if (shop_id != null) {
 			
