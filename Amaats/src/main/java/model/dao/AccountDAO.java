@@ -289,7 +289,7 @@ public class AccountDAO {
 	}
 
 	public void UpdateShop(ShopBean shop) throws ClassNotFoundException, SQLException {
-		String sql = "UPDATE m_shop SET user_name = ?, password = ?, user_genre = ?, user_adress = ? WHERE user_id = ?";
+		String sql = "UPDATE m_shop SET shop_name = ?, shop_password = ?, shop_address = ?, shop_tel = ? WHERE user_id = ?";
 
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
@@ -298,12 +298,12 @@ public class AccountDAO {
 			String shop_id = bean.getShop_id();
 			String shop_name = bean.getShop_name();
 			String shop_password = bean.getShop_password();
-			String shop_adress = bean.getShop_address();
+			String shop_address = bean.getShop_address();
 			String shop_tel = bean.getShop_tel();
 
 			pstmt.setString(1, shop_name);
 			pstmt.setString(2, shop_password);
-			pstmt.setString(3, shop_adress);
+			pstmt.setString(3, shop_address);
 			pstmt.setString(4, shop_tel);
 			pstmt.setString(5, shop_id);
 
@@ -317,13 +317,11 @@ public class AccountDAO {
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
 
-			AdminBean bean = new AdminBean();
+			String admin_id = admin.getAdmin_id();
+			String admin_password = admin.getAdmin_password();
 
-			String admin_id = bean.getAdmin_id();
-			String admin_password = bean.getAdmin_password();
-
-			pstmt.setString(1, admin_id);
-			pstmt.setString(2, admin_password);
+			pstmt.setString(2, admin_id);
+			pstmt.setString(1, admin_password);
 
 			pstmt.executeUpdate();
 		}

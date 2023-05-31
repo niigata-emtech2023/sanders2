@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"import="model.entity.UserBean"%>
+	pageEncoding="UTF-8" import="model.entity.UserBean"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,7 +38,7 @@
 		<input type="submit" value="戻る">
 	</form>
 	
-	<jsp:include page = "footer.jsp">
+	<div class= "footer"><jsp:include page = "footer.jsp" /></div>
 
 </body>
 </html>

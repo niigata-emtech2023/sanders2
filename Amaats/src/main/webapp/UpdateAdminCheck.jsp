@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"import="model.entity.AdminBean"%>
+	pageEncoding="UTF-8" import="model.entity.AdminBean"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,19 +20,19 @@
     %>
     
 	ログインID：<%=bean.getAdmin_id() %><br>
-	パスワード：<%=bean.getAdmin_password() %><br>
+	パスワード：<%=(String) request.getAttribute("admin_password")%><br>
 
 	<form action="update-admin-account-servlet" method="POST">
 		<input type="hidden" name = "admin_id" value=<%=bean.getAdmin_id() %>>
-		<input type="hidden" name = "admin_password" value=<%=bean.getAdmin_password() %>>
+		<input type="hidden" name = "admin_password" value=<%=(String) request.getAttribute("admin_password")%>>
 		<input type="submit" value="はい">
 	</form>
 
-	<form action="UpdateUserAccount.jsp" method="POST">
+	<form action="UpdateAdminAccount.jsp" method="POST">
+		<input type="hidden" name = "admin_id" value=<%=bean.getAdmin_id() %>>
+		<input type="hidden" name = "admin_password" value=<%=(String) request.getAttribute("admin_password")%>>
 		<input type="submit" value="戻る">
 	</form>
-	
-	<jsp:include page = "footer.jsp">
 
 </body>
 </html>
