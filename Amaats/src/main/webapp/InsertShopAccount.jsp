@@ -22,7 +22,6 @@
 				<input type = "submit" value = "登録">
 			</form>
 		</div>
-		<div class = "footer"><jsp:include page = "footer.jsp" /></div>
 	</div>
 </body>
 </html>

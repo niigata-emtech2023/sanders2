@@ -46,7 +46,7 @@
 			<%
 				List<ShopBean> shopList = (List<ShopBean>) request.getAttribute("shopList");
 			%>
-			<table>
+			<table border = "1">
 				<tr>
 					<th>店舗ID</th>
 					<th>店舗名</th>
@@ -75,7 +75,6 @@
 				%>
 			</table>
 		</div>
-		<div class="footer"><jsp:include page = "footer.jsp" />
 		</div>
 	</div>
 </body>

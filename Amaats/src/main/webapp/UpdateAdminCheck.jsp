@@ -13,7 +13,7 @@
 	<%
 	request.setCharacterEncoding("UTF-8");
 	%>
-	アカウント編集情報を以下の内容に変更します。よろしいですか？
+	アカウント情報を以下の内容に変更します。よろしいですか？
 	<br>
 	<%
     AdminBean bean = (AdminBean)request.getAttribute("bean");
@@ -25,7 +25,7 @@
 	<form action="update-admin-account-servlet" method="POST">
 		<input type="hidden" name = "admin_id" value=<%=bean.getAdmin_id() %>>
 		<input type="hidden" name = "admin_password" value=<%=(String) request.getAttribute("admin_password")%>>
-		<input type="submit" value="はい">
+		<input type="submit" value="変更">
 	</form>
 
 	<form action="UpdateAdminAccount.jsp" method="POST">
