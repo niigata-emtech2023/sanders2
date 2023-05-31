@@ -8,7 +8,7 @@
 <link rel = "stylesheet" href = "style.css">
 </head>
 <body>
-<div class="header"><jsp:include page = "header.jsp">
+<div class="header"><jsp:include page = "header.jsp" />
 	</div>
 	<%
 		List<UserBean> userList = (List<UserBean>) request.getAttribute("userList");
@@ -26,8 +26,13 @@
 			<td><%=user.getUser_id()%></td>
 			<td><%=user.getUser_name()%></td>
 			<td>
-				<form action="ShowDeleteAccountServlet" method="POST">
+				<form action="CheckDeleteUserAccount.jsp" method="POST">
+					<input type="hidden" name="type" value="user">
 					<input type="hidden" name="user_id" value="<%=user.getUser_id()%>">
+					<input type="hidden" name="user_name" value="<%=user.getUser_name()%>">
+					<input type="hidden" name="password" value="<%=user.getPassword()%>">
+					<input type="hidden" name="user_address" value="<%=user.getUser_address()%>">
+					<input type="hidden" name="user_genre" value="<%=user.getUser_genre()%>">
 					<input type="submit" value="削除">
 				</form>
 			</td>
@@ -52,8 +57,13 @@
 			<td><%=shop.getShop_id()%></td>
 			<td><%=shop.getShop_name()%></td>
 			<td>
-				<form action="ShowDeleteAccountServlet" method="POST">
+				<form action="CheckDeleteShopAccount.jsp" method="POST">
+					<input type="hidden" name="type" value="shop">
 					<input type="hidden" name="shop_id" value="<%=shop.getShop_id()%>">
+					<input type="hidden" name="shop_name" value="<%=shop.getShop_name()%>">
+					<input type="hidden" name="shop_password" value="<%=shop.getShop_password()%>">
+					<input type="hidden" name="shop_address" value="<%=shop.getShop_address()%>">
+					<input type="hidden" name="shop_tel" value="<%=shop.getShop_tel()%>">
 					<input type="submit" value="削除">
 				</form>
 			</td>
@@ -62,6 +72,6 @@
 			}
 		%>
 	</table>
-	<jsp:include page = "footer.jsp">
+	<jsp:include page = "footer.jsp" />
 </body>
 </html>

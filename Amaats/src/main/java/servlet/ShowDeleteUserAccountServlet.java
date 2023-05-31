@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.dao.AccountDAO;
+
 /**
  * Servlet implementation class ShowDeleteAccountServlet
  */
@@ -29,8 +31,9 @@ public class ShowDeleteUserAccountServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		doPost(request, response);
+		
 	}
 
 	/**
@@ -41,11 +44,14 @@ public class ShowDeleteUserAccountServlet extends HttpServlet {
 		//doGet(request, response);
 		String url = null;
 		HttpSession session = request.getSession();
-		String user_id = (String) session.getAttribute("user_id");
+		String user_id = (String) session.getAttribute("session_id");
 		
 		if (user_id != null) {
 			try {
-				url = "CheckDeleteAccount.jsp";
+				AccountDAO adao = new AccountDAO();
+				request.setAttribute("userList", adao.getUserList());
+				request.setAttribute("shopList", adao.getShopList());
+				url = "DeleteAccount.jsp";
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

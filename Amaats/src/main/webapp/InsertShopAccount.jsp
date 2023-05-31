@@ -10,7 +10,6 @@
 <body>
 	<div class="header"><jsp:include page = "header.jsp" />
 	</div>
-	<div class = "header"><jsp:include page = "header.jsp" /></div>
 	店舗アカウント登録<br>
 	<span>${alert}</span><br>
 	<form action = "check-insert-shop-account-servlet" method = "POST">

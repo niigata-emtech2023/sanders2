@@ -18,14 +18,14 @@ import model.entity.UserBean;
 /**
  * Servlet implementation class InsertUserServlet
  */
-@WebServlet("/insert-user-servlet")
-public class InsertUserServlet extends HttpServlet {
+@WebServlet("/check-insert-user-account-servlet")
+public class CheckInsertUserAccountServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InsertUserServlet() {
+    public CheckInsertUserAccountServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -104,34 +104,27 @@ public class InsertUserServlet extends HttpServlet {
 				
 			}
 			
-			/* 入力情報に不備がなければ登録、あれば戻る */
+			/* 入力情報に不備がなければ確認、あれば戻る */
 			if (flag) {
 				
-				UserBean ub = new UserBean();
-				ub.setUser_id(request.getParameter("user_id"));
-				ub.setUser_name(request.getParameter("user_name"));
-				ub.setPassword(request.getParameter("password"));
-				ub.setUser_address(request.getParameter("user_address"));
-				int count = adao.insertNewUser(ub);
-				System.out.println(count);
-				rd = request.getRequestDispatcher("UserInsertResult.jsp");
+				rd = request.getRequestDispatcher("CheckInsertUserAccount.jsp");
 				
 			} else {
 				
 				request.setAttribute("alert", "入力情報に不備があります");
-				rd = request.getRequestDispatcher("InsertUser.jsp");
+				rd = request.getRequestDispatcher("InsertUserAccount.jsp");
 				
 			}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
 			request.setAttribute("alert", "ユーザー登録ができるか確認が取れませんでした。");
-			rd = request.getRequestDispatcher("InsertUser.jsp");
+			rd = request.getRequestDispatcher("InsertUserAccount.jsp");
 			
 		} catch (ClassNotFoundException e) {
 			
 			request.setAttribute("alert", "データベースにアクセスできませんでした。");
-			rd = request.getRequestDispatcher("InsertUser.jsp");
+			rd = request.getRequestDispatcher("InsertUserAccount.jsp");
 			
 		}
 		

@@ -47,31 +47,29 @@ public class CheckInsertShopAccountServlet extends HttpServlet {
 			boolean flag = true;
 
 			if (request.getParameter("shop_id").length() <= 0 || request.getParameter("shop_id").length() > 10) {
-
 				flag = false;
 
 			}
 
 			if (request.getParameter("shop_name").length() <= 0 || request.getParameter("shop_id").length() > 32) {
-
 				flag = false;
 
 			}
 
 			if (request.getParameter("password").length() <= 0 || request.getParameter("password").length() > 16) {
-
+				
 				flag = false;
 
 			}
 
 			if (!request.getParameter("password").equals(request.getParameter("passcon"))) {
-
+				
 				flag = false;
 
 			}
 
 			if (flag) {
-
+				
 				rd = request.getRequestDispatcher("CheckInsertShopAccount.jsp");
 
 			} else {

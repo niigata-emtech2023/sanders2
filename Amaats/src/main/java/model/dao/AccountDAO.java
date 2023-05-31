@@ -237,11 +237,6 @@ public class AccountDAO {
 			pstmt.setString(1, user.getUser_id());
 			pstmt.setString(2, user.getUser_name());
 			pstmt.setString(3, user.getPassword());
-
-			pstmt.setString(5, user.getUser_address());
-
-			pstmt.setString(4, user.getUser_address());
-
 			pstmt.setString(4, user.getUser_address());
 
 			count = pstmt.executeUpdate();
@@ -258,18 +253,13 @@ public class AccountDAO {
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
 
-			ShopBean bean = new ShopBean();
-			String shop_id = bean.getShop_id();
-			String shop_name = bean.getShop_name();
-			String shop_password = bean.getShop_password();
-			String shop_adress = bean.getShop_address();
-			String shop_tel = bean.getShop_tel();
+			String shop_id = shop.getShop_id();
+			String shop_name = shop.getShop_name();
+			String shop_password = shop.getShop_password();
 
 			pstmt.setString(1, shop_id);
 			pstmt.setString(2, shop_name);
 			pstmt.setString(3, shop_password);
-			pstmt.setString(4, shop_adress);
-			pstmt.setString(5, shop_tel);
 
 			pstmt.executeUpdate();
 		}

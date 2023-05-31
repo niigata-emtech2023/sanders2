@@ -15,9 +15,13 @@
     カテゴリ：
     <select name="sweets_genre">
         <option value="default">選択してください</option>
-        <option value="cake">ケーキ</option>
-        <option value="cokkie">クッキー</option>
-        <option value="chocolate">チョコレート</option>
+		<option value="sweets2">ケーキ</option>
+		<option value="sweets3">チョコレート</option>
+		<option value="sweets4">クッキー</option>
+		<option value="sweets5">カヌレ</option>
+		<option value="sweets6">マカロン</option>
+		<option value="sweets7">和菓子</option>
+		<option value="sweets8">その他</option>
     </select><br>
     
     価格：<input type = "text" name="sweets_value"><br>

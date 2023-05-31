@@ -9,21 +9,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import model.dao.AccountDAO;
+import model.entity.UserBean;
 
 /**
- * Servlet implementation class DeleteAccountServlet
+ * Servlet implementation class InsertUserServlet
  */
-@WebServlet("/delete-account-servlet")
-public class DeleteAccountServlet extends HttpServlet {
+@WebServlet("/insert-user-account-servlet")
+public class InsertUserAccountServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteAccountServlet() {
+    public InsertUserAccountServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,42 +40,36 @@ public class DeleteAccountServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//doGet(request, response);
-		HttpSession session=request.getSession();
+		
+		request.setCharacterEncoding("UTF-8");
+		AccountDAO adao = new AccountDAO();
 		RequestDispatcher rd;
-		AccountDAO adao=new AccountDAO();
 		
 		try {
+			
+			UserBean ub = new UserBean();
+			ub.setUser_id(request.getParameter("user_id"));
+			ub.setUser_name(request.getParameter("user_name"));
+			ub.setPassword(request.getParameter("password"));
+			ub.setUser_address(request.getParameter("user_address"));
+			adao.insertNewUser(ub);
+			
+			rd = request.getRequestDispatcher("InsertUserAccountResult.jsp");
+			
+		} catch (SQLException e) {
+			
+			rd = request.getRequestDispatcher("InsertUserAccount.jsp");
+			request.setAttribute("alert", "データベースの操作に失敗しました。");
+			
+		} catch (ClassNotFoundException e) {
+			
+			rd = request.getRequestDispatcher("InsertUserAccount.jsp");
+			request.setAttribute("alert", "データベースに接続できませんでした。");
+			
+		}
 		
-		if(!session.getAttribute("session_id").equals(null)) {
-			
-			if (request.getParameter("type").equals("shop")) {
-				
-				String shop_id = request.getParameter("shop_id");
-				adao.deleteShop(shop_id);
-				
-			} else {
-				
-				String user_id = request.getParameter("user_id");
-				adao.deleteUser(user_id);
-				
-			}
-			
-			rd = request.getRequestDispatcher("DeleteAccouhntResult.jsp");
-			
-		}else {
-			session.invalidate();
-			rd=request.getRequestDispatcher("Login.jsp");
-			
-		}
-		}catch(ClassNotFoundException e) {
-			rd=request.getRequestDispatcher("show-delete-user-account-servlet");
-		}catch(SQLException e) {
-			rd=request.getRequestDispatcher("show-delete-user-account-servlet");
-			
-		}
 		rd.forward(request, response);
+		
 	}
 
 }

@@ -4,13 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>新規登録</title>
+<title>ユーザー新規登録</title>
 <link rel = "stylesheet" href = "style.css">
 </head>
 <body>
 	<img src = "image/amaats_logo.png" alt = "Amaats"><br>
 	<span class = "alert">${alert}</span><br>
-	<form action = "insert-user-servlet" method = "POST">
+	<form action = "check-insert-user-account-servlet" method = "POST">
 		名前：<input type = "text" name = "user_name"><br>
 		ログインID：<input type = "text" name = "user_id"><br>
 		パスワード：<input type = "password" name = "password"><br>
