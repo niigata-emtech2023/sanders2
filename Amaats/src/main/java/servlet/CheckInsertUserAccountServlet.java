@@ -18,14 +18,14 @@ import model.entity.UserBean;
 /**
  * Servlet implementation class InsertUserServlet
  */
-@WebServlet("/check-insert-user-servlet")
-public class CheckInsertUserServlet extends HttpServlet {
+@WebServlet("/check-insert-user-account-servlet")
+public class CheckInsertUserAccountServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CheckInsertUserServlet() {
+    public CheckInsertUserAccountServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -104,16 +104,10 @@ public class CheckInsertUserServlet extends HttpServlet {
 				
 			}
 			
-			/* 入力情報に不備がなければ登録、あれば戻る */
+			/* 入力情報に不備がなければ確認、あれば戻る */
 			if (flag) {
 				
-				UserBean ub = new UserBean();
-				ub.setUser_id(request.getParameter("user_id"));
-				ub.setUser_name(request.getParameter("user_name"));
-				ub.setPassword(request.getParameter("password"));
-				ub.setUser_address(request.getParameter("user_address"));
-				adao.insertNewUser(ub);
-				rd = request.getRequestDispatcher("UserInsertResult.jsp");
+				rd = request.getRequestDispatcher("CheckUserInsertAccount.jsp");
 				
 			} else {
 				

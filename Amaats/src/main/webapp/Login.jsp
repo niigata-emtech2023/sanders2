@@ -13,7 +13,7 @@
 	<form action = "login-servlet" method = "POST">
 		ログインID：<input type = "text" name = "id"><br>
 		パスワード：<input type = "password" name = "password"><br>
-		<a href = "InsertUser.jsp">新規会員登録</a><br>
+		<a href = "InsertUserAccount.jsp">新規会員登録</a><br>
 		<input type = "submit" value = "ログイン">
 	</form>
 </body>

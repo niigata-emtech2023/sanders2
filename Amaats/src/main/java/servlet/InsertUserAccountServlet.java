@@ -16,14 +16,14 @@ import model.entity.UserBean;
 /**
  * Servlet implementation class InsertUserServlet
  */
-@WebServlet("/insert-user-servlet")
-public class InsertUserServlet extends HttpServlet {
+@WebServlet("/insert-user-account-servlet")
+public class InsertUserAccountServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InsertUserServlet() {
+    public InsertUserAccountServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -53,16 +53,16 @@ public class InsertUserServlet extends HttpServlet {
 			ub.setUser_address(request.getParameter("user_address"));
 			adao.insertNewUser(ub);
 			
-			rd = request.getRequestDispatcher("InsertUserResult.jsp");
+			rd = request.getRequestDispatcher("InsertUserAccountResult.jsp");
 			
 		} catch (SQLException e) {
 			
-			rd = request.getRequestDispatcher("InsertUserResult.jsp");
+			rd = request.getRequestDispatcher("InsertUserAccount.jsp");
 			request.setAttribute("alert", "データベースの操作に失敗しました。");
 			
 		} catch (ClassNotFoundException e) {
 			
-			rd = request.getRequestDispatcher("InsertUserResult.jsp");
+			rd = request.getRequestDispatcher("InsertUserAccount.jsp");
 			request.setAttribute("alert", "データベースに接続できませんでした。");
 			
 		}
