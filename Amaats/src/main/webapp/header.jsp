@@ -6,11 +6,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="hamburger.css">
+<link rel="stylesheet" href="css/header.css">
 </head>
 <body>
 	
 	<div style = "text-align:center">
-		<a href = "show-sweets-list-servlet"><img src = "image/amaats_logo.png" alt = "Amaats"></a>
+		<a href = "show-sweets-list-servlet"><img src = "image/amaats_logo.png" alt = "Amaats" id="logobutton"></a>
 		<form action = "search-name-servlet" method = "POST">
 			<input type = "text" name = "sweets_name">
 			<input type = "submit" value = "検索">
