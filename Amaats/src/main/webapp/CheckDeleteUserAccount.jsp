@@ -24,7 +24,7 @@
 			<input type="submit" value="いいえ">
 		</form>
 		<form action="delete-account-servlet" method="POST">
-			<input type="hidden" name="type" value="shop">
+			<input type="hidden" name="type" value="user">
 			<input type="hidden" name="user_id" value="<%=request.getParameter("user_id")%>">
 			<input type="submit" value="はい">
 		</form>

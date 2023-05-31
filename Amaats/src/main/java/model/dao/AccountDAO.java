@@ -338,6 +338,7 @@ public class AccountDAO {
 			pstmt.setString(1, user_id);
 
 			pstmt.executeUpdate();
+			
 		}
 	}
 
@@ -353,80 +354,82 @@ public class AccountDAO {
 		}
 	}
 
-	public List<UserBean> getUserAccount() throws SQLException, ClassNotFoundException {
-		List<UserBean> userList = new ArrayList<UserBean>();
-		String sql = "SELECT * FROM m_user";
+	public UserBean getUserAccount(String user_id) throws SQLException, ClassNotFoundException {
+		
+		String sql = "SELECT * FROM m_user WHERE user_id = ?";
+		
+		UserBean ub = new UserBean();
 
 		try (Connection con = ConnectionManager.getConnection();
-				Statement stmt = con.createStatement();
-				ResultSet res = stmt.executeQuery(sql)) {
-
-			while (res.next()) {
-				String user_id = res.getString("user_id");
-				String user_name = res.getString("user_name");
-				String password = res.getString("password");
-				String user_genre = res.getString("user_genre");
-				String user_adress = res.getString("user_adress");
-
-				UserBean user = new UserBean();
-				user.setUser_id(user_id);
-				user.setUser_name(user_name);
-				user.setPassword(password);
-				user.setUser_genre(user_genre);
-				user.setUser_address(user_adress);
-
-				userList.add(user);
-			}
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+			
+			pstmt.setString(1, user_id);
+			
+			ResultSet res = pstmt.executeQuery();
+			
+			res.next();
+			
+			ub.setUser_id(res.getString("user_id"));
+			ub.setUser_name(res.getString("user_name"));
+			ub.setPassword(res.getString("password"));
+			ub.setUser_address(res.getString("user_address"));
+			ub.setUser_genre(res.getString("user_genre"));
+			
 		}
-		return userList;
+		
+		return ub;
+		
 	}
 
-	public List<ShopBean> getShopAccount() throws SQLException, ClassNotFoundException {
-		List<ShopBean> shopList = new ArrayList<ShopBean>();
-		String sql = "SELECT * FROM m_shop";
+	public ShopBean getShopAccount(String shop_id) throws SQLException, ClassNotFoundException {
+		
+		String sql = "SELECT * FROM m_shop WHERE shop_id = ?";
+
+		ShopBean sb = new ShopBean();
 
 		try (Connection con = ConnectionManager.getConnection();
-				Statement stmt = con.createStatement();
-				ResultSet res = stmt.executeQuery(sql)) {
-
-			while (res.next()) {
-				String shop_id = res.getString("shop_id");
-				String shop_name = res.getString("shop_name");
-				String shop_password = res.getString("shop_password");
-				String shop_adress = res.getString("shop_adress");
-				String shop_tel = res.getString("shop_tel");
-
-				ShopBean shop = new ShopBean();
-				shop.setShop_id(shop_id);
-				shop.setShop_name(shop_name);
-				shop.setShop_password(shop_password);
-				shop.setShop_address(shop_adress);
-				shop.setShop_tel(shop_tel);
-
-				shopList.add(shop);
-			}
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+			
+			pstmt.setString(1, shop_id);
+			
+			ResultSet res = pstmt.executeQuery();
+			
+			res.next();
+			
+			sb.setShop_id(res.getString("shop_id"));
+			sb.setShop_name(res.getString("shop_name"));
+			sb.setShop_password(res.getString("shop_password"));
+			sb.setShop_address(res.getString("shop_address"));
+			sb.setShop_tel(res.getString("shop_tel"));
+			
 		}
-		return shopList;
+		
+		return sb;
+		
 	}
 
-	public List<AdminBean> getAdminAccount() throws SQLException, ClassNotFoundException {
-		List<AdminBean> adminList = new ArrayList<AdminBean>();
+	public AdminBean getAdminAccount(String admin_id) throws SQLException, ClassNotFoundException {
+		
+		String sql = "SELECT * FROM m_admin WHERE admin_id = ?";
 
-		String sql = "SELECT * FROM m_admin";
+		AdminBean ab = new AdminBean();
 
-		try(Connection con = ConnectionManager.getConnection();
-				Statement stmt =  con.createStatement();
-				ResultSet res = stmt.executeQuery(sql)){
-
-			while(res.next()) {
-				AdminBean admin = new AdminBean();
-				admin.setAdmin_id(res.getString("admin_id"));
-				admin.setAdmin_password(res.getString("admin_password"));
-				adminList.add(admin);
-			}
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+			
+			pstmt.setString(1, admin_id);
+			
+			ResultSet res = pstmt.executeQuery();
+			
+			res.next();
+			
+			ab.setAdmin_id(res.getString("admin_id"));
+			ab.setAdmin_password(res.getString("admin_password"));
+			
 		}
-
-		return adminList;
+		
+		return ab;
+		
 	}
 
 }

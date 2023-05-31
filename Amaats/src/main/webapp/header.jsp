@@ -8,13 +8,9 @@
 <link rel="stylesheet" href="hamburger.css">
 </head>
 <body>
-	<div style = "text-align:left">
-		<form action = "logout-servlet" method = "POST">
-			<input type = "submit" value = "ログアウト">
-		</form>
-	</div>
 	
 	<div style = "text-align:center">
+		<a href = "show-sweets-list-servlet"><img src = "image/amaats_logo.png" alt = "Amaats"></a>
 		<form action = "search-name-servlet" method = "POST">
 			<input type = "text" name = "sweets_name">
 			<input type = "submit" value = "検索">
