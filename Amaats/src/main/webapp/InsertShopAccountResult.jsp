@@ -18,7 +18,6 @@
 		 <input type ="submit" value="戻る">
 		 </form>
 	</div>
-	<div class="footer"><jsp:include page = "footer.jsp" /></div>
 	</div>
 </body>
 </html>

@@ -20,7 +20,6 @@
 		        <input type="submit" value="編集する">
 		    </form>
 	    </div>
-	    <div class = "footer"><%@ include file="footer.jsp" %></div>
     </div>
 </body>
 </html>

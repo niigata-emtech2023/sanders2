@@ -8,20 +8,21 @@
 <link rel="stylesheet" href = "style.css">
 </head>
 <body>
+	<% request.setCharacterEncoding("UTF-8"); %>
 	<div id="wrapper">
 	    <div class = "header"><%@ include file="header.jsp" %></div>
 	    <div id="contents">
 			このアカウントを削除しますが,
 			<br> 本当によろしいですか？<br>
 			
-			ユーザID：<%=request.getParameter("shop_id")%><br>
-			名前：<%=request.getParameter("shop_name")%><br>
+			ログインID：<%=request.getParameter("shop_id")%><br>
+			店名：<%=request.getParameter("shop_name")%><br>
 			パスワード：<%=request.getParameter("shop_password")%><br>
 			住所：<%=request.getParameter("shop_address")%><br>
 			電話番号：<%=request.getParameter("shop_tel")%><br>
 		
 			<div style = "display:inline-flex">
-				<form action="show-delete-account-servlet" method="POST">
+				<form action="show-delete-user-account-servlet" method="POST">
 					<input type="submit" value="いいえ">
 				</form>
 				<form action="delete-account-servlet" method="POST">
@@ -31,7 +32,6 @@
 				</form>
 			</div>
 		</div>
-		<div class = "footer"><%@ include file="footer.jsp" %></div>
 	</div>
 </body>
 </html>
