@@ -11,9 +11,13 @@
 	<form action = "search-genre-servlet" method = "POST">
 		<select name = "genre">
        		<option value="default">ジャンル検索</option>
-        	<option value="cake">ケーキ</option>
-        	<option value="cokkie">クッキー</option>
-        	<option value="chocolate">チョコレート</option>
+        	<option value="sweets1">ケーキ</option>
+        	<option value="sweets2">チョコレート</option>
+        	<option value="sweets3">クッキー</option>
+        	<option value="sweets4">カヌレ</option>
+        	<option value="sweets6">マカロン</option>
+			<option value="sweets7">和菓子</option>
+			<option value="sweets8">その他</option>
 		</select>
 		<input type = "submit" value = "検索">
 	</form>　　　　　
