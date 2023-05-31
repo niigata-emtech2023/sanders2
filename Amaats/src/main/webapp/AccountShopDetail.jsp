@@ -12,7 +12,7 @@
 	店舗ID：${shop.shop_id}<br>
 	店舗名：${shop.shop_name}<br>
 	パスワード：${shop.shop_password}<br>
-	住所：${shop.shop_adress}<br>
+	住所：${shop.shop_address}<br>
 	電話番号：${shop.shop_tel}<br>
 
 	<form action="ShowUserAccountServlet" method="POST">

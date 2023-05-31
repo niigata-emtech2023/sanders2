@@ -42,7 +42,7 @@ public class ShopBean implements Serializable{
 		return shop_address;
 	}
 
-	public void setShop_adress(String shop_address) {
+	public void setShop_address(String shop_address) {
 		this.shop_address = shop_address;
 	}
 

@@ -140,7 +140,7 @@ public class AccountDAO {
 				shop.setShop_id(res.getString("shop_id"));
 				shop.setShop_name(res.getString("shop_name"));
 				shop.setShop_password(res.getString("shop_password"));
-				shop.setShop_adress(res.getString("shop_adress"));
+				shop.setShop_address(res.getString("shop_address"));
 				shop.setShop_tel(res.getString("shop_tel"));
 			}
 		}
@@ -213,7 +213,7 @@ public class AccountDAO {
 				sb.setShop_id(res.getString("shop_id"));
 				sb.setShop_name(res.getString("shop_name"));
 				sb.setShop_password(res.getString("shop_password"));
-				sb.setShop_adress(res.getString("shop_adress"));
+				sb.setShop_address(res.getString("shop_address"));
 				sb.setShop_tel(res.getString("shop_tel"));
 
 				shopList.add(sb);
@@ -289,7 +289,7 @@ public class AccountDAO {
 	}
 
 	public void UpdateShop(ShopBean shop) throws ClassNotFoundException, SQLException {
-		String sql = "UPDATE m_shop SET shop_name = ?, shop_password = ?, shop_address = ?, shop_tel = ? WHERE user_id = ?";
+		String sql = "UPDATE m_shop SET shop_name = ?, shop_password = ?, shop_address = ?, shop_tel = ? WHERE shop_id = ?";
 
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
@@ -298,9 +298,7 @@ public class AccountDAO {
 			String shop_id = bean.getShop_id();
 			String shop_name = bean.getShop_name();
 			String shop_password = bean.getShop_password();
-
 			String shop_address = bean.getShop_address();
-
 			String shop_tel = bean.getShop_tel();
 
 			pstmt.setString(1, shop_name);
@@ -399,7 +397,7 @@ public class AccountDAO {
 			sb.setShop_id(res.getString("shop_id"));
 			sb.setShop_name(res.getString("shop_name"));
 			sb.setShop_password(res.getString("shop_password"));
-			sb.setShop_adress(res.getString("shop_adress"));
+			sb.setShop_address(res.getString("shop_address"));
 			sb.setShop_tel(res.getString("shop_tel"));
 			
 		}
