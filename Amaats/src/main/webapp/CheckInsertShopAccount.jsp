@@ -12,8 +12,10 @@
 
 		<div class="header"><%@ include file="header.jsp"%></div>
 		<div id="contents">
-			この内容で登録しますがよろしいですか？<br> 店舗ID：<%=request.getParameter("shop_id")%><br>
-			店舗名：<%=request.getParameter("shop_name")%><br> パスワード：
+			この内容で登録しますがよろしいですか？<br> 
+			店舗ID：<%=request.getParameter("shop_id")%><br>
+			店舗名：<%=request.getParameter("shop_name")%><br> 
+			パスワード：
 			<%
 		for (int i = 1; i <= request.getParameter("shop_password").length(); i++) {
 		%>
