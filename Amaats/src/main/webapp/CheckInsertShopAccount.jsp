@@ -7,7 +7,7 @@
 <title>店舗アカウント登録確認</title>
 </head>
 <body>
-	<jsp:include page = "header.jsp">
+	    <%@ include file="header.jsp" %>
 	
 	この内容で登録しますがよろしいですか？<br>
 	<br>

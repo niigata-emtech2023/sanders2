@@ -7,6 +7,7 @@
 <title>購入確認画面</title>
 </head>
 <body>
+    <%@ include file="header.jsp" %>
 	ご注文内容<br>
 	<form action="CompletePurchaseServlet" method="post">
 	<%

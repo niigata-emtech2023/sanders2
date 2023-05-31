@@ -7,6 +7,7 @@
 <title>商品削除：確認画面</title>
 </head>
 <body>
+    <%@ include file="header.jsp" %>
 	<%
 	request.setCharacterEncoding("UTF-8");
 	%>

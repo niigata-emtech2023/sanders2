@@ -7,6 +7,7 @@
 <title>削除確認画面</title>
 </head>
 <body>
+    <%@ include file="header.jsp" %>
 	このアカウントを削除しますが,
 	<br> 本当によろしいですか？
 	<jsp:useBean id="user" scope="request" class="model.entity.UserBean" />
