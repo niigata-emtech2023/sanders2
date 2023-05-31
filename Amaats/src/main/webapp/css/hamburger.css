@@ -31,8 +31,7 @@ a {
 	        transition: 0.53s transform;
 	-webkit-transition-timing-function: cubic-bezier(.38,.52,.23,.99);
 	        transition-timing-function: cubic-bezier(.38,.52,.23,.99);
-	background-color: rgba(0,151,167 ,1);
-	opacity: 0.8;
+	background-color: green;
 }
 .cp_offcm04 .cp_menu ul {
 	margin: 0;
