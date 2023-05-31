@@ -3,6 +3,7 @@ package servlet;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,7 +16,7 @@ import model.entity.ShopBean;
 /**
  * Servlet implementation class UpdateShopAccountServlet
  */
-@WebServlet("/update-shop-accountservlet")
+@WebServlet("/update-shop-account-servlet")
 public class UpdateShopAccountServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -62,7 +63,8 @@ public class UpdateShopAccountServlet extends HttpServlet {
 			e.printStackTrace();
 			
 		}
-		
+		RequestDispatcher rd = request.getRequestDispatcher("ShopAccount.jsp");
+		rd.forward(request, response);
 	}
 
 }
