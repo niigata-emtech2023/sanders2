@@ -13,7 +13,7 @@
 	<%
 		List<UserBean> userList = (List<UserBean>) request.getAttribute("userList");
 	%>
-	<table>
+	<table border = "1">
 		<tr>
 			<th>ユーザーID</th>
 			<th>氏名</th>
@@ -26,7 +26,7 @@
 			<td><%=user.getUser_id()%></td>
 			<td><%=user.getUser_name()%></td>
 			<td>
-				<form action="CheckDeleteUserAccount.jsp" method="POST">
+				<form action="check-delete-user-account-servlet" method="POST">
 					<input type="hidden" name="type" value="user">
 					<input type="hidden" name="user_id" value="<%=user.getUser_id()%>">
 					<input type="hidden" name="user_name" value="<%=user.getUser_name()%>">
@@ -44,7 +44,7 @@
 	<%
 		List<ShopBean> shopList = (List<ShopBean>) request.getAttribute("shopList");
 	%>
-	<table>
+	<table border = "1">
 		<tr>
 			<th>店舗ID</th>
 			<th>店舗名</th>
@@ -57,7 +57,7 @@
 			<td><%=shop.getShop_id()%></td>
 			<td><%=shop.getShop_name()%></td>
 			<td>
-				<form action="CheckDeleteShopAccount.jsp" method="POST">
+				<form action="check-delete-user-account-servlet" method="POST">
 					<input type="hidden" name="type" value="shop">
 					<input type="hidden" name="shop_id" value="<%=shop.getShop_id()%>">
 					<input type="hidden" name="shop_name" value="<%=shop.getShop_name()%>">

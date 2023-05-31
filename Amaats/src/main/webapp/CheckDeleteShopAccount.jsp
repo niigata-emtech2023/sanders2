@@ -20,7 +20,7 @@
 	電話番号：<%=request.getParameter("shop_tel")%><br>
 
 	<div style = "display:inline-flex">
-		<form action="show-delete-account-servlet" method="POST">
+		<form action="show-delete-user-account-servlet" method="POST">
 			<input type="submit" value="いいえ">
 		</form>
 		<form action="delete-account-servlet" method="POST">

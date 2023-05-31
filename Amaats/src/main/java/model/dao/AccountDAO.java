@@ -335,9 +335,6 @@ public class AccountDAO {
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
 
-			UserBean bean = new UserBean();
-			user_id = bean.getUser_id();
-
 			pstmt.setString(1, user_id);
 
 			pstmt.executeUpdate();
@@ -349,9 +346,6 @@ public class AccountDAO {
 
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
-
-			ShopBean bean = new ShopBean();
-			shop_id = bean.getShop_id();
 
 			pstmt.setString(1, shop_id);
 

@@ -8,7 +8,7 @@
 <link rel = "stylesheet" href = "style.css">
 </head>
 <body>
- <div class="header"><jsp:include page = "header.jsp">
+ <div class="header"><jsp:include page = "header.jsp" />
 	</div>
  <form action="show-delete-user-account-servlet" method="POST">
  
@@ -16,6 +16,6 @@
  
  <input type ="submit" value="戻る">
  </form>
- <jsp:include page = "footer.jsp">
+ <jsp:include page = "footer.jsp" />
 </body>
 </html>
