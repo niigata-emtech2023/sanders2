@@ -5,11 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Amaats 商品一覧ページ</title>
-<link rel = "stylesheet" href = "style.css">
+<link rel = "stylesheet" href = "css/style_base.css">
 <link rel = "stylesheet" href = "css/style_table.css">
 </head>
 <body>
-	<div id = "wrapper">
+	<div class = "wrapper">
 		<div class="header"><jsp:include page = "header.jsp" />
 		</div>
 		<div id = "contents">
@@ -21,25 +21,26 @@
 				<thead>
 					<tr>
 						
-						<th>商品名</th>
-						<th>値段</th>
-						<th>ジャンル</th>
-						<th>店舗ID</th>
+						<th class="td1">商品名</th>
+						<th class="td2">値段</th>
+						<th class="td3">ジャンル</th>
+						<th class="td4">店舗ID</th>
 						<th></th>
 					</tr>
 				</thead>
+				<tbody>
 				<%
 					for (SweetsBean sweets : sweetsList) {
 				%>
-				<tbody>
+				
 					<tr>
 						
-						<td><%=sweets.getSweets_name()%></td>
-						<td><%=sweets.getSweets_value()%></td>
-						<td><%=sweets.getSweets_genre()%></td>
-						<td><%=sweets.getShop_id()%></td>
-						<td></td>
-						<td>
+						<td class="td1"><%=sweets.getSweets_name()%></td>
+						<td class="td2"><%=sweets.getSweets_value()%></td>
+						<td class="td3"><%=sweets.getSweets_genre()%></td>
+						<td class="td4"><%=sweets.getShop_id()%></td>
+<!-- 						<td></td> -->
+						<td class="td5">
 						
 							<form action="show-sweets-info-servlet" method="POST">
 								<input type="hidden" name="id" value="<%=sweets.getSweets_id()%>">
@@ -48,13 +49,14 @@
 							</form>
 						</td>
 					</tr>
-				</tbody>
-				<%
-					}
-				%>
+					<%
+						}
+					%>
+			</tbody>
 			</table>
 		</div>
-		<div class="footer"><jsp:include page = "footer.jsp" /></div>
 	</div>
+	<div class="footer"><jsp:include page = "footer.jsp" /></div>
+	
 </body>
 </html>

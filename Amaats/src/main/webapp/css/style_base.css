@@ -1,12 +1,27 @@
-
-
-#form_area_menu{
-	width: 150px;
-	height: 120px;
-	border: 2px solid #ccc;
-    border-radius: 10px;
-    margin: 0px auto;
-    padding:70px auto;
+body {
+	
+	margin: 0px auto;
+	padding: -2px;
+	text-align: center;
+/* 	background-color: #ffbbbb; */
 }
+
+.wrapper{
+	
+	margin: 0px auto;
+	padding: 30px;
+	width: 1000px;
+    height:600px;
+	
+}
+
+/* #form_area_menu{ */
+/* 	width: 150px; */
+/* 	height: 120px; */
+/* 	border: 2px solid #ccc; */
+/*     border-radius: 10px; */
+/*     margin: 0px auto; */
+/*     padding:70px auto; */
+/* } */
 
 

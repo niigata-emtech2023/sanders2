@@ -19,12 +19,15 @@
 			List<ShopBean> shopList = adao.getShopList(); %>
 			
 			<table>
-				<tr>
-					<th>店舗名</th>
-					<th>住所</th>
-					<th></th>
-				</tr>
+				<thead>
+					<tr>
+						<th>店舗名</th>
+						<th>住所</th>
+						<th></th>
+					</tr>
+				</thead>
 				<% for (ShopBean shop: shopList) {%>
+				<tbody>
 				<tr>
 					<td><%=shop.getShop_name()%></td>
 					<td><%=shop.getShop_address()%></td>
@@ -35,6 +38,7 @@
 						</form>
 					</td>
 				</tr>
+				</tbody>
 				<%}%>
 			</table>
 		</div>

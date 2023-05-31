@@ -6,17 +6,17 @@ table{
 thead {
   display: block;
   text-align: center;
-  width: 320px;
+  width: 900px;
   height: 30px;
-  background-color: #F6BABC;
+/*   background-color: #F6BABC; */
 }
 
 tbody {
   display: block;
   text-align: center;
   overflow-y: scroll;
-  height: 353px;
-  width: 320px;
+  height: 373px;
+  width: 900px;
 }
 
 th {
@@ -36,21 +36,30 @@ th {
   width: 80px;
 }
 
+
 td {
   height:45px;
   border:solid 1px;
 }
 
 .td1 {
-  width: 80px;
+  width: 400px;
 }
 
 .td2 {
-  width: 120px;
+  width: 100px;
 }
 
 .td3 {
-  width: 80px; 
+  width: 150px; 
+}
+
+.td4 {
+	width: 120px;
+}
+
+.td5 {
+	width: 100px;
 }
 
 /*参考サイト：https://www.koikikukan.com/archives/2015/03/10-005555.php*/
