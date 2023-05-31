@@ -16,6 +16,7 @@
 				List<SweetsBean> sweetsList
 					= (List<SweetsBean>) request.getAttribute("sweetsList");
 			%>
+			<% try { %>
 			<table>
 				<caption>検索結果一覧</caption>
 				<thead>
