@@ -274,7 +274,39 @@ public class SweetsDAO {
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
 
 			pstmt.setInt(1, minvalue);
-			pstmt.setInt(1, maxvalue);
+			pstmt.setInt(2, maxvalue);
+
+			ResultSet res = pstmt.executeQuery();
+
+			while (res.next()) {
+
+				SweetsBean sb = new SweetsBean();
+
+				sb.setSweets_id(res.getInt("sweets_id"));
+				sb.setSweets_name(res.getString("sweets_name"));
+				sb.setSweets_value(res.getInt("sweets_value"));
+				sb.setSweets_genre(res.getString("sweets_id"));
+				sb.setShop_id(res.getString("shop_id"));
+
+				sweetsList.add(sb);
+
+			}
+
+		}
+
+		return sweetsList;
+		
+	}
+	
+	public List<SweetsBean> searchShop(String shop_id) throws SQLException, ClassNotFoundException {
+
+		String sql = "SELECT * FROM m_sweets WHERE shop_id = ?";
+		List<SweetsBean> sweetsList = new ArrayList<SweetsBean>();
+
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+
+			pstmt.setString(1, shop_id);
 
 			ResultSet res = pstmt.executeQuery();
 

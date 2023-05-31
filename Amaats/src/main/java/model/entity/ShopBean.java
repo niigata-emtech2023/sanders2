@@ -53,6 +53,7 @@ public class ShopBean implements Serializable{
 	public void setShop_tel(String shop_tel) {
 		this.shop_tel = shop_tel;
 	}
+
 	
 	
 }

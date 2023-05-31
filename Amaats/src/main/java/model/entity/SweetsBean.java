@@ -11,6 +11,11 @@ public class SweetsBean implements Serializable {
 	private String sweets_info;
 	private String shop_id;
 	
+	/*コンストラクタ*/
+	public SweetsBean() {
+		
+	}
+	
 	public int getSweets_id() {
 		return sweets_id;
 	}

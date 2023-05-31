@@ -8,6 +8,7 @@
 <link rel = "stylesheet" href = "style.css">
 </head>
 <body>
+<<<<<<< HEAD
 	<div id = "wrapper">
 		<div class="header"><%@ include file="header.jsp" %>
 	    </div>
@@ -29,7 +30,42 @@
 					for (SweetsBean sweets : sweetsList) {
 				%>
 				<tr>
+=======
+	<div class="header"><%@ include file="header.jsp" %>
+    </div>
+	<%
+		List<SweetsBean> sweetsList
+			= (List<SweetsBean>) request.getAttribute("sweetsList");
+	%>
+	<% try { sweetsList.size();%>
+	<table><caption>検索結果一覧</caption>
+	
+		<thead><tr>
+			<th>商品名</th>
+			<th>値段</th>
+			<th>ジャンル</th>
+			<th>店舗ID</th>
+			<th></th>
+		</tr></thead>
+		<tbody>
+		<%
+			for (SweetsBean sweets : sweetsList) {
+		%>
+		<tr>
+			
+			<td><%=sweets.getSweets_name()%></td>
+			<td><%=sweets.getSweets_value()%></td>
+			<td><%=sweets.getSweets_genre()%></td>
+			<td><%=sweets.getShop_id()%></td>
+			<td></td>
+			<td>
+			
+				<form action="show-sweets-info-servlet" method="POST">
+					<input type="hidden" name="id" value="<%=sweets.getSweets_id()%>">
+					<input type="submit" value="詳細表示">
+>>>>>>> branch 'master' of https://github.com/niigata-emtech2023/sanders2
 					
+<<<<<<< HEAD
 					<td><%=sweets.getSweets_name()%></td>
 					<td><%=sweets.getSweets_value()%></td>
 					<td><%=sweets.getSweets_genre()%></td>
@@ -52,5 +88,19 @@
 		</div>
 		<div class="footer"><%@ include file="footer.jsp" %></div>
 	</div>
+=======
+				</form>
+			</td>
+		</tr>
+		<%
+			}
+		%>
+		</tbody>
+	</table>
+	<% } catch (NullPointerException e) { %>
+	該当する商品はありませんでした。<br>
+	<% } %>
+	<%@ include file="footer.jsp" %>
+>>>>>>> branch 'master' of https://github.com/niigata-emtech2023/sanders2
 </body>
 </html>

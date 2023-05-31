@@ -38,7 +38,7 @@ public class ShowUpdateSweetsServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// リクエストの転送
-		RequestDispatcher rd = request.getRequestDispatcher("update-sweets-check.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("UpdateSweetsCheck.jsp");
 		rd.forward(request, response);
 	}
 

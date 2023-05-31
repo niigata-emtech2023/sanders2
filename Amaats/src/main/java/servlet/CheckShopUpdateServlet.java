@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.dao.AccountDAO;
-import model.entity.ShopBean;
 
 /**
  * Servlet implementation class CheckShopUpdate
@@ -42,32 +41,53 @@ public class CheckShopUpdateServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
-		
-		request.setCharacterEncoding("UTF-8");
-		
+		HttpSession session = request.getSession();
 		String url = null;
-		String shop_id = request.getParameter("shop_id");
-		
-		AccountDAO dao = new AccountDAO();
+		String shop_id = (String) session.getAttribute("session_id");
+		AccountDAO adao = new AccountDAO();
 		
 		if (shop_id != null) {
-			try {
-			ShopBean shop = dao.selectShop(shop_id);
-
-			HttpSession session = request.getSession();
-
-			session.setAttribute("shop", shop);
 			
-			url = "updateShoprCheck.jsp";
+			try {
+				
+				boolean flag = true;
+				
+				if (request.getParameter("shop_password").length() > 16 || request.getParameter("shop_password").length() <= 0) {
+					
+					flag = false;
+					
+				}
+				
+				if (request.getParameter("shop_name").length() > 32 || request.getParameter("shop_name").length() <= 0) {
+					
+					flag = false;
+					
+				}
+				
+				if (flag) {
+					
+					url = "UpdateShopCheck.jsp";
+					request.setAttribute("bean", adao.getShopAccount(shop_id));
+					
+				} else {
+					
+					url = "UpdateShopAccount.jsp";
+					request.setAttribute("alert", "入力情報に不備があります。");
+					
+				}
+			
+			
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		} else {
+			session.invalidate();
 			url = "Login.jsp";
 		}
 		
 		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);
+	
 	}
 
 }

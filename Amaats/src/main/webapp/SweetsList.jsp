@@ -56,7 +56,47 @@
 			</table>
 		</div>
 	</div>
+<<<<<<< HEAD
 	<div class="footer"><jsp:include page = "footer.jsp" /></div>
 	
+=======
+	<%
+		List<SweetsBean> sweetsList
+			= (List<SweetsBean>) request.getAttribute("sweetsList");
+	%>
+	<table border = "1">
+		<tr>
+			
+			<th>商品名</th>
+			<th>値段</th>
+			<th>ジャンル</th>
+			<th>店舗ID</th>
+			<th></th>
+		</tr>
+		<%
+			for (SweetsBean sweets : sweetsList) {
+		%>
+		<tr>
+			
+			<td><%=sweets.getSweets_name()%></td>
+			<td><%=sweets.getSweets_value()%></td>
+			<td><%=sweets.getSweets_genre()%></td>
+			<td><%=sweets.getShop_id()%></td>
+			<td></td>
+			<td>
+			
+				<form action="show-sweets-info-servlet" method="POST">
+					<input type="hidden" name="id" value="<%=sweets.getSweets_id()%>">
+					<input type="submit" value="詳細表示">
+					
+				</form>
+			</td>
+		</tr>
+		<%
+			}
+		%>
+	</table>
+	<jsp:include page = "footer.jsp" />
+>>>>>>> branch 'master' of https://github.com/niigata-emtech2023/sanders2
 </body>
 </html>

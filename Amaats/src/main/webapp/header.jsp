@@ -8,13 +8,9 @@
 <link rel="stylesheet" href="hamburger.css">
 </head>
 <body>
-	<div style = "text-align:left">
-		<form action = "logout-servlet" method = "POST">
-			<input type = "submit" value = "ログアウト">
-		</form>
-	</div>
 	
 	<div style = "text-align:center">
+		<a href = "show-sweets-list-servlet"><img src = "image/amaats_logo.png" alt = "Amaats"></a>
 		<form action = "search-name-servlet" method = "POST">
 			<input type = "text" name = "sweets_name">
 			<input type = "submit" value = "検索">
@@ -40,7 +36,7 @@
 				<li><a href="logout-servlet">ログアウト</a></li>
 			<%} else if (authority.equals("shop")) {%>
 				<li><a href="show-insert-sweets-servlet">商品情報登録</a></li>
-				<li><a href="show-update-sweets-servlet">商品情報編集</a></li>
+				<li><a href="update-sweets-from-servlet">商品情報編集</a></li>
 				<li><a href="show-delete-sweets-servlet">商品情報削除</a></li>
 				<li><a href="show-account-servlet">アカウント確認</a></li>
 				<li><a href="logout-servlet">ログアウト</a></li>
