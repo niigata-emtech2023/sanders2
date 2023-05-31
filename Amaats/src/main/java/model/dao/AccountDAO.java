@@ -140,7 +140,7 @@ public class AccountDAO {
 				shop.setShop_id(res.getString("shop_id"));
 				shop.setShop_name(res.getString("shop_name"));
 				shop.setShop_password(res.getString("shop_password"));
-				shop.setShop_address(res.getString("shop_adress"));
+				shop.setShop_address(res.getString("shop_address"));
 				shop.setShop_tel(res.getString("shop_tel"));
 			}
 		}
@@ -289,7 +289,7 @@ public class AccountDAO {
 	}
 
 	public void UpdateShop(ShopBean shop) throws ClassNotFoundException, SQLException {
-		String sql = "UPDATE m_shop SET shop_name = ?, shop_password = ?, shop_address = ?, shop_tel = ? WHERE user_id = ?";
+		String sql = "UPDATE m_shop SET shop_name = ?, shop_password = ?, shop_address = ?, shop_tel = ? WHERE shop_id = ?";
 
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {

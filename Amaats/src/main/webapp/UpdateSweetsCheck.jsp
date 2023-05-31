@@ -15,6 +15,7 @@
 		request.setCharacterEncoding("UTF-8");
 	%>
 	商品情報を以下の内容に変更します。よろしいですか？<br>
+	
 	<%
 	SweetsBean bean = (SweetsBean)request.getAttribute("bean");
     %>

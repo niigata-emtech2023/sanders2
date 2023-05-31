@@ -15,7 +15,7 @@
 	店舗ID：<%=request.getParameter("shop_id")%><br>
 	店舗名：<%=request.getParameter("shop_name")%><br>
 	パスワード：
-	<% for (int i = 1; i <= request.getParameter("password").length(); i++) { %>
+	<% for (int i = 1; i <= request.getParameter("shop_password").length(); i++) { %>
 	*
 	<% } %><br>
 	<div style = "display:inline-flex">
@@ -25,7 +25,7 @@
 	<form action = "insert-shop-account-servlet" method = "POST">
 		<input type = "hidden" name = "shop_id" value = "<%=request.getParameter("shop_id")%>">
 		<input type = "hidden" name = "shop_name" value = "<%=request.getParameter("shop_name")%>">
-		<input type = "hidden" name = "password" value = "<%=request.getParameter("password")%>">
+		<input type = "hidden" name = "password" value = "<%=request.getParameter("shop_password")%>">
 		<input type = "submit" value = "はい">
 	</form>
 	</div>
