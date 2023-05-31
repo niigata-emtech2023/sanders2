@@ -5,9 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>ユーザー新規登録確認画面</title>
+<link rel="stylesheet" href = "style.css">
 </head>
 <body>
-	<jsp:include page = "header.jsp">
+	<div class = "header"><jsp:include page = "header.jsp"></div>
 	
 	この内容で登録しますがよろしいですか？<br>
 	<br>
@@ -29,6 +30,6 @@
 	</form>
 	</div>
 	
-	<jsp:include page = "footer.jsp">
+	<div class = "footer"><jsp:include page = "footer.jsp"></div>
 </body>
 </html>

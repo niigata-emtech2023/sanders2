@@ -5,9 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>商品削除：確認画面</title>
+<link rel="stylesheet" href = "style.css">
 </head>
 <body>
-    <%@ include file="header.jsp" %>
+    <div class = "header"><%@ include file="header.jsp" %></div>
 	<%
 	request.setCharacterEncoding("UTF-8");
 	%>
@@ -42,6 +43,6 @@
 			<input type="submit" value="いいえ">
 		</form>
 	</div>
-	<%@ include file="footer.jsp" %>
+	<div class = "footer"><%@ include file="footer.jsp" %></div>
 </body>
 </html>

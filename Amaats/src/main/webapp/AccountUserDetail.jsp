@@ -5,9 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>ユーザー詳細画面</title>
+<link rel="stylesheet" href = "style.css">
 </head>
 <body>
-	<%@ include file="header.jsp" %>
+	<div class = "header"><%@ include file="header.jsp" %></div>
 	ユーザーID：${user.user_id}<br>
 	氏名：${user.user_name}<br>
 	パスワード：${user.password}<br>
@@ -17,6 +18,6 @@
 	<form action="ShowUserAccountServlet" method="POST">
 		<input type="submit" value="一覧表示">
 	</form>
-	<%@ include file="footer.jsp" %>
+	<div class = "footer"><%@ include file="footer.jsp" %></div>
 </body>
 </html>

@@ -5,9 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>店舗アカウント登録</title>
+<link rel="stylesheet" href = "style.css">
 </head>
 <body>
-	<jsp:include page = "header.jsp" />
+	<div class = "header"><jsp:include page = "header.jsp" /></div>
 	店舗アカウント登録<br>
 	<span>${alert}</span><br>
 	<form action = "check-insert-shop-account-servlet" method = "POST">
@@ -17,6 +18,6 @@
 		パスワード確認：<input type = "password" name = "passcon" value = "${passcon}"><br>
 		<input type = "submit" value = "登録">
 	</form>
-	<jsp:include page = "footer.jsp" />
+	<div class = "footer"><jsp:include page = "footer.jsp" /></div>
 </body>
 </html>

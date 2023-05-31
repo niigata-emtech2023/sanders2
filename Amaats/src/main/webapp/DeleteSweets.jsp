@@ -5,9 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>商品情報削除画面</title>
+<link rel="stylesheet" href = "style.css">
 </head>
 <body>
-    <%@ include file="header.jsp" %>
+    <div class = "header"><%@ include file="header.jsp" %></div>
     <% 
     List<SweetsBean> sweetsList = (List<SweetsBean>)request.getAttribute("sweetsList");
     %>

@@ -5,9 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>商品情報登録確認</title>
+<link rel="stylesheet" href = "style.css">
 </head>
 <body>
-    <%@ include file="header.jsp" %>
+    <div class = "header"><%@ include file="header.jsp" %></div>
     この内容で商品を登録しますがよろしいですか？
     <jsp:useBean id="bean" class="model.entity.SweetsBean" scope="session"/>
     
@@ -26,6 +27,6 @@
     <input type ="submit" value="いいえ">
     </form>
     </div>
-	<%@ include file="footer.jsp" %>
+	<div class = "footer"><%@ include file="footer.jsp" %></div>
 </body>
 </html>
