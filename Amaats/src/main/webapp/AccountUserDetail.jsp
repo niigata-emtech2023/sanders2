@@ -8,16 +8,20 @@
 <link rel="stylesheet" href = "style.css">
 </head>
 <body>
-	<div class = "header"><%@ include file="header.jsp" %></div>
-	ユーザーID：${user.user_id}<br>
-	氏名：${user.user_name}<br>
-	パスワード：${user.password}<br>
-	好きなジャンル：${user.user_genre}<br>
-	住所：${user.user_adress}<br>
-
-	<form action="ShowUserAccountServlet" method="POST">
-		<input type="submit" value="一覧表示">
-	</form>
-	<div class = "footer"><%@ include file="footer.jsp" %></div>
+	<div id="wrapper">
+		<div class = "header"><%@ include file="header.jsp" %></div>
+		<div id="contents">
+			ユーザーID：${user.user_id}<br>
+			氏名：${user.user_name}<br>
+			パスワード：${user.password}<br>
+			好きなジャンル：${user.user_genre}<br>
+			住所：${user.user_adress}<br>
+		
+			<form action="ShowUserAccountServlet" method="POST">
+				<input type="submit" value="一覧表示">
+			</form>
+		</div>
+		<div class = "footer"><%@ include file="footer.jsp" %></div>
+	</div>
 </body>
 </html>

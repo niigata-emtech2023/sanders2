@@ -8,15 +8,47 @@
 <link rel = "stylesheet" href = "style.css">
 </head>
 <body>
-	<header>
-	<div class="header"><%@ include file="header.jsp" %>
-	</div>
-	</header>
-	
-	<%	AccountDAO adao = new AccountDAO();
-		List<ShopBean> shopList = adao.getShopList(); %>
+	<div id = "wrapper">
+		<header>
+		<div class="header"><%@ include file="header.jsp" %>
+		</div>
+		</header>
+		<div id = "contents">
 		
-		<table>
+<<<<<<< HEAD
+		<%	AccountDAO adao = new AccountDAO();
+			List<ShopBean> shopList = adao.getShopList(); %>
+			
+			<table>
+				<thead>
+					<tr>
+						<th>店舗名</th>
+						<th>住所</th>
+						<th></th>
+					</tr>
+				</thead>
+				<% for (ShopBean shop: shopList) {%>
+				<tbody>
+				<tr>
+					<td><%=shop.getShop_name()%></td>
+					<td><%=shop.getShop_address()%></td>
+					<td>
+						<form action = "search-result-servlet" method = "POST">
+							<input type = "hidden" name = "shop_id" value = "<%=shop.getShop_id()%>">
+							<input type = "submit" value = "商品一覧">
+						</form>
+					</td>
+				</tr>
+				</tbody>
+				<%}%>
+			</table>
+		</div>
+		<footer>
+		<div class="footer"><%@ include file="footer.jsp" %></div>
+		</footer>
+	</div>
+=======
+		<table border = "1">
 			<tr>
 				<th>店舗名</th>
 				<th>住所</th>
@@ -27,7 +59,7 @@
 				<td><%=shop.getShop_name()%></td>
 				<td><%=shop.getShop_address()%></td>
 				<td>
-					<form action = "search-result-servlet" method = "POST">
+					<form action = "search-shop-servlet" method = "POST">
 						<input type = "hidden" name = "shop_id" value = "<%=shop.getShop_id()%>">
 						<input type = "submit" value = "商品一覧">
 					</form>
@@ -39,5 +71,6 @@
 	<footer>
 	<%@ include file="footer.jsp" %>
 	</footer>
+>>>>>>> branch 'master' of https://github.com/niigata-emtech2023/sanders2
 </body>
 </html>

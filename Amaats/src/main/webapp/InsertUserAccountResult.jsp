@@ -8,11 +8,15 @@
 <link rel = "stylesheet" href = "style.css">
 </head>
 <body>
-	<form action="Login.jsp" method="POST">
- 	
-		 登録が完了しました。<br>
-	 
- 		<input type ="submit" value="戻る">
- 	</form>
+	<div id = "wrapper">
+		<div id = "contents">
+			<form action="Login.jsp" method="POST">
+		 	
+				 登録が完了しました。<br>
+			 
+		 		<input type ="submit" value="戻る">
+		 	</form>
+	 	</div>
+ 	</div>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="model.entity.UserBean"%>
+	pageEncoding="UTF-8"import="model.entity.UserBean"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +21,7 @@
 		    UserBean bean = (UserBean)request.getAttribute("bean");
 		    %>
 		
-			<%= %>
+			
 			ユーザID：<%=bean.getUser_id() %><br>
 			氏名：<%=bean.getUser_name() %><br>
 			パスワード：<%=bean.getPassword() %><br>
@@ -43,9 +43,5 @@
 		</div>
 		<div class="footer"><jsp:include page = "footer.jsp"></div>
 	</div>
-<<<<<<< HEAD
-=======
-
->>>>>>> branch 'master' of https://github.com/niigata-emtech2023/sanders2
 </body>
 </html>
