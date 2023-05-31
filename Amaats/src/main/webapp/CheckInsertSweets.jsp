@@ -14,7 +14,7 @@
     
     商品ID：<jsp:getProperty name="bean" property="sweets_id" /><br>
     商品名：<jsp:getProperty name="bean" property="sweets_name" /><br>
-    カテゴリ：<jsp:getProperty name="bean" property="sweets_category" /><br>
+    カテゴリ：<jsp:getProperty name="bean" property="sweets_genre" /><br>
     価格：<jsp:getProperty name="bean" property="sweets_value" /><br>
     商品情報：<jsp:getProperty name="bean" property="sweets_info" /><br>
     
