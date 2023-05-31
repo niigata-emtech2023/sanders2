@@ -8,7 +8,6 @@
 <link rel="stylesheet" href = "style.css">
 </head>
 <body>
-<<<<<<< HEAD
 	<div id="wrapper">
 	    <div class = "header"><%@ include file="header.jsp" %></div>
 	    <div id="contents">
@@ -33,27 +32,5 @@
 		</div>
 		<div class = "footer"><%@ include file="footer.jsp" %></div>
 	</div>
-=======
-    <div class = "header"><%@ include file="header.jsp" %></div>
-    この内容で商品を登録しますがよろしいですか？
-    <jsp:useBean id="bean" class="model.entity.SweetsBean" scope="session"/>
-    
-    商品ID：<jsp:getProperty name="bean" property="sweets_id" /><br>
-    商品名：<jsp:getProperty name="bean" property="sweets_name" /><br>
-    カテゴリ：<jsp:getProperty name="bean" property="sweets_genre" /><br>
-    価格：<jsp:getProperty name="bean" property="sweets_value" /><br>
-    商品情報：<jsp:getProperty name="bean" property="sweets_info" /><br>
-    
-    <div style="display:inline-flex">
-    <form action="insert-sweets-servlet" method="POST">
-    <input type ="submit" value="はい">
-    </form>
-    
-    <form action="show-insert-sweets-servlet" method="POST">
-    <input type ="submit" value="いいえ">
-    </form>
-    </div>
-	<div class = "footer"><%@ include file="footer.jsp" %></div>
->>>>>>> branch 'master' of https://github.com/niigata-emtech2023/sanders2
 </body>
 </html>

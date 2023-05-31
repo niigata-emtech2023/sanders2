@@ -8,7 +8,6 @@
 <link rel="stylesheet" href = "style.css">
 </head>
 <body>
-<<<<<<< HEAD
 	<div id="wrapper">
 	    <div class = "header"><%@ include file="header.jsp" %></div>
 	    <div id="contents">
@@ -33,28 +32,6 @@
 			</div>
 		</div>
 		<div class = "footer"><%@ include file="footer.jsp" %></div>
-=======
-    <div class = "header"><%@ include file="header.jsp" %></div>
-    
-	このアカウントを削除しますが,
-	<br> 本当によろしいですか？<br>
-	
-	ユーザID：<%=request.getParameter("shop_id")%><br>
-	名前：<%=request.getParameter("shop_name")%><br>
-	パスワード：<%=request.getParameter("shop_password")%><br>
-	住所：<%=request.getParameter("shop_address")%><br>
-	電話番号：<%=request.getParameter("shop_tel")%><br>
-
-	<div style = "display:inline-flex">
-		<form action="show-delete-user-account-servlet" method="POST">
-			<input type="submit" value="いいえ">
-		</form>
-		<form action="delete-account-servlet" method="POST">
-			<input type="hidden" name="type" value="shop">
-			<input type="hidden" name="shop_id" value="<%=request.getParameter("shop_id")%>">
-			<input type="submit" value="はい">
-		</form>
->>>>>>> branch 'master' of https://github.com/niigata-emtech2023/sanders2
 	</div>
 </body>
 </html>
