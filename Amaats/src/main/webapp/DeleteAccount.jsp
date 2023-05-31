@@ -5,8 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>削除画面</title>
+<link rel = "stylesheet" href = "style.css">
 </head>
 <body>
+<div class="header"><jsp:include page = "header.jsp">
+	</div>
 	<%
 		List<UserBean> userList = (List<UserBean>) request.getAttribute("userList");
 	%>
@@ -59,5 +62,6 @@
 			}
 		%>
 	</table>
+	<jsp:include page = "footer.jsp">
 </body>
 </html>

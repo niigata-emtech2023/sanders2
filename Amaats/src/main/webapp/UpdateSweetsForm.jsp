@@ -5,9 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Amaats：商品情報-更新入力フォーム</title>
+<link rel = "stylesheet" href = "style.css">
 </head>
 <body>
-	<%@ include file="header.jsp"%>
+	<div class="header"><%@ include file="header.jsp"%>
+	</div>
 	<jsp:useBean id="sweets" class="model.entity.SweetsBean"
 		scope="session" />
 
@@ -35,6 +37,8 @@
 			value="<%=sweets.getSweets_id()%>"> <input type="submit"
 			value="詳細表示画面に戻る">
 	</form>
+
+	<jsp:include page="footer.jsp" />
 
 </body>
 </html>

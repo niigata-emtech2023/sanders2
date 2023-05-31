@@ -5,10 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Amaats 商品一覧ページ</title>
-
-
+<link rel = "stylesheet" href = "style.css">
 </head>
 <body>
+	<div class="header"><jsp:include page = "header.jsp" />
+	</div>
 	<%
 		List<SweetsBean> sweetsList
 			= (List<SweetsBean>) request.getAttribute("sweetsList");

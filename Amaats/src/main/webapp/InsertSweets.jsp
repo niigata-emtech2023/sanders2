@@ -7,7 +7,8 @@
 <title>商品情報登録</title>
 </head>
 <body>
-    <%@ include file="header.jsp" %>
+    <div class="header"><%@ include file="header.jsp" %>
+    </div>
     <span>${alert}</span>
     <form action="check-insert-sweets-info-servlet" method="POST">
     商品名：<input type="text" name="sweets_name"><br>

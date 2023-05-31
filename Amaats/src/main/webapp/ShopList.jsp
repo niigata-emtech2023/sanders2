@@ -5,10 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>店舗一覧</title>
+<link rel = "stylesheet" href = "style.css">
 </head>
 <body>
 	<header>
-	<%@ include file="header.jsp" %>
+	<div class="header"><%@ include file="header.jsp" %>
+	</div>
 	</header>
 	
 	<%	AccountDAO adao = new AccountDAO();

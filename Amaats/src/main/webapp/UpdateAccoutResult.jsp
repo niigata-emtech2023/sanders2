@@ -5,9 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>アカウント編集完了</title>
+<link rel = "stylesheet" href = "style.css">
 </head>
 <body>
-	<jsp:include page = "header.jsp" />
+	<div class="header"><jsp:include page = "header.jsp" />
+	</div>
 	アカウント情報の編集が完了しました。
 	<form action = "show-account-servlet" method = "POST">
 		<input type = "submit" value = "アカウント確認画面へ">

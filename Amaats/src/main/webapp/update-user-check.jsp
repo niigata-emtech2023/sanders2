@@ -5,10 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>アカウント編集確認画面</title>
+<link rel = "stylesheet" href = "style.css">
 </head>
 <body>
-	<%@ include file="header.jsp"%>
-
+	<div class="header"><%@ include file="header.jsp"%>
+	</div>
 	<%
 	request.setCharacterEncoding("UTF-8");
 	%>
@@ -37,6 +38,8 @@
 	<form action="UpdateUserAccount.jsp" method="POST">
 		<input type="submit" value="戻る">
 	</form>
+	
+	<jsp:include page = "footer.jsp">
 
 </body>
 </html>

@@ -8,8 +8,12 @@
 <link rel = "stylesheet" href = "style.css">
 </head>
 <body>
-	<img src = "image/amaats_logo.png"><br>
-	登録完了しました。<br>
-	<a href = "Login.jsp">ログイン画面へ</a>
+	<div class="header"><jsp:include page = "header.jsp">
+	</div>
+		<img src = "image/amaats_logo.png"><br>
+		登録完了しました。<br>
+		<a href = "Login.jsp">ログイン画面へ</a>
+	
+	<jsp:include page = "footer.jsp">
 </body>
 </html>

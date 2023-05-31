@@ -5,10 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Amaats：商品情報-編集確認</title>
+<link rel = "stylesheet" href = "style.css">
 </head>
 <body>
 
-	
+	<div class="header"><%@ include file="header.jsp"%>
+	</div>
 	<%
 		request.setCharacterEncoding("UTF-8");
 	%>
@@ -34,6 +36,8 @@
 	<form action="update-sweets-form-servlet" method="POST">
 		<input type="submit" value="戻る">
 	</form>
+	
+	<jsp:include page="footer.jsp" />
 
 </body>
 </html>
