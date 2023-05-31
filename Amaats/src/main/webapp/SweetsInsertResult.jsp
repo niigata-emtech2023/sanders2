@@ -8,23 +8,26 @@
 <link rel = "stylesheet" href = "style.css">
 </head>
 <body>
-    <div class="header"><%@ include file="header.jsp" %>
-    </div>
-    <form action="show-insert-sweets-servlet" method="POST">
-    以下の内容で商品の登録が完了しました
-    <%
-    SweetsBean bean = (SweetsBean) request.getAttribute("bean");
-    %>
-    
-    商品ID：<%=bean.getSweets_id()%><br>
-    商品名：<%=bean.getSweets_name()%><br>
-    カテゴリ：<%=bean.getSweets_genre()%><br>
-    価格：<%=bean.getSweets_value()%><br>
-    商品情報：<%=bean.getSweets_info()%><br>
-    
-    <input type ="submit" value="戻る">
-    </form>
-    <%@ include file="footer.jsp" %>
-
+	<div id = "wrapper">
+	    <div class="header"><%@ include file="header.jsp" %>
+	    </div>
+	    <div id = "contents">
+		    <form action="show-insert-sweets-servlet" method="POST">
+		    以下の内容で商品の登録が完了しました
+		    <%
+		    SweetsBean bean = (SweetsBean) request.getAttribute("bean");
+		    %>
+		    
+		    商品ID：<%=bean.getSweets_id()%><br>
+		    商品名：<%=bean.getSweets_name()%><br>
+		    カテゴリ：<%=bean.getSweets_genre()%><br>
+		    価格：<%=bean.getSweets_value()%><br>
+		    商品情報：<%=bean.getSweets_info()%><br>
+		    
+		    <input type ="submit" value="戻る">
+		    </form>
+	    </div>
+	    <div class="footer"><%@ include file="footer.jsp" %></div>
+	</div>
 </body>
 </html>

@@ -8,31 +8,32 @@
 <link rel = "stylesheet" href = "style.css">
 </head>
 <body>
-    <div class="header"><jsp:include page = "header.jsp">
+	<div id = "wrapper">
+	    <div class="header"><jsp:include page = "header.jsp">
+	    </div>
+	    <div id = "contents">
+		    <%
+		    UserBean bean = (UserBean)request.getAttribute("bean");
+		    %>
+		    名前：<%=bean.getUser_name() %><br>
+		    ログインID：<%=bean.getUser_id() %><br>
+		    住所：<%=bean.getUser_address() %><br>
+		    好きなジャンル：
+		    <%String user_genre;
+		    try{
+		    	user_genre=bean.getUser_genre();
+		    }catch(NullPointerException e){
+		    	user_genre="";
+		    }
+		    %>
+		    <%=user_genre %>
+		    
+		    
+		    <form action="UpdateUserAccount.jsp" method="POST">
+		        <input type="submit" value="編集する">
+		    </form>
+	    </div>
+	    <div class="footer"><jsp:include page="footer.jsp" /></div>
     </div>
-    <%
-    UserBean bean = (UserBean)request.getAttribute("bean");
-    %>
-    名前：<%=bean.getUser_name() %><br>
-    ログインID：<%=bean.getUser_id() %><br>
-    住所：<%=bean.getUser_address() %><br>
-    好きなジャンル：
-    <%String user_genre;
-    try{
-    	user_genre=bean.getUser_genre();
-    }catch(NullPointerException e){
-    	user_genre="";
-    }
-    %>
-    <%=user_genre %>
-    
-    
-    <form action="UpdateUserAccount.jsp" method="POST">
-        <input type="submit" value="編集する">
-    </form>
-    
-    <jsp:include page="footer.jsp" />
-    
-
 </body>
 </html>

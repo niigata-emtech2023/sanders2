@@ -1,8 +1,21 @@
 @charset "UTF-8";
 
 body {
-	background-color: #ffbbbb;
+	
+	margin: 0px auto;
+	padding: -2px;
 	text-align: center;
+	background-color: #ffbbbb;
+}
+
+#wrapper{
+	
+	margin: -5px auto;
+	padding: 30px;
+	width: 800px;
+    height:600px;
+    background-color: #ffbbbb;
+	
 }
 
 .header {
@@ -30,16 +43,18 @@ input[type=text],[type=password]{
 }
 
 #logo {
-	height: 300px;
-	width: 300px;
+	height: 250px;
+	width: 250px;
 }
 
-.logintext {
+.textsize {
 	font-size: 25px;
-	margin: 30px;
+/* 	margin: 30px; */
+	display: inline-block;
+	text-align: right;
 }
 
-.loginbutton {
+.send {
 	width: 100px;
 	height: 30px;
 }
@@ -52,4 +67,18 @@ input[type=text],[type=password]{
 .alert {
 	color: red;
 	font-size: 20px;
+}
+
+.sign {
+	font-size: 25px;
+}
+
+.register {
+	margin-right: 540px;
+	float: right;
+}
+
+.return {
+	margin-left: 540px;
+	float: left;
 }

@@ -8,12 +8,14 @@
 <link rel = "stylesheet" href = "style.css">
 </head>
 <body>
-	<div class="header"><jsp:include page = "header.jsp" />
+	<div id = "wrapper">
+		<div class="header"><jsp:include page = "header.jsp" />
+		</div>
+		アカウント情報の編集が完了しました。
+		<form action = "show-account-servlet" method = "POST">
+			<input type = "submit" value = "アカウント確認画面へ">
+		</form>
+		<div class="footer"><jsp:include page = "footer.jsp"/></div>
 	</div>
-	アカウント情報の編集が完了しました。
-	<form action = "show-account-servlet" method = "POST">
-		<input type = "submit" value = "アカウント確認画面へ">
-	</form>
-	<jsp:include page = "footer.jsp" />
 </body>
 </html>

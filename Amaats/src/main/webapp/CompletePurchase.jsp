@@ -8,12 +8,15 @@
 <link rel="stylesheet" href = "style.css">
 </head>
 <body>
-	<div class = "header"><%@ include file="header.jsp" %></div>
-	ご注文ありがとうございました。
-	<form action="MenuServlet" method="post">
-		<inout type="submit" value="メニュー画面に戻る">
-	</form>
-	
-	<div class = "footer"><%@ include file="footer.jsp" %></div>
+	<div id="wrapper">
+		<div class = "header"><%@ include file="header.jsp" %></div>
+			<div id="contents">
+			ご注文ありがとうございました。
+			<form action="MenuServlet" method="post">
+				<inout type="submit" value="メニュー画面に戻る">
+			</form>
+		</div>
+		<div class = "footer"><%@ include file="footer.jsp" %></div>
+	</div>
 </body>
 </html>

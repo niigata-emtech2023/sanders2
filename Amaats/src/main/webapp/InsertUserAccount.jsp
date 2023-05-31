@@ -8,18 +8,25 @@
 <link rel = "stylesheet" href = "style.css">
 </head>
 <body>
-	<img src = "image/amaats_logo.png" alt = "Amaats"><br>
-	<span class = "alert">${alert}</span><br>
-	<form action = "check-insert-user-account-servlet" method = "POST">
-		名前：<input type = "text" name = "user_name"><br>
-		ログインID：<input type = "text" name = "user_id"><br>
-		パスワード：<input type = "password" name = "password"><br>
-		パスワード確認：<input type = "password" name = "passcon"><br>
-		住所：<input type = "text" name = "user_address"><br>
-		<input type = "submit" value = "登録">
-	</form>
-	<form action = "Login.jsp" method = "POST">
-		<input type = "submit" value = "戻る">
-	</form>
+	<div id = "wrapper">
+		<div id = "contents">
+			<img src = "image/amaats_logo.png" alt = "Amaats" id="logo"><br>
+			<span class = "alert">${alert}</span><br>
+			<form action = "check-insert-user-account-servlet" method = "POST">
+				<div class="textsize">
+					名前：<input type = "text" name = "user_name"><br>
+					ログインID：<input type = "text" name = "user_id"><br>
+					パスワード：<input type = "password" name = "password"><br>
+					パスワード確認：<input type = "password" name = "passcon"><br>
+					住所：<input type = "text" name = "user_address"><br>
+				</div>
+				<br>
+				<div class="register"><input type = "submit" value = "登録" class="send"></div>
+			</form>
+			<form action = "Login.jsp" method = "POST">
+				<div class="return"><input type = "submit" value = "戻る" class="send"></div>
+			</form>
+		</div>
+	</div>
 </body>
 </html>
