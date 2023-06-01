@@ -29,11 +29,7 @@
 	    }
 	    %>
 	    
-	    
-	    <%
-	    String filename=(String)request.getAttribute("filename");
-	    %>
-	    <img src="/Amaats/upload/<%=filename %>" alt = "NOIMAGE">
+	    <img src="/Amaats/upload/<%=bean.getPath() %>">
 	    商品名：<%=bean.getSweets_name()%><br>
 	    カテゴリ：<%=bean.getSweets_genre()%><br>
 	    価格：<%=bean.getSweets_value()%><br>

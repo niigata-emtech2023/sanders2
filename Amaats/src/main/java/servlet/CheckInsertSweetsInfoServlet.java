@@ -45,27 +45,35 @@ public class CheckInsertSweetsInfoServlet extends HttpServlet {
 		
 		boolean flag = true;
 		
-		if(request.getParameter("sweets_name").length()<=0 && request.getParameter("sweets_name").length()>32){
-			flag=false;
+		try {
+			
+			if(request.getParameter("sweets_name").length()>32){
+				flag=false;
+			}
+			if(Integer.parseInt(request.getParameter("sweets_value")) <= 0) {
+				flag=false;
+			}
+			if(request.getParameter("sweets_genre").equals("default")){
+				flag=false;
+			}
+			
+		} catch (NullPointerException e) {
+			e.printStackTrace();
+			flag = false;
+			
 		}
-		if(Integer.parseInt(request.getParameter("sweets_value")) <= 0) {
-			flag=false;
-		}
-		if(request.getParameter("sweets_genre").equals(null)) {
-			flag=false;
-		}
-		
-		
-		SweetsBean sweetsbean = new SweetsBean();
-		sweetsbean.setSweets_name(request.getParameter("sweets_name"));
-		sweetsbean.setSweets_genre(request.getParameter("sweets_genre"));
-		sweetsbean.setSweets_value(Integer.parseInt(request.getParameter("sweets_value")));
-		sweetsbean.setSweets_info(request.getParameter("sweets_info"));
-		
-		request.setAttribute("bean", sweetsbean);
-		request.setAttribute("pict", request.getPart("pict"));
 		
 		if(flag) {
+			
+			SweetsBean sweetsbean = new SweetsBean();
+			sweetsbean.setSweets_name(request.getParameter("sweets_name"));
+			sweetsbean.setSweets_genre(genre(request.getParameter("sweets_genre")));
+			sweetsbean.setSweets_value(Integer.parseInt(request.getParameter("sweets_value")));
+			sweetsbean.setSweets_info(request.getParameter("sweets_info"));
+			
+			request.setAttribute("bean", sweetsbean);
+			request.setAttribute("pict", request.getPart("pict"));
+			
 			rd=request.getRequestDispatcher("CheckInsertSweets.jsp");
 		}else {
 			request.setAttribute("alert","入力情報に不備があります");
@@ -73,6 +81,38 @@ public class CheckInsertSweetsInfoServlet extends HttpServlet {
 		}
 		
 		rd.forward(request, response);
+		
+	}
+	
+	String genre (String sweets_genre) {
+		
+		String genre;
+		
+		switch (sweets_genre) {
+		case "sweets2":
+			genre = "ケーキ";
+			break;
+		case "sweets3":
+			genre = "チョコ";
+			break;
+		case "sweets4":
+			genre = "クッキー";
+			break;
+		case "sweets5":
+			genre = "カヌレ";
+			break;
+		case "sweets6":
+			genre = "マカロン";
+			break;
+		case "sweets7":
+			genre = "和菓子";
+			break;
+		default:
+			genre = "その他";
+			break;
+		}
+		
+		return genre;
 		
 	}
 
