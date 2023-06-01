@@ -92,7 +92,7 @@ public class SweetsDAO {
 	public int updateSweets(SweetsBean sweets) throws SQLException, ClassNotFoundException {
 		int processingNumber = 0; //処理件数
 
-		String sql = "UPDATE m_sweets SET sweets_name = ?, sweets_value = ?, sweets_grene = ? WHERE sweets_name = ?";
+		String sql = "UPDATE m_sweets SET sweets_name = ?, sweets_value = ?, sweets_grene = ?, sweets_info = ?, path = ? WHERE sweets_id = ?";
 
 		// データベースへの接続の取得、PreparedStatementの取得
 		try (Connection con = ConnectionManager.getConnection();
@@ -103,12 +103,15 @@ public class SweetsDAO {
 			String sweetsName = sweets.getSweets_name();
 			int sweetsValue = sweets.getSweets_value();
 			String  sweetsGenre = sweets.getSweets_genre();
-			String shopId = sweets.getShop_id();
+			String sweetsInfo = sweets.getSweets_info();
+			String path = sweets.getPath();
 			// プレースホルダへの値の設定
 			pstmt.setString(1, sweetsName);
 			pstmt.setInt(2, sweetsValue);
 			pstmt.setString(3, sweetsGenre);
-			pstmt.setString(4, sweetsName);
+			pstmt.setString(4, sweetsInfo);
+			pstmt.setString(5, path);
+			pstmt.setInt(6, sweetsId);
 
 			// SQLステートメントの実行
 			processingNumber = pstmt.executeUpdate();
