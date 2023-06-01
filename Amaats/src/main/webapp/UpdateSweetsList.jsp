@@ -26,6 +26,7 @@
 						<th>値段</th>
 						<th>ジャンル</th>
 						<th></th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -46,6 +47,13 @@
 								<input type="hidden" name="sweets_info" value="<%=sweets.getSweets_info()%>">
 								<input type="hidden" name="path" value="<%=sweets.getPath()%>">
 								<input type="submit" value="編集">
+							</form>
+						</td>
+						<td>
+							<form action = "SelectImage.jsp" method = "POST">
+								<input type="hidden" name="sweets_id" value="<%=sweets.getSweets_id()%>">
+								<input type="hidden" name="sweets_name" value="<%=sweets.getSweets_name()%>">
+								<input type="submit" value="画像変更">
 							</form>
 						</td>
 					</tr>

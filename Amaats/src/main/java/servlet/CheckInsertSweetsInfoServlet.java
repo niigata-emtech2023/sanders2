@@ -46,7 +46,10 @@ public class CheckInsertSweetsInfoServlet extends HttpServlet {
 		boolean flag = true;
 		
 		try {
-			
+			System.out.println(request.getParameter("sweets_name"));
+			System.out.println(request.getParameter("sweets_value"));
+			System.out.println(request.getParameter("sweets_genre"));
+			System.out.println(request.getParameter("sweets_info"));
 			if(request.getParameter("sweets_name").length()>32){
 				flag=false;
 			}
@@ -72,7 +75,6 @@ public class CheckInsertSweetsInfoServlet extends HttpServlet {
 			sweetsbean.setSweets_info(request.getParameter("sweets_info"));
 			
 			request.setAttribute("bean", sweetsbean);
-			request.setAttribute("pict", request.getPart("pict"));
 			
 			rd=request.getRequestDispatcher("CheckInsertSweets.jsp");
 		}else {
