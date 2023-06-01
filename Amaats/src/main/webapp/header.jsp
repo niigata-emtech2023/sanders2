@@ -13,8 +13,8 @@
 	
 	<div style = "text-align:center">
 		<a href = "show-sweets-list-servlet"><img src = "image/amaats_logo.png" alt = "Amaats" id="logobutton"></a>
-		<% String Authority = (String) session.getAttribute("session_id"); 
-			if (Authority.equals("user")) {%>
+		<% String Autho = (String) session.getAttribute("authority");
+			if (Autho.equals("user")) {%>
 		<form action = "search-name-servlet" method = "POST">
 			<input type = "text" name = "sweets_name" id="searchtext">
 			<input type = "submit" value = "検索" class="searchbutton">
