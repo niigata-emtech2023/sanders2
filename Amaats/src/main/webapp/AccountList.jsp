@@ -5,39 +5,50 @@
 <head>
 <meta charset="UTF-8">
 <title>アカウント一覧表示</title>
-<link rel="stylesheet" href = "style.css">
+<link rel="stylesheet" href = "css/style_base.css">
+<link rel="stylesheet" href = "css/account_table.css">
 </head>
 <body>
-	<div id = "wrapper">
+	<div class = "wrapper">
 		<% List<UserBean> userList = (List<UserBean>) request.getAttribute("userList"); %>
 		<div class = "header"><%@ include file="header.jsp" %></div>
-			<div id = "contents">
+			<div class = "contents">
 			<table border = "1">
 				<thead>
 					<tr>
-						<th>ユーザーID</th>
-						<th>氏名</th>
+						<th class="td1">ユーザーID</th>
+						<th class="td2">氏名</th>
 					</tr>
 				</thead>
+				<tbody>
 				<% for (UserBean user : userList) { %>
+				
 				<tr>
-					<td><%=user.getUser_id()%></td>
-					<td><%=user.getUser_name()%></td>
+					<td class="td1"><%=user.getUser_id()%></td>
+					<td class="td2"><%=user.getUser_name()%></td>
 				</tr>
+				
 				<% } %>
+				</tbody>
 			</table>
 			<% List<ShopBean> shopList = (List<ShopBean>) request.getAttribute("shopList"); %>
 			<table border = "1">
-				<tr>
-					<th>店舗ID</th>
-					<th>店舗名</th>
-				</tr>
+				<thead>
+					<tr>
+						<th class="td1">店舗ID</th>
+						<th class="td2">店舗名</th>
+					</tr>
+				</thead>
+				<tbody>
 				<% for (ShopBean shop : shopList) { %>
+				
 				<tr>
-					<td><%=shop.getShop_id()%></td>
-					<td><%=shop.getShop_name()%></td>
+					<td class="td1"><%=shop.getShop_id()%></td>
+					<td class="td2"><%=shop.getShop_name()%></td>
 				</tr>
+				
 				<% } %>
+				</tbody>
 			</table>
 		</div>
 	</div>

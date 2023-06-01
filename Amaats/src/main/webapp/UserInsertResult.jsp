@@ -5,13 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>登録完了</title>
-<link rel = "stylesheet" href = "style.css">
+<link rel = "stylesheet" href = "css/style_base.css">
 </head>
 <body>
-	<div id = "wrapper">
+	<div class = "wrapper">
 		<div class="header"><jsp:include page = "header.jsp">
 		</div>
-		<div id = "contents">
+		<div class = "contents">
 			<img src = "image/amaats_logo.png"><br>
 			登録完了しました。<br>
 			<a href = "Login.jsp">ログイン画面へ</a>

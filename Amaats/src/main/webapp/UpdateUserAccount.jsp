@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>アカウント編集画面</title>
-<link rel = "stylesheet" href = "style.css">
+<link rel = "stylesheet" href = "css/style_base.css">
 </head>
 <body>
 	<% request.setCharacterEncoding("UTF-8"); 
@@ -15,18 +15,21 @@
 	   String user_genre; String user_address;
 	   try {  user_genre = request.getParameter("user_genre"); } catch (NullPointerException e) { user_genre = ""; }
 	   try {  user_address = request.getParameter("user_address"); } catch (NullPointerException e) { user_address = ""; }%>
-	<div id = "wrapper">
+	<div class = "wrapper">
 		<div class="header"><%@ include file="header.jsp" %>
 		</div>
-		<div id = "contents">
+		<div class = "contents">
 			<form action="check-user-update-servlet" method="post">
-				ログインID：<%=request.getParameter("user_id")%><br>
-				氏名：<input type="text" name="user_name" value="<%=user_name%>"><br>
-				パスワード：<input type="password" name="password" value="<%=password%>"><br>
-				好きなジャンル：<input type="text" name="user_genre"value="<%=user_genre%>"><br>
-				住所：<input type="text" name="user_address"value="<%=user_address%>"><br>
+				<div class="textleft">
+					ログインID：<%=request.getParameter("user_id")%><br>
+					氏名：<input type="text" name="user_name" value="<%=user_name%>"><br>
+					パスワード：<input type="password" name="password" value="<%=password%>"><br>
+					好きなジャンル：<input type="text" name="user_genre"value="<%=user_genre%>"><br>
+					住所：<input type="text" name="user_address"value="<%=user_address%>"><br>
+				</div>
 				<input type="hidden" name="user_id" value="<%=request.getParameter("user_id")%>">
-				<input type="submit" value="変更する">
+				<br>
+				<input type="submit" value="変更する" class="send">
 			</form>
 		</div>
 		<div class="footer"><jsp:include page="footer.jsp" /></div>
