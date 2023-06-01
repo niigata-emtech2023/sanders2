@@ -34,10 +34,14 @@
 	    カテゴリ：<%=bean.getSweets_genre()%><br>
 	    価格：<%=bean.getSweets_value()%><br>
 	    商品情報：<%=bean.getSweets_info()%><br>
-	
+		
+		<% String session_id = (String) session.getAttribute("session_id");
+			String Authority = (String) session.getAttribute("authority");
+			if (Authority.equals("shop") && session_id.equals(bean.getShop_id())) {%>
 		<form action="update-sweets-from-servlet" method="POST">
 		    <input type="submit" value="変更する">
 		</form>
+		<%}%>
 	
 		<form action="show-sweets-list-servlet" method="POST">
 			<input type="submit" value="一覧表示">

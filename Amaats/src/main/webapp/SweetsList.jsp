@@ -12,7 +12,7 @@
 	<div class = "wrapper">
 		<div class="header"><jsp:include page = "header.jsp" />
 		</div>
-		<div id = "contents">
+		<div class = "contents">
 			<%
 				List<SweetsBean> sweetsList
 					= (List<SweetsBean>) request.getAttribute("sweetsList");

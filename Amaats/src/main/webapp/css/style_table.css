@@ -6,7 +6,7 @@ table{
 thead {
   display: block;
   text-align: center;
-  width: 900px;
+  width: 850px;
   height: 30px;
    background-color: #F6BABC; 
 }
@@ -16,7 +16,7 @@ tbody {
   text-align: center;
   overflow-y: scroll;
   height: 373px;
-  width: 900px;
+  width: 850px;
 }
 
 th {
