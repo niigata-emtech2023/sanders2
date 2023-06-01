@@ -5,7 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>編集商品選択</title>
-<link rel = "stylesheet" href = "css/style.css">
+<link rel = "stylesheet" href = "css/style_base.css">
+<link rel = "stylesheet" href = "css/style_table.css">
 </head>
 <body>
 <div id="wrapper">
@@ -16,7 +17,7 @@
 				List<SweetsBean> sweetsList
 					= (List<SweetsBean>) request.getAttribute("sweetsList");
 			%>
-			<% try { %>
+			<% try { sweetsList.get(1); %>
 			<table>
 				<caption>検索結果一覧</caption>
 				<thead>

@@ -323,7 +323,7 @@ public class SweetsDAO {
 
 		String sql = "SELECT * FROM m_sweets WHERE shop_id = ?";
 		List<SweetsBean> sweetsList = new ArrayList<SweetsBean>();
-
+		System.out.println(shop_id);
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
 
@@ -338,7 +338,8 @@ public class SweetsDAO {
 				sb.setSweets_id(res.getInt("sweets_id"));
 				sb.setSweets_name(res.getString("sweets_name"));
 				sb.setSweets_value(res.getInt("sweets_value"));
-				sb.setSweets_genre(res.getString("sweets_id"));
+				sb.setSweets_genre(res.getString("sweets_genre"));
+				sb.setSweets_info(res.getString("sweets_info"));
 				sb.setShop_id(res.getString("shop_id"));
 				sb.setPath(res.getString("path"));
 
