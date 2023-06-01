@@ -44,6 +44,7 @@ public class SearchShopServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.setCharacterEncoding("UTF-8");
+		String shop_id = request.getParameter("shop_id");
 		
 		SweetsDAO sdao = new SweetsDAO();
 		
@@ -51,7 +52,7 @@ public class SearchShopServlet extends HttpServlet {
 		
 		try {
 			
-			sweetsList = sdao.searchShop(request.getParameter("shop_id"));
+			sweetsList = sdao.searchShop(shop_id);
 			
 		} catch (SQLException | ClassNotFoundException e) {
 			
