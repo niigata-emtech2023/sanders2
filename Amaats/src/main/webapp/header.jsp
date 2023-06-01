@@ -38,7 +38,7 @@
 				<li><a href="logout-servlet">ログアウト</a></li>
 			<%} else if (authority.equals("shop")) {%>
 				<li><a href="show-insert-sweets-servlet">商品情報登録</a></li>
-				<li><a href="update-sweets-from-servlet">商品情報編集</a></li>
+				<li><a href="show-update-sweets-list-servlet">商品情報編集</a></li>
 				<li><a href="show-delete-sweets-servlet">商品情報削除</a></li>
 				<li><a href="show-account-servlet">アカウント確認</a></li>
 				<li><a href="logout-servlet">ログアウト</a></li>
