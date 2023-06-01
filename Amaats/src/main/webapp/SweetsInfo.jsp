@@ -16,11 +16,11 @@
 	    SweetsBean bean = (SweetsBean)request.getAttribute("bean");
 	    
 	    try {
-	    	
-	    	bean.getSweets_name();
-	    	
+	    %>
+	    	<%=bean.getSweets_name()%>
+	    <% 
 	    } catch (NullPointerException e) {
-	    	e.printStackTrace();
+	    	
 	    	bean.setSweets_name("");
 	    	bean.setSweets_genre("");
 	    	bean.setSweets_value(0);
@@ -51,7 +51,7 @@
 		    数量：<select name="sum">
 		        
 		        <% for(int i = 1 ; i<=30 ; i++){ %>
-		        <option value=<%=i%>>	
+		        <option value=<%=i%>><%=i %></option>
 		        <% }
 		        %>
 		    </select>
