@@ -18,18 +18,13 @@
 		    ジャンル：<%=sb.getSweets_genre() %><br>
 		    価格：<%=sb.getSweets_value() %><br>
 		    商品情報：<%=sb.getSweets_info() %><br>
-		    商品画像：<% if (!request.getAttribute("pict").equals(null)) {%>
-		    					あり<br>
-		    			<% } else { %>
-		    				なし<br>
-		    			<%	} %>
+
 		    <div style="display:inline-flex">
 		    <form action="insert-sweets-servlet" method="POST">
 		    <input type = "hidden" name = "sweets_name" value = "<%=sb.getSweets_name()%>>" >
 		    <input type = "hidden" name = "sweets_genre" value = "<%=sb.getSweets_name()%>>" >
 		    <input type = "hidden" name = "sweets_value" value = "<%=sb.getSweets_name()%>>" >
 		    <input type = "hidden" name = "sweets_info" value = "<%=sb.getSweets_name()%>>" >
-		    <input type = "hidden" name = "pict" value = "<%=((Part) request.getAttribute("Pict"))%>>" >
 		    <input type ="submit" value="はい">
 		    </form>
 		    

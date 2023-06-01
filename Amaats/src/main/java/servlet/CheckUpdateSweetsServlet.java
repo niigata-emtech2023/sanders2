@@ -39,14 +39,13 @@ public class CheckUpdateSweetsServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.setCharacterEncoding("UTF-8");;
+		request.setCharacterEncoding("UTF-8");
 		
 		SweetsBean sb = new SweetsBean();
 		
-		System.out.println(request.getParameter("id"));
-		sb.setSweets_id(Integer.parseInt(request.getParameter("id"))); System.out.println(request.getParameter("sweets_name"));
-		sb.setSweets_name(request.getParameter("sweets_name")); System.out.println(request.getParameter("sweets_genre"));
-		sb.setSweets_genre(request.getParameter("sweets_genre"));
+		sb.setSweets_id(Integer.parseInt(request.getParameter("id"))); System.out.println(request.getParameter("sweets_genre"));
+		sb.setSweets_name(request.getParameter("sweets_name"));
+		sb.setSweets_genre(genre(request.getParameter("sweets_genre")));
 		sb.setSweets_value(Integer.parseInt(request.getParameter("sweets_value")));
 		sb.setSweets_info(request.getParameter("sweets_info"));
 		
@@ -59,6 +58,38 @@ public class CheckUpdateSweetsServlet extends HttpServlet {
 		
 		RequestDispatcher rd = request.getRequestDispatcher("UpdateSweetsCheck.jsp");
 		rd.forward(request, response);
+		
+	}
+	
+	String genre (String sweets_genre) {
+		
+		String genre;
+		
+		switch (sweets_genre) {
+		case "sweets2":
+			genre = "ケーキ";
+			break;
+		case "sweets3":
+			genre = "チョコ";
+			break;
+		case "sweets4":
+			genre = "クッキー";
+			break;
+		case "sweets5":
+			genre = "カヌレ";
+			break;
+		case "sweets6":
+			genre = "マカロン";
+			break;
+		case "sweets7":
+			genre = "和菓子";
+			break;
+		default:
+			genre = "その他";
+			break;
+		}
+		
+		return genre;
 		
 	}
 
