@@ -70,9 +70,12 @@ public class UpdateSweetsServlet extends HttpServlet {
 			//実際にファイルが保存されるパス確認
 			System.out.println(path);
 			//書き込み
-			part.write(path+File.separator+filename);
-			
-			sb.setPath(filename);
+			try {
+				part.write(path+File.separator+filename);
+				sb.setPath(filename);
+			} catch (IOException e) {
+				sb.setPath(null);
+			}
 			
 			// DAOの生成
 			SweetsDAO dao = new SweetsDAO();

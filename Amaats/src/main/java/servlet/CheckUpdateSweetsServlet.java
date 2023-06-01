@@ -39,7 +39,7 @@ public class CheckUpdateSweetsServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("UTF-8");;
 		
 		SweetsBean sb = new SweetsBean();
 		
@@ -49,7 +49,11 @@ public class CheckUpdateSweetsServlet extends HttpServlet {
 		sb.setSweets_value(Integer.parseInt(request.getParameter("sweets_id")));
 		sb.setSweets_info(request.getParameter("sweets_id"));
 		
-		request.setAttribute("pict", request.getPart("pict"));
+		try {
+			request.setAttribute("pict", request.getPart("pict"));
+		} catch (NullPointerException e) {
+			request.setAttribute("pict", null);
+		}
 		request.setAttribute("bean", sb);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("UpdateSweetsCheck.jsp");
