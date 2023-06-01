@@ -27,7 +27,7 @@
 		    </select><br>
 		    価格：<input type = "text" name="sweets_value"><br>
 		    商品情報：<br>
-		    <textarea name="sweets_info" cols="40" rows="5"></textarea>
+		    <textarea name="sweets_info" cols="40" rows="5"></textarea><br>
 		    写真：<input type="file" name="pict"><br>
 		    <input type="submit" value="登録">
 		    </form>

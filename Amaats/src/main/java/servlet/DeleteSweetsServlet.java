@@ -52,10 +52,6 @@ public class DeleteSweetsServlet extends HttpServlet {
 		if(!session.getAttribute("session_id").equals(null)) {
 			SweetsBean sweetsbean = new SweetsBean();
 			sweetsbean.setSweets_id(Integer.parseInt(request.getParameter("sweets_id")));
-			sweetsbean.setSweets_name(request.getParameter("sweets_name"));
-			sweetsbean.setSweets_value(Integer.parseInt(request.getParameter("sweets_value")));
-			sweetsbean.setSweets_genre(request.getParameter("sweets_genre"));
-			sweetsbean.setSweets_info(request.getParameter("sweets_info"));
 			sdao.deleteSweets(sweetsbean);
 			
 			rd = request.getRequestDispatcher("DeleteSweetsResult.jsp");
