@@ -56,13 +56,13 @@ public class CheckInsertShopAccountServlet extends HttpServlet {
 
 			}
 
-			if (request.getParameter("password").length() <= 0 || request.getParameter("password").length() > 16) {
+			if (request.getParameter("shop_password").length() <= 0 || request.getParameter("shop_password").length() > 16) {
 				
 				flag = false;
 
 			}
 
-			if (!request.getParameter("password").equals(request.getParameter("passcon"))) {
+			if (!request.getParameter("shop_password").equals(request.getParameter("passcon"))) {
 				
 				flag = false;
 
@@ -76,7 +76,7 @@ public class CheckInsertShopAccountServlet extends HttpServlet {
 				
 				request.setAttribute("shop_name", request.getParameter("shop_name"));
 				request.setAttribute("shop_id", request.getParameter("shop_id"));
-				request.setAttribute("password", request.getParameter("password"));
+				request.setAttribute("password", request.getParameter("shop_password"));
 				request.setAttribute("passcon", request.getParameter("passcon"));
 				rd = request.getRequestDispatcher("InsertShopAccount.jsp");
 				request.setAttribute("alert", "入力情報に不備があります。");

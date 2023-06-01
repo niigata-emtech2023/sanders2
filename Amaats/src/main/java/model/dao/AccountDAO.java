@@ -271,12 +271,11 @@ public class AccountDAO {
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
 
-			UserBean bean = new UserBean();
-			String user_id = bean.getUser_id();
-			String user_name = bean.getUser_name();
-			String password = bean.getPassword();
-			String user_genre = bean.getUser_genre();
-			String user_adress = bean.getUser_address();
+			String user_id = user.getUser_id();
+			String user_name = user.getUser_name();
+			String password = user.getPassword();
+			String user_genre = user.getUser_genre();
+			String user_adress = user.getUser_address();
 
 			pstmt.setString(1, user_name);
 			pstmt.setString(2, password);
@@ -294,12 +293,11 @@ public class AccountDAO {
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
 
-			ShopBean bean = new ShopBean();
-			String shop_id = bean.getShop_id();
-			String shop_name = bean.getShop_name();
-			String shop_password = bean.getShop_password();
-			String shop_address = bean.getShop_address();
-			String shop_tel = bean.getShop_tel();
+			String shop_id = shop.getShop_id();
+			String shop_name = shop.getShop_name();
+			String shop_password = shop.getShop_password();
+			String shop_address = shop.getShop_address();
+			String shop_tel = shop.getShop_tel();
 
 			pstmt.setString(1, shop_name);
 			pstmt.setString(2, shop_password);
