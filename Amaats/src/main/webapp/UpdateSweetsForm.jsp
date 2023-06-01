@@ -12,7 +12,7 @@
 		<div class="header"><%@ include file="header.jsp"%>
 		</div>
 		<div id = "contents">
-			<% SweetsBean sb = (SweetsBean) request.getAttribute("bean"); %>
+			<% SweetsBean sb = (SweetsBean) request.getAttribute("bean");%>
 		
 			<form action="check-update-sweets-servlet" method="post">
 				商品ID：<%=sb.getSweets_id() %><br>
@@ -27,12 +27,10 @@
 					<option value="sweets6">マカロン</option>
 					<option value="sweets7">和菓子</option>
 					<option value="sweets8">その他</option>
-				</select><br> <input type="submit" value="更新する">
-				価格：<input type = "text" name="sweets_value" value = "<%=sb.getSweets_value()%>"><br>
+				</select><br>
 			    商品情報：<br>
-			    <textarea name="sweets_info" cols="40" rows="5"><%=sb.getSweets_info() %></textarea>
-			    写真：<input type="file" name="pict"><br>
-			    <input type = "hidden" name = "sweets_id" value = "<%=sb.getSweets_id() %>">
+			    <textarea name="sweets_info" cols="40" rows="5"><%=sb.getSweets_info() %></textarea><br>
+			    <input type = "hidden" name = "id" value = "<%=sb.getSweets_id()%>">
 			    <input type = "submit" value = "更新">
 			</form>
 		

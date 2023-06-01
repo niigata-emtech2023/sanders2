@@ -5,12 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>ユーザー詳細画面</title>
-<link rel="stylesheet" href = "style.css">
+<link rel="stylesheet" href = "css/style_base.css">
 </head>
 <body>
-	<div id="wrapper">
+	<div class="wrapper">
 		<div class = "header"><%@ include file="header.jsp" %></div>
-		<div id="contents">
+		<div class="contents">
 			ユーザーID：${user.user_id}<br>
 			氏名：${user.user_name}<br>
 			パスワード：${user.password}<br>

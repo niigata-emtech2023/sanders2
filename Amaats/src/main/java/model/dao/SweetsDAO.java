@@ -60,21 +60,19 @@ public class SweetsDAO {
 		//商品の追加
 		// データベースへの接続の取得、PreparedStatementの取得
 		try (Connection con = ConnectionManager.getConnection();
-				PreparedStatement pstmt = con.prepareStatement("INSERT INTO m_sweets (sweets_name, sweets_value, sweets_genre, shop_id, path) VALUE(?, ?, ?, ?, ?)")) {
+				PreparedStatement pstmt = con.prepareStatement("INSERT INTO m_sweets (sweets_name, sweets_value, sweets_genre, shop_id) VALUE(?, ?, ?, ?)")) {
 
 			// DTOからのデータの取り出し
 			String sweetsName = sweets.getSweets_name();
 			int sweetsValue = sweets.getSweets_value();
 			String  sweetsGenre = sweets.getSweets_genre();
 			String shopId = sweets.getShop_id();
-			String path = sweets.getPath();
 
 			// プレースホルダへの値の設定
 			pstmt.setString(1, sweetsName);
 			pstmt.setInt(2, sweetsValue);
 			pstmt.setString(3, sweetsGenre);
 			pstmt.setString(4, shopId);
-			pstmt.setString(5, path);
 
 			// SQLステートメントの実行
 			count = pstmt.executeUpdate();
@@ -92,17 +90,7 @@ public class SweetsDAO {
 	public int updateSweets(SweetsBean sweets) throws SQLException, ClassNotFoundException {
 		int processingNumber = 0; //処理件数
 
-		String sql;
-		boolean flag;
-		try {
-			sweets.getPath();
-			sql = "UPDATE m_sweets SET sweets_name = ?, sweets_value = ?, sweets_grene = ?, sweets_info = ?, path = ? WHERE sweets_id = ?";
-			flag = true;
-		} catch (NullPointerException e) {
-			e.printStackTrace();
-			sql = "UPDATE m_sweets SET sweets_name = ?, sweets_value = ?, sweets_grene = ?, sweets_info = ?, path = NULL WHERE sweets_id = ?";
-			flag = false;
-		}
+		String sql = "UPDATE m_sweets SET sweets_name = ?, sweets_value = ?, sweets_grene = ?, sweets_info = ? WHERE sweets_id = ?";
 
 		// データベースへの接続の取得、PreparedStatementの取得
 		try (Connection con = ConnectionManager.getConnection();
@@ -114,25 +102,38 @@ public class SweetsDAO {
 			int sweetsValue = sweets.getSweets_value();
 			String  sweetsGenre = sweets.getSweets_genre();
 			String sweetsInfo = sweets.getSweets_info();
-			String path = sweets.getPath();
+			
 			// プレースホルダへの値の設定
 			pstmt.setString(1, sweetsName);
 			pstmt.setInt(2, sweetsValue);
 			pstmt.setString(3, sweetsGenre);
 			pstmt.setString(4, sweetsInfo);
-			pstmt.setInt(6, sweetsId);
-			
-			if (flag) {
-				pstmt.setString(5, path);
-			}
+			pstmt.setInt(5, sweetsId);
 
 			// SQLステートメントの実行
 			processingNumber = pstmt.executeUpdate();
 		}
 		return processingNumber;
 	}
-
-
+	
+	public int addImage(String sweets_id, String filename) throws SQLException, ClassNotFoundException {
+		
+		String sql = "UPDATE m_sweets SET path = ? WHERE sweets_id = ?";
+		int count = 0;
+		
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+			
+			pstmt.setString(1, filename);
+			pstmt.setString(2, sweets_id);
+			
+			count = pstmt.executeUpdate();
+			
+		}
+		
+		return count;
+		
+	}
 
 	/**
 	 * 商品削除
@@ -149,9 +150,7 @@ public class SweetsDAO {
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
 
-			SweetsBean bean = new SweetsBean();
-
-			int sweets_id = bean.getSweets_id();
+			int sweets_id = sweets.getSweets_id();
 
 			// プレースホルダへの値の設定
 			pstmt.setInt(1, sweets_id);
@@ -330,22 +329,23 @@ public class SweetsDAO {
 			pstmt.setString(1, shop_id);
 
 			ResultSet res = pstmt.executeQuery();
-
+			int i = 0;
 			while (res.next()) {
-
+				i++;
 				SweetsBean sb = new SweetsBean();
 
-				sb.setSweets_id(res.getInt("sweets_id"));
-				sb.setSweets_name(res.getString("sweets_name"));
-				sb.setSweets_value(res.getInt("sweets_value"));
-				sb.setSweets_genre(res.getString("sweets_genre"));
-				sb.setSweets_info(res.getString("sweets_info"));
-				sb.setShop_id(res.getString("shop_id"));
-				sb.setPath(res.getString("path"));
+				sb.setSweets_id(res.getInt("sweets_id")); System.out.println(res.getInt("sweets_id"));
+				sb.setSweets_name(res.getString("sweets_name")); res.getString("sweets_name");
+				sb.setSweets_value(res.getInt("sweets_value")); res.getInt("sweets_value");
+				sb.setSweets_genre(res.getString("sweets_genre")); res.getString("sweets_genre");
+				sb.setSweets_info(res.getString("sweets_info")); res.getString("sweets_info");
+				sb.setShop_id(res.getString("shop_id")); res.getString("shop_id");
+				sb.setPath(res.getString("path")); res.getString("path");
 
 				sweetsList.add(sb);
 
 			}
+			System.out.println(i);
 
 		}
 
@@ -367,7 +367,7 @@ public class SweetsDAO {
 					sb.setSweets_id(res.getInt("sweets_id"));
 					sb.setSweets_name(res.getString("sweets_name"));
 					sb.setSweets_value(res.getInt("sweets_value"));
-					sb.setSweets_genre(res.getString("sweets_id"));
+					sb.setSweets_genre(res.getString("sweets_genre"));
 					sb.setShop_id(res.getString("shop_id"));
 					sb.setPath(res.getString("path"));
 

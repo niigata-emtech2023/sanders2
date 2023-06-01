@@ -5,29 +5,33 @@
 <head>
 <meta charset="UTF-8">
 <title>削除画面</title>
-<link rel = "stylesheet" href = "style.css">
+<link rel="stylesheet" href = "css/style_base.css">
+<link rel="stylesheet" href = "css/delete_table.css">
 </head>
 <body>
-	<div id="wrapper">
+	<div class="wrapper">
 		<div class="header"><jsp:include page = "header.jsp" />
 		</div>
-		<div id="contents">
+		<div class="contents">
 			<%
 				List<UserBean> userList = (List<UserBean>) request.getAttribute("userList");
-	%>
+			%>
 	<table border = "1">
+		<thead>
 				<tr>
-					<th>ユーザーID</th>
-					<th>氏名</th>
-					<th></th>
+					<th class="td1">ユーザーID</th>
+					<th class="td2">氏名</th>
 				</tr>
+		</thead>
+		<tbody>
 				<%
 					for (UserBean user : userList) {
 					%>
+			
 				<tr>
-					<td><%=user.getUser_id()%></td>
-					<td><%=user.getUser_name()%></td>
-					<td>
+					<td class="td1"><%=user.getUser_id()%></td>
+					<td class="td2"><%=user.getUser_name()%></td>
+					<td class="td3">
 						<form action="CheckDeleteUserAccount.jsp" method="POST">
 							<input type="hidden" name="type" value="user">
 							<input type="hidden" name="user_id" value="<%=user.getUser_id()%>">
@@ -42,23 +46,27 @@
 				<%
 					}
 				%>
+				</tbody>
 			</table>
 			<%
 				List<ShopBean> shopList = (List<ShopBean>) request.getAttribute("shopList");
 			%>
 			<table border = "1">
+				<thead>
 				<tr>
-					<th>店舗ID</th>
-					<th>店舗名</th>
-					<th></th>
+					<th class="td1">店舗ID</th>
+					<th class="td2">店舗名</th>
 				</tr>
+				</thead>
+				<tbody>
 				<%
 					for (ShopBean shop : shopList) {
 				%>
+				
 				<tr>
-					<td><%=shop.getShop_id()%></td>
-					<td><%=shop.getShop_name()%></td>
-					<td>
+					<td class="td1"><%=shop.getShop_id()%></td>
+					<td class="td2"><%=shop.getShop_name()%></td>
+					<td class="td3">
 						<form action="CheckDeleteShopAccount.jsp" method="POST">
 							<input type="hidden" name="type" value="shop">
 							<input type="hidden" name="shop_id" value="<%=shop.getShop_id()%>">
@@ -73,8 +81,8 @@
 				<%
 					}
 				%>
+				</tbody>
 			</table>
-		</div>
 		</div>
 	</div>
 </body>

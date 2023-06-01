@@ -13,8 +13,8 @@
 		<div class="header"><jsp:include page = "header.jsp" />
 		</div>
 		<div class="contents">
-			店舗アカウント登録<br>
-			<span>${alert}</span><br>
+			<h2>店舗アカウント登録</h2><br>
+			<span class="alert">${alert}</span><br>
 			<form action = "check-insert-shop-account-servlet" method = "POST">
 				<div class="textsize">
 					店舗ID：<input type = "text" name = "shop_id" value = "${shop_id}" id="shopid"><br>

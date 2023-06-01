@@ -49,6 +49,17 @@ input[type=text],[type=password]{
 	width: 250px;
 }
 
+.text {
+	font-size: 25px;
+	color: red;
+}
+
+.textleft {
+	font-size: 25px;
+	display: inline-block;
+	text-align: left;
+}
+
 .textsize {
 	font-size: 25px;
 	display: inline-block;
@@ -91,6 +102,21 @@ input[type=text],[type=password]{
 #shopid2 {
 	width: 200px;
 	height: 20px;
+}
+
+#yes {
+	margin-right: 300px;
+	float: right;
+}
+
+#no {
+	
+	margin-left: 300px;
+	float: left;
+}
+
+.img {
+	text-align: center;
 }
 /* .return { */
 /* 	margin-left: 300px; */

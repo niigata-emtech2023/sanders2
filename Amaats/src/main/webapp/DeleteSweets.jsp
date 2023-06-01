@@ -12,7 +12,7 @@
     	<div class = "header"><%@ include file="header.jsp" %></div>
     	<div id="contents">
 	   	 <% 
-	   	 List<SweetsBean> sweetsList = (List<SweetsBean>)request.getAttribute("sweetsList");
+	   	 List<SweetsBean> sweetsList = (List<SweetsBean>)request.getAttribute("beanList");
 	   	 %>
 	    
 	    <table>
@@ -20,7 +20,6 @@
 				<th>商品名</th>
 				<th>値段</th>
 				<th>ジャンル</th>
-				<th>店舗ID</th>
 				<th></th>
 			</tr>
 			<%
@@ -31,12 +30,14 @@
 				<td><%=sweets.getSweets_name()%></td>
 				<td><%=sweets.getSweets_value()%></td>
 				<td><%=sweets.getSweets_genre()%></td>
-				<td><%=sweets.getShop_id()%></td>
-				<td></td>
 				<td>
 				
 					<form action="CheckDeleteSweets.jsp" method="POST">
-						<input type="hidden" name="id" value="<%=sweets.getSweets_id()%>">
+						<input type="hidden" name="sweets_id" value="<%=sweets.getSweets_id()%>">
+						<input type="hidden" name="sweets_name" value="<%=sweets.getSweets_name()%>">
+						<input type="hidden" name="sweets_genre" value="<%=sweets.getSweets_genre()%>">
+						<input type="hidden" name="sweets_value" value="<%=sweets.getSweets_value()%>">
+						<input type="hidden" name="sweets_info" value="<%=sweets.getSweets_info()%>">
 						<input type="submit" value="削除">
 						
 					</form>
@@ -46,7 +47,6 @@
 			}
 			%>
 			</table>
-			<div class="footer"><jsp:include page = "footer.jsp"></div>
 		</div>
 	</div>
 </body>

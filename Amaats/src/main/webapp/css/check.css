@@ -1,0 +1,123 @@
+body {
+	
+	margin: 0px auto;
+	padding: -2px;
+	text-align: center;
+	background-color: #ffbbbb;
+
+}
+
+.wrapper{
+	
+	margin: 0px auto;
+	padding: 30px;
+	width: 1000px;
+    height:600px;
+	
+}
+
+.contents {
+	text-align: center;
+	margin: 50px auto;
+}
+
+.header {
+	
+/* 	background-color: #ffaaaa; */
+	top: 0;
+	left: 0;
+	height: 100px;
+	
+}
+
+.footer {
+	
+/* 	background-color: #ffaaaa; */
+	bottom: 0;
+	left: 0;
+	height: 100px;
+	
+}
+
+input[type=text],[type=password]{
+	width:200px;
+	height:20px;
+}
+
+#logo {
+	height: 250px;
+	width: 250px;
+}
+
+.text {
+	font-size: 25px;
+	color: red;
+}
+
+.textsize {
+	font-size: 25px;
+	display: inline-block;
+	text-align: center;
+}
+
+.send {
+	width: 100px;
+	height: 30px;
+	margin-top: 10px;
+}
+
+.logouttext {
+	font-size: 25px;
+	padding: 40px;
+}
+
+.alert {
+	color: red;
+	font-size: 20px;
+}
+
+.sign {
+	font-size: 25px;
+}
+
+.register {
+	text-align: center;
+}
+
+#pass {
+	margin-left: 50px;
+}
+
+#shopid {
+	width: 200px;
+	height: 20px;
+}
+
+#shopid2 {
+	width: 200px;
+	height: 20px;
+}
+
+#yes {
+	float: right;
+}
+
+#no {
+	
+	float: left;
+}
+/* .return { */
+/* 	margin-left: 300px; */
+/* 	float: left; */
+	
+/* } */
+
+/* #form_area_menu{ */
+/* 	width: 150px; */
+/* 	height: 120px; */
+/* 	border: 2px solid #ccc; */
+/*     border-radius: 10px; */
+/*     margin: 0px auto; */
+/*     padding:70px auto; */
+/* } */
+

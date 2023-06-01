@@ -16,7 +16,7 @@ import model.entity.UserBean;
 /**
  * Servlet implementation class CheckUpdateUserAccountServlet
  */
-@WebServlet("/check-update-user-account-servlet")
+@WebServlet("/update-user-account-servlet")
 public class UpdateUserAccountServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -40,6 +40,8 @@ public class UpdateUserAccountServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		request.setCharacterEncoding("UTF-8");
 		
 		AccountDAO adao = new AccountDAO();
 		UserBean ub = new UserBean();

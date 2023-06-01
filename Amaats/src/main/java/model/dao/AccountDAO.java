@@ -266,24 +266,24 @@ public class AccountDAO {
 	}
 
 	public void UpdateUser(UserBean user) throws SQLException, ClassNotFoundException {
-		String sql = "UPDATE m_user SET user_name = ?, password = ?, user_genre = ?, user_adress = ? WHERE user_id = ?";
+		String sql = "UPDATE m_user SET user_name = ?, password = ?, user_genre = ?, user_address = ? WHERE user_id = ?";
 
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
-
+			System.out.println(user.getUser_id());
 			String user_id = user.getUser_id();
 			String user_name = user.getUser_name();
 			String password = user.getPassword();
 			String user_genre = user.getUser_genre();
-			String user_adress = user.getUser_address();
+			String user_address = user.getUser_address();
 
 			pstmt.setString(1, user_name);
 			pstmt.setString(2, password);
 			pstmt.setString(3, user_genre);
-			pstmt.setString(4, user_adress);
+			pstmt.setString(4, user_address);
 			pstmt.setString(5, user_id);
 
-			pstmt.executeUpdate();
+			int count = pstmt.executeUpdate(); System.out.println(count);
 		}
 	}
 

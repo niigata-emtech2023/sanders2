@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.dao.AccountDAO;
+import model.entity.UserBean;
 
 /**
  * Servlet implementation class CheckUserUpdateServlet
@@ -41,10 +41,11 @@ public class CheckUserUpdateServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
+		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 		String url = null;
 		String user_id = (String) session.getAttribute("session_id");
-		AccountDAO adao = new AccountDAO();
+		UserBean ub = new UserBean();
 		
 		if (user_id != null) {
 			
@@ -72,8 +73,15 @@ public class CheckUserUpdateServlet extends HttpServlet {
 				
 				if (flag) {
 					
+					ub.setUser_id(request.getParameter("user_id")); 
+					ub.setUser_name(request.getParameter("user_name"));
+					ub.setPassword(request.getParameter("password"));
+					ub.setUser_genre(request.getParameter("user_genre"));
+					ub.setUser_address(request.getParameter("user_address"));
+					
+					
 					url = "UpdateUserCheck.jsp";
-					request.setAttribute("bean", adao.getUserAccount(user_id));
+					request.setAttribute("bean", ub);
 					
 				} else {
 					

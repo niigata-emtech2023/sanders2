@@ -1,0 +1,65 @@
+table{
+   margin:10px auto;
+   border:solid 1px;	
+}
+
+thead {
+  display: block;
+  text-align: center;
+  width: 450px;
+  height: 30px;
+   background-color: #F6BABC; 
+}
+
+tbody {
+  display: block;
+  text-align: center;
+  overflow-y: scroll;
+  height: 233px;
+  width: 470px;
+}
+
+th {
+  height:10px;
+  border:solid 1px;
+}
+
+.th1 {
+  width: 80px;
+}
+
+.th2 {
+  width: 120px;
+}
+
+.th3 {
+  width: 80px;
+}
+
+
+td {
+  height:45px;
+  border:solid 1px;
+}
+
+.td1 {
+  width: 200px;
+}
+
+.td2 {
+  width: 200px;
+}
+
+.td3 {
+  width: 50px; 
+}
+
+.td4 {
+	width: 120px;
+}
+
+.td5 {
+	width: 100px;
+}
+
+/*参考サイト：https://www.koikikukan.com/archives/2015/03/10-005555.php*/

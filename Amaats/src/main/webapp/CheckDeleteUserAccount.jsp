@@ -5,30 +5,33 @@
 <head>
 <meta charset="UTF-8">
 <title>削除確認画面</title>
-<link rel="stylesheet" href = "style.css">
+<link rel="stylesheet" href = "css/style_base.css">
 </head>
 <body>
 	<% request.setCharacterEncoding("UTF-8"); %>
-	<div id="wrapper">
+	<div class="wrapper">
 	    <div class = "header"><%@ include file="header.jsp" %></div>
-	    <div id="contents">
-			このアカウントを削除しますが,
-			<br> 本当によろしいですか？<br>
-			
-			ログインID：<%=request.getParameter("user_id")%><br>
-			氏名：<%=request.getParameter("user_name")%><br>
-			パスワード：<%=request.getParameter("password")%><br>
-			好きなジャンル：<%=request.getParameter("user_genre")%><br>
-			住所：<%=request.getParameter("user_address")%><br>
-			
+	    <div class="contents">
+	    	<div class="text">
+				このアカウントを削除しますが,
+				<br> 本当によろしいですか？<br>
+			</div>
+			<div class="textsize">
+			<br>
+				ログインID：<%=request.getParameter("user_id")%><br>
+				氏名：<%=request.getParameter("user_name")%><br>
+				パスワード：<%=request.getParameter("password")%><br>
+				好きなジャンル：<%=request.getParameter("user_genre")%><br>
+				住所：<%=request.getParameter("user_address")%><br>
+			</div>
 			<div style = "display:inline-flex">
 				<form action="show-delete-user-account-servlet" method="POST">
-					<input type="submit" value="いいえ">
+					<input type="submit" value="いいえ" id="no" class="send">
 				</form>
 				<form action="delete-account-servlet" method="POST">
 					<input type="hidden" name="type" value="user">
 					<input type="hidden" name="user_id" value="<%=request.getParameter("user_id")%>">
-					<input type="submit" value="はい">
+					<input type="submit" value="はい" id="yes" class="send">
 				</form>
 			</div>
 		
