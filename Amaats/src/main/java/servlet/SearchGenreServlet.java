@@ -51,7 +51,7 @@ public class SearchGenreServlet extends HttpServlet {
 		
 		try {
 			
-			sweetsList = sdao.searchGenre(request.getParameter("sweets_genre"));
+			sweetsList = sdao.searchGenre(request.getParameter("genre"));
 			
 		} catch (SQLException | ClassNotFoundException e) {
 			
@@ -61,7 +61,7 @@ public class SearchGenreServlet extends HttpServlet {
 		
 		/* フォワード */
 		RequestDispatcher rd = request.getRequestDispatcher("SearchResult.jsp");
-		request.setAttribute("beanList", sweetsList);
+		request.setAttribute("sweetsList", sweetsList);
 		rd.forward(request, response);
 		
 	}
