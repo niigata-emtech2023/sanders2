@@ -20,7 +20,7 @@
 	    	bean.getSweets_name();
 	    	
 	    } catch (NullPointerException e) {
-	    	
+	    	e.printStackTrace();
 	    	bean.setSweets_name("");
 	    	bean.setSweets_genre("");
 	    	bean.setSweets_value(0);
