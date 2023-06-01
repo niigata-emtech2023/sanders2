@@ -8,8 +8,8 @@
 <link rel="stylesheet" href = "style.css">
 </head>
 <body>
-	<div id="wrapper">
-		<div id="contents">
+	<div class="wrapper">
+		<div class="contents">
 			この内容で登録しますがよろしいですか？<br>
 			<br>
 			名前：<%=request.getParameter("user_name")%><br>
@@ -21,19 +21,23 @@
 			住所：<%=request.getParameter("user_address")%><br>
 			<div style = "display:inline-flex">
 			<form action = "InsertUserAccount.jsp" method = "POST">
-				<input type = "hidden" name = "user_name" value = "<%=request.getParameter("user_name")%>">
-				<input type = "hidden" name = "user_id" value = "<%=request.getParameter("user_id")%>">
-				<input type = "hidden" name = "password" value = "<%=request.getParameter("password")%>">
-				<input type = "hidden" name = "passcon" value = "<%=request.getParameter("passcon")%>">
-				<input type = "hidden" name = "user_address" value = "<%=request.getParameter("user_address")%>">
-				<input type = "submit" value = "いいえ">
+				<div class="textsize">
+					<input type = "hidden" name = "user_name" value = "<%=request.getParameter("user_name")%>">
+					<input type = "hidden" name = "user_id" value = "<%=request.getParameter("user_id")%>">
+					<input type = "hidden" name = "password" value = "<%=request.getParameter("password")%>">
+					<input type = "hidden" name = "passcon" value = "<%=request.getParameter("passcon")%>">
+					<input type = "hidden" name = "user_address" value = "<%=request.getParameter("user_address")%>">
+					<input type = "submit" value = "いいえ" class="send">
+				</div>
 			</form>
 			<form action = "insert-user-account-servlet" method = "POST">
-				<input type = "hidden" name = "user_id" value = "<%=request.getParameter("user_id")%>">
-				<input type = "hidden" name = "user_name" value = "<%=request.getParameter("user_name")%>">
-				<input type = "hidden" name = "password" value = "<%=request.getParameter("password")%>">
-				<input type = "hidden" name = "user_address" value = "<%=request.getParameter("user_address")%>">
-				<input type = "submit" value = "はい">
+				<div class="textsize">
+					<input type = "hidden" name = "user_id" value = "<%=request.getParameter("user_id")%>">
+					<input type = "hidden" name = "user_name" value = "<%=request.getParameter("user_name")%>">
+					<input type = "hidden" name = "password" value = "<%=request.getParameter("password")%>">
+					<input type = "hidden" name = "user_address" value = "<%=request.getParameter("user_address")%>">
+					<input type = "submit" value = "はい" class="send">
+				</div>
 			</form>
 			</div>
 		</div>

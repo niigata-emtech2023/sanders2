@@ -5,11 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>ユーザー新規登録</title>
-<link rel = "stylesheet" href = "style.css">
+<link rel = "stylesheet" href = "css/insertuser.css">
 </head>
 <body>
-	<div id = "wrapper">
-		<div id = "contents">
+	<div class = "wrapper">
+		<div class = "contents">
 			<img src = "image/amaats_logo.png" alt = "Amaats" id="logo"><br>
 			<h2>ユーザー新規登録</h2>
 			<span class = "alert">${alert}</span><br>
