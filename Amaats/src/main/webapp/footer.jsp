@@ -24,7 +24,7 @@
 		<input type = "submit" value = "検索" class="searchbutton">
 	</form>　　　　　
 	<form action = "search-value-servlet" method = "POST">
-			<input type = "text" name = "minvalue" class="price">～
+			価格：<input type = "text" name = "minvalue" class="price">～
 			<input type = "text" name = "maxvalue" class="price">
 			<input type = "submit" value = "検索" class="searchbutton">
 	</form>

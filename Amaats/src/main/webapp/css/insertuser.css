@@ -6,25 +6,8 @@ body {
 	padding: -2px;
 	text-align: center;
 	background-color: #ffbbbb;
+
 }
-
-/* .wrapper{ */
-	
-/* 	margin: 0px auto; */
-/* 	padding: 30px; */
-/* 	width: 1000px; */
-/*     height:600px; */
-	
-/* } */
-
-/* #wrapper{ */
-	
-/* 	margin: -5px auto; */
-/* 	padding: 30px; */
-/* 	width: 800px; */
-/*     height:600px; */
-	
-/* } */
 
 .wrapper{
 	
@@ -37,26 +20,7 @@ body {
 
 .contents {
 	text-align: center;
-	margin: 50px auto;
-}
-
-
-.header {
-	
-	background-color: #ffaaaa;
-	top: 0;
-	left: 0;
-	height: 100px;
-	
-}
-
-.footer {
-	
-	background-color: #ffaaaa;
-	bottom: 0;
-	left: 0;
-	height: 100px;
-	
+	margin: opx auto;
 }
 
 input[type=text],[type=password]{
@@ -96,12 +60,12 @@ input[type=text],[type=password]{
 }
 
 .register {
-	margin-right: 540px;
-	display: inline-block;
+	margin-right: 300px;
+	float: right;
 }
 
 .return {
-	margin-left: 540px;
-	display: flex;
+	margin-left: 300px;
 	float: left;
+	
 }

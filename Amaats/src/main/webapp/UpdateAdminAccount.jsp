@@ -5,17 +5,18 @@
 <head>
 <meta charset="UTF-8">
 <title>管理者編集画面</title>
-<link rel = "stylesheet" href = "style.css">
+<link rel = "stylesheet" href = "css/style_base.css">
 </head>
 <body>
-	<div id = "wrapper">
+	<div class = "wrapper">
 		<div class="header"><%@ include file="header.jsp" %>
 		</div>
-		<div id = "contents">
+		<div class = "contents">
 			<form action="check-admin-update-servlet" method="post">
-				管理者ID：${admin.admin_id}<br>
-				パスワード：<input type="password" name="admin_password" value="${admin.admin_password}"><br>
-				<input type="submit" value="変更する">
+				<div class="textsize">
+					管理者ID：${admin.admin_id}<br>
+					パスワード：<input type="password" name="admin_password" value="${admin.admin_password}"><br></div>
+				<br><input type="submit" value="変更する" class="send">
 			</form>
 		</div>
 	</div>

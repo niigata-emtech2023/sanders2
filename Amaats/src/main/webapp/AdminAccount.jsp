@@ -5,19 +5,19 @@
 <head>
 <meta charset="UTF-8">
 <title>アカウント情報確認画面</title>
-<link rel="stylesheet" href = "style.css">
+<link rel="stylesheet" href = "css/style_base.css">
 </head>
 <body>
-	<div id="wrapper">
+	<div class="wrapper">
 	    <div class = "header"><%@ include file="header.jsp" %></div>
-	    <div id="contents">
+	    <div class="contents">
 		     <%
 		    AdminBean bean = (AdminBean)request.getAttribute("bean");
 		    %>
-		    ログインID：<%=bean.getAdmin_id() %><br>
+		    <div class="textsize">ログインID：<%=bean.getAdmin_id() %><br></div>
 		    
 		    <form action="UpdateAdminAccount.jsp" method="POST">
-		        <input type="submit" value="編集する">
+		        <input type="submit" value="編集する" class="send">
 		    </form>
 	    </div>
     </div>
