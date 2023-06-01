@@ -3,7 +3,11 @@ body {
 	margin: 0px auto;
 	padding: -2px;
 	text-align: center;
+<<<<<<< HEAD
  	background-color: #ffbbbb;
+=======
+	background-color: #ffbbbb;
+>>>>>>> branch 'master' of https://github.com/niigata-emtech2023/sanders2
 }
 
 .wrapper{

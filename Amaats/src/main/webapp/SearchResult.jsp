@@ -31,7 +31,7 @@
 				<tbody>
 					<%
 					for (SweetsBean sweets : sweetsList) {
-				%>
+					%>
 					<tr>
 						<td><%=sweets.getSweets_name()%></td>
 						<td><%=sweets.getSweets_value()%></td>

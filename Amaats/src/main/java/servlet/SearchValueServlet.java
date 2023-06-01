@@ -51,7 +51,7 @@ public class SearchValueServlet extends HttpServlet {
 		
 		try {
 			
-			sweetsList = sdao.searchValue(Integer.parseInt(request.getParameter("minvalue")), Integer.parseInt(request.getParameter("maxvalue")));
+			sweetsList = sdao.searchValue(Integer.parseInt(request.getParameter("maxvalue")), Integer.parseInt(request.getParameter("minvalue")));
 			
 		} catch (SQLException | ClassNotFoundException e) {
 			
@@ -61,7 +61,7 @@ public class SearchValueServlet extends HttpServlet {
 		
 		/* フォワード */
 		RequestDispatcher rd = request.getRequestDispatcher("SearchResult.jsp");
-		request.setAttribute("beanList", sweetsList);
+		request.setAttribute("sweetsList", sweetsList);
 		rd.forward(request, response);
 		
 	}

@@ -11,7 +11,7 @@
 	<div id="wrapper">
 	    <div class = "header"><%@ include file="header.jsp" %></div>
 	    <div id="contents">
-		    <span>${alert}</span>		    
+		    <span>${alert}</span>
 		    <form action="check-insert-sweets-info-servlet" method="POST" enctype="multipart/form-data">
 		    商品名：<input type="text" name="sweets_name"><br>
 		    ジャンル：
@@ -24,10 +24,11 @@
 				<option value="sweets6">マカロン</option>
 				<option value="sweets7">和菓子</option>
 				<option value="sweets8">その他</option>
-			</select><br>
+		    </select><br>
 		    価格：<input type = "text" name="sweets_value"><br>
 		    商品情報：<br>
 		    <textarea name="sweets_info" cols="40" rows="5"></textarea>
+		    写真：<input type="file" name="pict"><br>
 		    <input type="submit" value="登録">
 		    </form>
 	    </div>

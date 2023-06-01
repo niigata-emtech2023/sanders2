@@ -37,8 +37,6 @@ public class InsertSweetsServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		RequestDispatcher rd=request.getRequestDispatcher("/WEB-INF/view/form.jsp");
-		rd.forward(request, response);
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
@@ -57,8 +55,6 @@ public class InsertSweetsServlet extends HttpServlet {
 				
 				request.setCharacterEncoding("UTF-8");
 				
-				String name=request.getParameter("name");
-				String word=request.getParameter("word");
 				//name属性がpictのファイルをPartオブジェクトとして取得
 				Part part=request.getPart("pict");
 				//ファイル名を取得
@@ -79,7 +75,7 @@ public class InsertSweetsServlet extends HttpServlet {
 				bean.setSweets_genre(request.getParameter("sweets_genre"));
 				bean.setShop_id(request.getParameter("shop_id"));
 				
-				bean.setPath(path);
+				bean.setPath(filename);
 				
 				sdao.insertSweets(bean);
 				
