@@ -211,6 +211,7 @@ public class SweetsDAO {
 				sb.setSweets_value(res.getInt("sweets_value"));
 				sb.setSweets_genre(res.getString("sweets_genre"));
 				sb.setShop_id(res.getString("shop_id"));
+				sb.setPath(res.getString("path"));
 
 				sweetsList.add(sb);
 
@@ -249,6 +250,7 @@ public class SweetsDAO {
 				sb.setSweets_value(res.getInt("sweets_value"));
 				sb.setSweets_genre(res.getString("sweets_genre"));
 				sb.setShop_id(res.getString("shop_id"));
+				sb.setPath(res.getString("path"));
 
 				sweetsList.add(sb);
 
@@ -289,6 +291,7 @@ public class SweetsDAO {
 				sb.setSweets_value(res.getInt("sweets_value"));
 				sb.setSweets_genre(res.getString("sweets_genre"));
 				sb.setShop_id(res.getString("shop_id"));
+				sb.setPath(res.getString("path"));
 
 				sweetsList.add(sb);
 
@@ -321,6 +324,7 @@ public class SweetsDAO {
 				sb.setSweets_value(res.getInt("sweets_value"));
 				sb.setSweets_genre(res.getString("sweets_id"));
 				sb.setShop_id(res.getString("shop_id"));
+				sb.setPath(res.getString("path"));
 
 				sweetsList.add(sb);
 
@@ -330,4 +334,30 @@ public class SweetsDAO {
 
 		return sweetsList;
 	}
+	
+	public SweetsBean getSweetsInfo (int sweets_id) throws SQLException, ClassNotFoundException {
+		String sql = "SELECT * FROM m_sweets WHERE sweets_id = ?";
+			SweetsBean sb = new SweetsBean();
+
+			try (Connection con = ConnectionManager.getConnection();
+					PreparedStatement pstmt = con.prepareStatement(sql)) {
+
+				pstmt.setInt(1, sweets_id);
+
+				ResultSet res = pstmt.executeQuery();
+				res.next();
+
+					sb.setSweets_id(res.getInt("sweets_id"));
+					sb.setSweets_name(res.getString("sweets_name"));
+					sb.setSweets_value(res.getInt("sweets_value"));
+					sb.setSweets_genre(res.getString("sweets_id"));
+					sb.setShop_id(res.getString("shop_id"));
+					sb.setPath(res.getString("path"));
+
+			}
+
+			return sb;
+		
+	}
+	
 }
