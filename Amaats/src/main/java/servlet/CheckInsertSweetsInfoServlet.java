@@ -62,7 +62,8 @@ public class CheckInsertSweetsInfoServlet extends HttpServlet {
 		sweetsbean.setSweets_value(Integer.parseInt(request.getParameter("sweets_value")));
 		sweetsbean.setSweets_info(request.getParameter("sweets_info"));
 		
-		request.setAttribute("bean","sweetsbean");
+		
+		request.setAttribute("bean",sweetsbean);
 		
 		
 		

@@ -79,7 +79,7 @@ public class InsertSweetsServlet extends HttpServlet {
 				bean.setSweets_genre(request.getParameter("sweets_genre"));
 				bean.setShop_id(request.getParameter("shop_id"));
 				
-				bean.setPath(ここから書く);
+				bean.setPath(path);
 				
 				sdao.insertSweets(bean);
 				

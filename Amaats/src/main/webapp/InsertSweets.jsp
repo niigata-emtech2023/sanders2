@@ -11,15 +11,10 @@
 	<div id="wrapper">
 	    <div class = "header"><%@ include file="header.jsp" %></div>
 	    <div id="contents">
-		    <span>${alert}</span>
-		    
-		    <form action="/Amaats/Main" method="post" enctype="multipart/form-data">
-		    写真:<input type="file" name="pict"><br>
-		    </form>
-		    
-		    <form action="check-insert-sweets-info-servlet" method="POST">
+		    <span>${alert}</span>		    
+		    <form action="check-insert-sweets-info-servlet" method="POST" enctype="multipart/form-data">
 		    商品名：<input type="text" name="sweets_name"><br>
-		    カテゴリ：
+		    ジャンル：
 		    <select name="sweets_genre">
 		        <option value="default">選択してください</option>
 				<option value="sweets2">ケーキ</option>
@@ -29,13 +24,10 @@
 				<option value="sweets6">マカロン</option>
 				<option value="sweets7">和菓子</option>
 				<option value="sweets8">その他</option>
-		    </select><br>
-		    
+			</select><br>
 		    価格：<input type = "text" name="sweets_value"><br>
 		    商品情報：<br>
-		    <textarea name="sweets_info" cols="40" rows="5">
-		    </textarea>
-		    
+		    <textarea name="sweets_info" cols="40" rows="5"></textarea>
 		    <input type="submit" value="登録">
 		    </form>
 	    </div>

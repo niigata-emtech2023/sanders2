@@ -15,8 +15,8 @@
 			<span class = "alert">${alert}</span><br>
 			<form action = "login-servlet" method = "POST">
 				<div class="textsize">
-					ログインID：<input type = "text" name = "id" value = "${id}"><br>
-					パスワード：<input type = "password" name = "password" value = "<%=request.getParameter("id")%>"><br>
+					ログインID：<input type = "text" name = "id"><br>
+					パスワード：<input type = "password" name = "password"><br>
 				</div>
 				<br>
 				<div class="sign"><a href = "InsertUserAccount.jsp">新規会員登録</a></div><br>
