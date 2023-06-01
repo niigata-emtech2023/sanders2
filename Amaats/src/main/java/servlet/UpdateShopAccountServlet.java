@@ -40,7 +40,7 @@ public class UpdateShopAccountServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		request.setCharacterEncoding("UTF-8");
 		AccountDAO adao = new AccountDAO();
 		ShopBean sb = new ShopBean();
 		
@@ -63,7 +63,7 @@ public class UpdateShopAccountServlet extends HttpServlet {
 			e.printStackTrace();
 			
 		}
-		RequestDispatcher rd = request.getRequestDispatcher("ShopAccount.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("UpdateAccountResult.jsp");
 		rd.forward(request, response);
 	}
 
