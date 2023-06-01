@@ -38,10 +38,14 @@
 						<td></td>
 						<td>
 
-							<form action="show-sweets-info-servlet" method="POST">
-								<input type="hidden" name="id"
-									value="<%=sweets.getSweets_id()%>"> <input
-									type="submit" value="詳細表示">
+							<form action="show-update-sweets-servlet" method="POST">
+								<input type="hidden" name="sweets_id" value="<%=sweets.getSweets_id()%>">
+								<input type="hidden" name="sweets_name" value="<%=sweets.getSweets_name()%>">
+								<input type="hidden" name="sweets_value" value="<%=sweets.getSweets_value()%>">
+								<input type="hidden" name="sweets_genre" value="<%=sweets.getSweets_genre()%>">
+								<input type="hidden" name="sweets_info" value="<%=sweets.getSweets_info()%>">
+								<input type="hidden" name="path" value="<%=sweets.getPath()%>">
+								<input type="submit" value="編集">
 							</form>
 						</td>
 					</tr>
@@ -54,5 +58,6 @@
 			該当する商品はありませんでした。<br>
 			<% } %>
 		</div>
+	</div>
 </body>
 </html>

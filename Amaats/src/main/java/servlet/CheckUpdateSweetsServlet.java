@@ -12,27 +12,26 @@ import javax.servlet.http.HttpServletResponse;
 import model.entity.SweetsBean;
 
 /**
- * 確認画面に遷移
+ * Servlet implementation class CheckUpdateSweetsServlet
  */
-@WebServlet("/show-update-sweets-servlet")
-public class ShowUpdateSweetsServlet extends HttpServlet {
+@WebServlet("/check-update-sweets-servlet")
+public class CheckUpdateSweetsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public ShowUpdateSweetsServlet() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public CheckUpdateSweetsServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		doPost(request, response);
-		
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -46,14 +45,16 @@ public class ShowUpdateSweetsServlet extends HttpServlet {
 		
 		sb.setSweets_id(Integer.parseInt(request.getParameter("sweets_id")));
 		sb.setSweets_name(request.getParameter("sweets_name"));
-		sb.setSweets_genre(request.getParameter("sweets_genre"));
-		sb.setSweets_value(Integer.parseInt(request.getParameter("sweets_value")));
-		sb.setSweets_info(request.getParameter("sweets_info"));
-		sb.setPath(request.getParameter("path"));
+		sb.setSweets_genre(request.getParameter("sweets_id"));
+		sb.setSweets_value(Integer.parseInt(request.getParameter("sweets_id")));
+		sb.setSweets_info(request.getParameter("sweets_id"));
 		
-		RequestDispatcher rd = request.getRequestDispatcher("UpdateSweetsForm.jsp");
+		request.setAttribute("pict", request.getPart("pict"));
 		request.setAttribute("bean", sb);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("UpdateSweetsCheck.jsp");
 		rd.forward(request, response);
+		
 	}
 
 }

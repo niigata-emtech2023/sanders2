@@ -24,13 +24,17 @@
 			商品ID：<%=bean.getSweets_id() %><br>
 			商品名：<%=bean.getSweets_name() %><br>
 			値段：<%=bean.getSweets_value() %><br>
-			カテゴリ：<%=bean.getSweets_genre() %><br>
+			ジャンル：<%=bean.getSweets_genre() %><br>
+			商品情報：<%=bean.getSweets_info() %><br>
 		
 			<form action="update-sweets-servlet" method="POST">
 			<input type="hidden" name = "sweets_id" value=<%=bean.getSweets_id() %>>
 			<input type="hidden" name = "sweets_name" value=<%=bean.getSweets_name() %>>
 			<input type="hidden" name = "sweets_value" value=<%=bean.getSweets_value() %>>
 			<input type="hidden" name = "sweets_genre" value=<%=bean.getSweets_genre() %>>
+			<input type="hidden" name = "sweets_info" value=<%=bean.getSweets_info() %>>
+			<input type="hidden" name = "pict" value=<%=(Part) request.getAttribute("pict") %>>
+			
 				<input type="submit" value="はい">
 			</form>
 		
