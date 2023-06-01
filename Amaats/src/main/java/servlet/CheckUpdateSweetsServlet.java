@@ -43,11 +43,12 @@ public class CheckUpdateSweetsServlet extends HttpServlet {
 		
 		SweetsBean sb = new SweetsBean();
 		
-		sb.setSweets_id(Integer.parseInt(request.getParameter("sweets_id")));
-		sb.setSweets_name(request.getParameter("sweets_name"));
-		sb.setSweets_genre(request.getParameter("sweets_id"));
-		sb.setSweets_value(Integer.parseInt(request.getParameter("sweets_id")));
-		sb.setSweets_info(request.getParameter("sweets_id"));
+		System.out.println(request.getParameter("id"));
+		sb.setSweets_id(Integer.parseInt(request.getParameter("id"))); System.out.println(request.getParameter("sweets_name"));
+		sb.setSweets_name(request.getParameter("sweets_name")); System.out.println(request.getParameter("sweets_genre"));
+		sb.setSweets_genre(request.getParameter("sweets_genre"));
+		sb.setSweets_value(Integer.parseInt(request.getParameter("sweets_value")));
+		sb.setSweets_info(request.getParameter("sweets_info"));
 		
 		try {
 			request.setAttribute("pict", request.getPart("pict"));

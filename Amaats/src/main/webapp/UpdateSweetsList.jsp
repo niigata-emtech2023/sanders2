@@ -15,7 +15,7 @@
 		<div id="contents">
 			<%
 				List<SweetsBean> sweetsList
-					= (List<SweetsBean>) request.getAttribute("sweetsList");
+					= (List<SweetsBean>) request.getAttribute("beanList");
 			%>
 			<% try { sweetsList.get(1); %>
 			<table>
@@ -36,7 +36,6 @@
 						<td><%=sweets.getSweets_name()%></td>
 						<td><%=sweets.getSweets_value()%></td>
 						<td><%=sweets.getSweets_genre()%></td>
-						<td></td>
 						<td>
 
 							<form action="show-update-sweets-servlet" method="POST">

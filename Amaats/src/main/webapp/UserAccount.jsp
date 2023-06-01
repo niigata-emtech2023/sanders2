@@ -8,6 +8,7 @@
 <link rel = "stylesheet" href = "style.css">
 </head>
 <body>
+	<% request.setCharacterEncoding("UTF-8"); %>
 	<div id = "wrapper">
 	    <div class="header"><jsp:include page = "header.jsp" />
 	    </div>
@@ -30,6 +31,11 @@
 		    
 		    
 		    <form action="UpdateUserAccount.jsp" method="POST">
+		    	<input type = "hidden" name = "user_id" value = "<%=bean.getUser_id() %>">
+		    	<input type = "hidden" name = "user_name" value = "<%=bean.getUser_name() %>">
+		    	<input type = "hidden" name = "user_genre" value = "<%=bean.getUser_genre() %>">
+		    	<input type = "hidden" name = "user_address" value = "<%=bean.getUser_address() %>">
+		    	<input type = "hidden" name = "password" value = "<%=bean.getPassword() %>">
 		        <input type="submit" value="編集する">
 		    </form>
 	    </div>

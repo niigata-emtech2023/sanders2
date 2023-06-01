@@ -53,6 +53,7 @@ public class SearchShopServlet extends HttpServlet {
 		try {
 			
 			sweetsList = sdao.searchShop(shop_id);
+			sweetsList.get(1);
 			
 		} catch (SQLException | ClassNotFoundException e) {
 			

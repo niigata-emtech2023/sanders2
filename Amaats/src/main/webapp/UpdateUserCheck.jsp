@@ -8,6 +8,13 @@
 <link rel = "stylesheet" href = "style.css">
 </head>
 <body>
+		<% request.setCharacterEncoding("UTF-8");
+	   UserBean bean = (UserBean)request.getAttribute("bean");
+	   String password = bean.getPassword();
+	   String user_name = bean.getUser_name();
+	   String user_genre; String user_address;
+	   try {  user_genre = bean.getUser_genre(); } catch (NullPointerException e) { user_genre = ""; }
+	   try {  user_address = bean.getUser_address(); } catch (NullPointerException e) { user_address = ""; }%>
 	<div id = "wrapper">
 		<div class="header"><%@ include file="header.jsp"%>
 		</div>
@@ -17,23 +24,19 @@
 			%>
 			アカウント編集情報を以下の内容に変更します。よろしいですか？
 			<br>
-			<%
-		    UserBean bean = (UserBean)request.getAttribute("bean");
-		    %>
 		
-			<%= %>
-			ユーザID：<%=bean.getUser_id() %><br>
-			氏名：<%=bean.getUser_name() %><br>
-			パスワード：<%=bean.getPassword() %><br>
-			好きなジャンル：<%=bean.getUser_genre() %><br>
-			住所：<%=bean.getUser_address() %><br>
+			ログインID：<%=bean.getUser_id() %><br>
+			氏名：<%=user_name %><br>
+			パスワード：<%=password %><br>
+			好きなジャンル：<%=user_genre %><br>
+			住所：<%=user_address %><br>
 		
 			<form action="update-user-account-servlet" method="POST">
 				<input type="hidden" name = "user_id" value=<%=bean.getUser_id() %>>
-				<input type="hidden" name = "user_name" value=<%=bean.getUser_name() %>>
-				<input type="hidden" name = "password" value=<%=bean.getPassword() %>>
-				<input type="hidden" name = "user_genre" value=<%=bean.getUser_genre() %>>
-				<input type="hidden" name = "user_address" value=<%=bean.getUser_address() %>>
+				<input type="hidden" name = "user_name" value=<%=user_name %>>
+				<input type="hidden" name = "password" value=<%=password %>>
+				<input type="hidden" name = "user_genre" value=<%=user_genre %>>
+				<input type="hidden" name = "user_address" value=<%=user_address %>>
 				<input type="submit" value="はい">
 			</form>
 		
@@ -41,11 +44,7 @@
 				<input type="submit" value="戻る">
 			</form>
 		</div>
-		<div class="footer"><jsp:include page = "footer.jsp"></div>
+		<div class="footer"><jsp:include page = "footer.jsp" /></div>
 	</div>
-<<<<<<< HEAD
-=======
-
->>>>>>> branch 'master' of https://github.com/niigata-emtech2023/sanders2
 </body>
 </html>
