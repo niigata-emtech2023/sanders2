@@ -17,10 +17,16 @@
 		    %>
 		    店舗名：<%=bean.getShop_name() %><br>
 		    ログインID：<%=bean.getShop_id() %><br>
+		    パスワード：<%=bean.getShop_password() %><br>
 		    住所：<%=bean.getShop_address() %><br>
 		    電話番号：<%=bean.getShop_tel() %><br>
 		    
 		    <form action="UpdateShopAccount.jsp" method="POST">
+		    	<input type = "hidden" name = "shop_name" value = "<%=bean.getShop_name() %>">
+				<input type = "hidden" name = "shop_id" value = "<%=bean.getShop_id() %>">
+				<input type = "hidden" name = "shop_password" value = "<%=bean.getShop_password() %>">
+				<input type = "hidden" name = "shop_address" value = "<%=bean.getShop_address() %>">
+				<input type = "hidden" name = "shop_tel" value = "<%=bean.getShop_tel() %>">
 		        <input type="submit" value="編集する">
 		    </form>
 	    </div>

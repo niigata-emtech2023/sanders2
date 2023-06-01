@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * 店舗編集の確認画面に遷移
+ * 店舗編集の確認画面遷移
  */
 @WebServlet("/update-shop-check-servlet")
 public class UpdateShopCheckServlet extends HttpServlet {
