@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel = "stylesheet" href = "style.css">
+<!-- <link rel = "stylesheet" href = "style.css"> -->
+<!-- <link rel="stylesheet" href="css/style.base.css"> -->
 <link rel="stylesheet" href="css/header.css">
 </head>
 <body class = "footer">
