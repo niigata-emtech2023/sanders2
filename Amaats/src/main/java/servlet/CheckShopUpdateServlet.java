@@ -41,6 +41,7 @@ public class CheckShopUpdateServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
+		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 		String url = null;
 		String shop_id = (String) session.getAttribute("session_id");
@@ -66,9 +67,8 @@ public class CheckShopUpdateServlet extends HttpServlet {
 				}
 				
 				if (flag) {
-					
-					sb.setShop_name(request.getParameter("shop_name"));
 					sb.setShop_id(request.getParameter("shop_id"));
+					sb.setShop_name(request.getParameter("shop_name"));
 					sb.setShop_password(request.getParameter("shop_password"));
 					sb.setShop_address(request.getParameter("shop_address"));
 					sb.setShop_tel(request.getParameter("shop_tel"));
