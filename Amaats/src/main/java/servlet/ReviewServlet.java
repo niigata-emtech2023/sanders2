@@ -63,6 +63,7 @@ public class ReviewServlet extends HttpServlet {
 
 		// リクエストスコープへの属性の設定
 		request.setAttribute("count", count);
+		request.setAttribute("sweets_id", request.getParameter("sweets_id"));
 		request.setAttribute("review_text", review_text);
 
 		// リクエストの転送
