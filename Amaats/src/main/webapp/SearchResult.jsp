@@ -15,7 +15,7 @@
 		<div class="contents">
 			<%
 				List<SweetsBean> sweetsList
-					= (List<SweetsBean>) request.getAttribute("beanList");
+					= (List<SweetsBean>) request.getAttribute("sweetsList");
 			%>
 			<% try { sweetsList.get(1);%>
 			<table>

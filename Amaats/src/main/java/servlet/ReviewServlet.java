@@ -56,6 +56,7 @@ public class ReviewServlet extends HttpServlet {
 		try {
 			// DAOの利用
 			count = dao.insertReview(review);
+			System.out.println(count);
 
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
@@ -67,7 +68,7 @@ public class ReviewServlet extends HttpServlet {
 		request.setAttribute("review_text", review_text);
 
 		// リクエストの転送
-		RequestDispatcher rd = request.getRequestDispatcher("SweetsInfo.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("show-sweets-info-servlet");
 		rd.forward(request, response);
 
 	}

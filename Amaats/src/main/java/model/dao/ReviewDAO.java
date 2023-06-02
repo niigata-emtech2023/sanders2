@@ -52,19 +52,17 @@ public class ReviewDAO {
 		//商品の追加
 		// データベースへの接続の取得、PreparedStatementの取得
 		try (Connection con = ConnectionManager.getConnection();
-				PreparedStatement pstmt = con.prepareStatement("INSERT INTO t_review  VALUE(?, ?, ?, ?)")) {
-
+				PreparedStatement pstmt = con.prepareStatement("INSERT INTO t_review VALUES (100, ?, ?, ?)")) {
+//(review_text, user_id, sweets_id)
 			// DTOからのデータの取り出し
-			int review_id= review.getReview_id();
 			String review_text = review.getReview_text();
 			String  user_id = review.getUser_id();
 			int sweets_id = review.getSweets_id();
 
 			// プレースホルダへの値の設定
-			pstmt.setInt(1, review_id);
-			pstmt.setString(2, review_text);
-			pstmt.setString(3, user_id);
-			pstmt.setInt(4, sweets_id);
+			pstmt.setString(1, review_text);
+			pstmt.setString(2, user_id);
+			pstmt.setInt(3, sweets_id);
 
 			// SQLステートメントの実行
 			count = pstmt.executeUpdate();
