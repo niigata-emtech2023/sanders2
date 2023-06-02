@@ -13,10 +13,11 @@
 	 <div class="header"><jsp:include page = "header.jsp" /></div>
 	 <div class="contents">
 		 <form action="show-insert-shop-account-servlet" method="POST">
-		 
-		 登録が完了しました。<br>
-		 
-		 <input type ="submit" value="戻る">
+		 <div class="textsize">
+		 	登録が完了しました。<br>
+		 </div>
+		 <br>
+		 <input type ="submit" value="戻る" class="send">
 		 </form>
 	</div>
 	</div>

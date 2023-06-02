@@ -115,8 +115,33 @@ input[type=text],[type=password]{
 	float: left;
 }
 
+#yes2 {
+	margin-left: 20px;
+	float: right;
+}
+
+#no2 {
+	margin-right: 20px;
+	float: left;
+}
+
 .img {
 	text-align: center;
+}
+
+.flex {
+	display: flex;
+}
+
+#pathimg {
+	width: 500px;
+	height: 500px;
+	margin-left: -100px;
+}
+
+#allbutton {
+	width: 150px;
+	height: 40px;
 }
 /* .return { */
 /* 	margin-left: 300px; */
