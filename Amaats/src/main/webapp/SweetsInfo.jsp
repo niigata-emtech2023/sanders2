@@ -74,7 +74,6 @@
 			}
 			%>
 			
-			
 			<form action="show-sweets-list-servlet" method="POST">
 				<br><input type="submit" value="一覧表示" id="allbutton">
 			</form>
