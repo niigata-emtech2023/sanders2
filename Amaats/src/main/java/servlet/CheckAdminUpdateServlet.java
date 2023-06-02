@@ -68,6 +68,7 @@ public class CheckAdminUpdateServlet extends HttpServlet {
 					
 					url = "UpdateAdminAccount.jsp";
 					request.setAttribute("alert", "入力情報に不備があります。");
+					request.setAttribute("admin_password", request.getParameter("admin_password"));
 					
 				}
 			

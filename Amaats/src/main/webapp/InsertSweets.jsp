@@ -14,7 +14,7 @@
 		    <span>${alert}</span>
 		    <form action="check-insert-sweets-info-servlet" method="POST">
 		    <div class="textleft">
-			    商品名：<input type="text" name="sweets_name"><br>
+			    商品名：<input type="text" name="sweets_name" value = "${sweets_name}"><br>
 			    ジャンル：
 			    <select name="sweets_genre">
 			        <option value="default">選択してください</option>
@@ -26,9 +26,9 @@
 					<option value="sweets7">和菓子</option>
 					<option value="sweets8">その他</option>
 			    </select><br>
-			    価格：<input type = "text" name="sweets_value"><br>
+			    価格：<input type = "text" name="sweets_value" value = "${sweets_value}"><br>
 			    商品情報：<br>
-			    <textarea name="sweets_info" cols="40" rows="5"></textarea><br>
+			    <textarea name="sweets_info" cols="40" rows="5">${sweets_info}</textarea><br>
 		    </div>
 		    <br>
 		    <input type="submit" value="登録" class="send">

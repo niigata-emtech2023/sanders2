@@ -94,7 +94,11 @@ public class CheckInsertUserAccountServlet extends HttpServlet {
 						
 						rd = request.getRequestDispatcher("InsertUserAccount.jsp");
 						request.setAttribute("alert", "このログインIDは使用されています。");
-						
+						request.setAttribute("user_id", request.getParameter("user_id"));
+						request.setAttribute("user_name", request.getParameter("user_name"));
+						request.setAttribute("password", request.getParameter("password"));
+						request.setAttribute("passcon", request.getParameter("passcon"));
+						request.setAttribute("user_address", request.getParameter("user_address"));
 					}
 					
 				}
@@ -113,6 +117,12 @@ public class CheckInsertUserAccountServlet extends HttpServlet {
 			} else {
 				
 				request.setAttribute("alert", "入力情報に不備があります。");
+				rd = request.getRequestDispatcher("InsertUserAccount.jsp");
+				request.setAttribute("user_id", request.getParameter("user_id"));
+				request.setAttribute("user_name", request.getParameter("user_name"));
+				request.setAttribute("password", request.getParameter("password"));
+				request.setAttribute("passcon", request.getParameter("passcon"));
+				request.setAttribute("user_address", request.getParameter("user_address"));
 				rd = request.getRequestDispatcher("InsertUserAccount.jsp");
 				rd.forward(request, response);
 				
