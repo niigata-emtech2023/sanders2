@@ -151,7 +151,14 @@ input[type=text],[type=password]{
     font-size: 30px;
 }
 
-reviewnull
+.send2 {
+	display: inline-block;
+	width: 100px;
+	height: 30px;
+	margin-top: 10px;
+}
+
+
 /* .return { */
 /* 	margin-left: 300px; */
 /* 	float: left; */

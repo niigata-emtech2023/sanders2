@@ -15,29 +15,29 @@
 			<%
 			request.setCharacterEncoding("UTF-8");
 			%>
-			アカウント情報を以下の内容に変更します。よろしいですか？
+			<div class="alert">
+				アカウント情報を以下の内容に変更します。<br>
+				よろしいですか？
+			</div>
 			<br>
 			<%
 		    AdminBean bean = (AdminBean)request.getAttribute("bean");
 		    %>
 		    
-			ログインID：<%=bean.getAdmin_id() %><br>
-			パスワード：<%=(String) request.getAttribute("admin_password")%><br>
-		
+		    <div class="textleft">
+				ログインID：<%=bean.getAdmin_id() %><br>
+				パスワード：<%=(String) request.getAttribute("admin_password")%><br>
+			</div>
 			<form action="update-admin-account-servlet" method="POST">
-				<div class="textsize">
 					<input type="hidden" name = "admin_id" value=<%=bean.getAdmin_id() %>>
 					<input type="hidden" name = "admin_password" value=<%=(String) request.getAttribute("admin_password")%>>
-				</div>
-				<input type="submit" value="変更" class="send" id="yes">
+				<input type="submit" value="変更" class="send2" id="yes">
 			</form>
 		
 			<form action="UpdateAdminAccount.jsp" method="POST">
-				<div class="textsize">
 					<input type="hidden" name = "admin_id" value=<%=bean.getAdmin_id() %>>
 					<input type="hidden" name = "admin_password" value=<%=(String) request.getAttribute("admin_password")%>>
-				</div>
-				<input type="submit" value="戻る" class="send" id="no">
+				<input type="submit" value="戻る" class="send2" id="no">
 			</form>
 		</div>
 	</div>
