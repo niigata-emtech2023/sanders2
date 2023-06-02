@@ -145,12 +145,13 @@ input[type=text],[type=password]{
 }
 
 #reviewarea {
-	margin-left: 335px;
-    width: 500px;
-    height: 200px;
+	margin-left: 380px;
+    width: 700px;
+    height: 150px;
     font-size: 30px;
 }
 
+reviewnull
 /* .return { */
 /* 	margin-left: 300px; */
 /* 	float: left; */

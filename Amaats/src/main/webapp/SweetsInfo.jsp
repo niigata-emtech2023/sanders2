@@ -36,8 +36,8 @@
 		    <div class="textleft">
 			    商品名：<%=bean.getSweets_name()%><br>
 			    カテゴリ：<%=bean.getSweets_genre()%><br>
-			    価格：<%=bean.getSweets_value()%><br>
-			    商品情報：<%=bean.getSweets_info()%><br>
+			    価格：<%=bean.getSweets_value()%>円<br>
+			    商品情報：<br><%=bean.getSweets_info()%><br>
 		    </div>
 		</div>
 		<% String session_id = (String) session.getAttribute("session_id");
@@ -47,10 +47,11 @@
 		    <input type="submit" value="変更する" class="send">
 		</form>
 		<%}%>
-		<form action="ReviewServlet" method="POST">
+		<form action="review-servlet" method="POST">
 			<div class="textsize">口コミ登録</div><br>
 			<textarea name="review_text" cols="40" rows="4" id="reviewarea">
 			</textarea>
+			<input type="hidden" name ="sweets_id" value="<%=bean.getSweets_id()%>">
 			<input type="submit" value="登録" class="send">
 		</form>
 			
@@ -68,13 +69,17 @@
 		<% } %>
 			
 		<%}else{
-		%>口コミはまだありません<%
+		%>
+		
+		<div class="reviewnull">口コミはまだありません</div>
+		
+		<%
 		}
 		%>
 		
 		
 		<form action="show-sweets-list-servlet" method="POST">
-			<input type="submit" value="一覧表示" id="allbutton">
+			<br><input type="submit" value="一覧表示" id="allbutton">
 		</form>
 		
 		</div>
