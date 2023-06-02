@@ -60,10 +60,24 @@ input[type=text],[type=password]{
 	text-align: left;
 }
 
+.textright2 {
+	width:400px;
+	height:100px;
+	font-size: 25px;
+	display: inline-block;
+	text-align: right;
+}
+
 .textsize {
 	font-size: 25px;
 	display: inline-block;
 	text-align: right;
+}
+
+.textsize2 {
+	font-size: 25px;
+	display: inline-block;
+	text-align: left;
 }
 
 .send {
@@ -164,6 +178,39 @@ input[type=text],[type=password]{
 	font-size: 20px;
 }
 
+#textcenter {
+	width: 200px;
+	height: 30px;
+}
+
+#textcenter2 {
+	width: 200px;
+	height: 30px;
+}
+
+#textcenter3 {
+	width: 200px;
+	height: 30px;
+}
+
+#textcenter4 {
+	width: 200px;
+	height: 30px;
+}
+
+#textcenter5 {
+	width: 200px;
+	height: 30px;
+/* 	text-align: center; */
+	margin-right: 149px;
+}
+
+#textcenter6 {
+	width: 200px;
+	height: 30px;
+/* 	text-align: center; */
+	margin-right: 115px;
+}
 /* .return { */
 /* 	margin-left: 300px; */
 /* 	float: left; */

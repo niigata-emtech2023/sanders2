@@ -13,7 +13,7 @@
 		</div>
 		<div class = "contents">
 			<form action="check-admin-update-servlet" method="post">
-				<div class="textsize">
+				<div class="textsize2">
 					ログインID：<%=request.getParameter("admin_id")%><br>
 					パスワード：<input type="password" name="admin_password" value="${admin_password}"><br></div>
 				<br><input type="submit" value="変更する" class="send">
