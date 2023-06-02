@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>編集商品選択</title>
 <link rel = "stylesheet" href = "css/style_base.css">
-<link rel = "stylesheet" href = "css/style_table.css">
+<link rel = "stylesheet" href = "css/sweets_table.css">
 </head>
 <body>
 <div id="wrapper">
@@ -22,9 +22,9 @@
 				<caption>検索結果一覧</caption>
 				<thead>
 					<tr>
-						<th>商品名</th>
-						<th>値段</th>
-						<th>ジャンル</th>
+						<th class="td1">商品名</th>
+						<th class="td2">値段</th>
+						<th class="td3">ジャンル</th>
 						<th></th>
 						<th></th>
 					</tr>
@@ -34,9 +34,9 @@
 					for (SweetsBean sweets : sweetsList) {
 					%>
 					<tr>
-						<td><%=sweets.getSweets_name()%></td>
-						<td><%=sweets.getSweets_value()%></td>
-						<td><%=sweets.getSweets_genre()%></td>
+						<td class="td1"><%=sweets.getSweets_name()%></td>
+						<td class="td2"><%=sweets.getSweets_value()%></td>
+						<td class="td3"><%=sweets.getSweets_genre()%></td>
 						<td>
 
 							<form action="show-update-sweets-servlet" method="POST">

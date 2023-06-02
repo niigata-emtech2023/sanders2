@@ -1,0 +1,228 @@
+body {
+	
+	margin: 0px auto;
+	padding: -2px;
+	text-align: center;
+	background-color: #f0f5c0;
+
+}
+
+.wrapper{
+	
+	margin: 0px auto;
+	padding: 30px;
+	width: 1000px;
+    height:600px;
+	
+}
+
+.contents {
+	text-align: center;
+	margin: 50px auto;
+}
+
+/*.header {
+	
+ 	background-color: #ffaaaa;
+	top: 0;
+	left: 0;
+	height: 100px;
+	
+}*/
+
+/* .footer { */
+	
+/* /* 	background-color: #ffaaaa; */ */
+/* 	bottom: 0; */
+/* 	left: 0; */
+/* 	height: 100px; */
+	
+/* } */
+
+input[type=text],[type=password]{
+	width:200px;
+	height:20px;
+}
+
+#logo {
+	height: 250px;
+	width: 250px;
+}
+
+.text {
+	font-size: 25px;
+	color: red;
+}
+
+.textleft {
+	font-size: 25px;
+	display: inline-block;
+	text-align: left;
+}
+
+.textright2 {
+	width:400px;
+	height:100px;
+	font-size: 25px;
+	display: inline-block;
+	text-align: right;
+}
+
+.textsize {
+	font-size: 25px;
+	display: inline-block;
+	text-align: right;
+}
+
+.textsize2 {
+	font-size: 25px;
+	display: inline-block;
+	text-align: left;
+}
+
+.send {
+	width: 100px;
+	height: 30px;
+	margin-top: 10px;
+}
+
+.logouttext {
+	font-size: 25px;
+	padding: 40px;
+}
+
+.alert {
+	color: red;
+	font-size: 20px;
+}
+
+.sign {
+	font-size: 25px;
+}
+
+.register {
+	text-align: center;
+}
+
+#pass {
+	margin-left: 50px;
+}
+
+#shopid {
+	width: 200px;
+	height: 20px;
+}
+
+#shopid2 {
+	width: 200px;
+	height: 20px;
+}
+
+#yes {
+	margin-right: 300px;
+	float: right;
+}
+
+#no {
+	
+	margin-left: 300px;
+	float: left;
+}
+
+#yes2 {
+	margin-left: 20px;
+	float: right;
+}
+
+#no2 {
+	margin-right: 20px;
+	float: left;
+}
+
+.img {
+	text-align: center;
+}
+
+.flex {
+	display: flex;
+}
+
+#pathimg {
+	width: 425px;
+	height: 425px;
+	margin-left: -130px;
+	float: left;
+}
+
+#allbutton {
+	width: 150px;
+	height: 30px;
+	margin-right: 150px;
+}
+
+#reviewarea {
+	text-align: center;
+    width: 300px;
+    height: 150px;
+    font-size: 30px;
+}
+
+.send2 {
+	display: inline-block;
+	width: 100px;
+	height: 30px;
+	margin-top: 10px;
+}
+
+#reviewnull {
+	font-size: 20px;
+}
+
+#textcenter {
+	width: 200px;
+	height: 30px;
+}
+
+#textcenter2 {
+	width: 200px;
+	height: 30px;
+}
+
+#textcenter3 {
+	width: 200px;
+	height: 30px;
+}
+
+#textcenter4 {
+	width: 200px;
+	height: 30px;
+}
+
+#textcenter5 {
+	width: 200px;
+	height: 30px;
+/* 	text-align: center; */
+	margin-right: 149px;
+}
+
+#textcenter6 {
+	width: 200px;
+	height: 30px;
+/* 	text-align: center; */
+	margin-right: 115px;
+}
+/* .return { */
+/* 	margin-left: 300px; */
+/* 	float: left; */
+	
+/* } */
+
+/* #form_area_menu{ */
+/* 	width: 150px; */
+/* 	height: 120px; */
+/* 	border: 2px solid #ccc; */
+/*     border-radius: 10px; */
+/*     margin: 0px auto; */
+/*     padding:70px auto; */
+/* } */
+

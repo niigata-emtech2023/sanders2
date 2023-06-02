@@ -21,7 +21,7 @@
 		</div>
 		<div class = "contents">
 			<form action="check-admin-update-servlet" method="post">
-				<div class="textsize">
+				<div class="textsize2">
 					<font color = "red">${alert}</font><br>
 					ログインID：<%=admin_id%><br>
 					パスワード：<input type="password" name="admin_password" value="${admin_password}"><br></div>
