@@ -67,7 +67,7 @@ public class ReviewServlet extends HttpServlet {
 		request.setAttribute("review_text", review_text);
 
 		// リクエストの転送
-		RequestDispatcher rd = request.getRequestDispatcher("sweetsInfo.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("SweetsInfo.jsp");
 		rd.forward(request, response);
 
 	}

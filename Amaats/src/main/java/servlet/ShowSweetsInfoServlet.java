@@ -46,7 +46,9 @@ public class ShowSweetsInfoServlet extends HttpServlet {
 		SweetsDAO sdao = new SweetsDAO();
 		ReviewDAO rdao = new ReviewDAO();
 		String id = (String) request.getAttribute("sweets_id");
-		if (id.equals(null)) {
+		try  {
+			id.equals(null);
+		} catch (NullPointerException e) {
 			id = request.getParameter("id");
 		}
 		int sweets_id = Integer.parseInt(id);
