@@ -27,6 +27,7 @@ input[type=text] {
 }
 
 .footer {
+	/*background-color: #ffaaaa; */
 	margin-left: 500px;
 	position: absolute;
 	bottom: 0px;
