@@ -5,32 +5,36 @@
 <head>
 <meta charset="UTF-8">
 <title>商品情報削除画面</title>
-<link rel = "stylesheet" href = "style.css">
+<link rel = "stylesheet" href = "css/style_base.css">
+<link rel = "stylesheet" href = "css/sweets_table.css">
 </head>
 <body>
-	<div id="wrapper">
+	<div class="wrapper">
     	<div class = "header"><%@ include file="header.jsp" %></div>
-    	<div id="contents">
+    	<div class="contents">
 	   	 <% 
 	   	 List<SweetsBean> sweetsList = (List<SweetsBean>)request.getAttribute("beanList");
 	   	 %>
-	    <div align = "center">
-	    <table border = 1>
+	    
+	    <table>
+	    	<thead>
 			<tr>
-				<th>商品名</th>
-				<th>値段</th>
-				<th>ジャンル</th>
-				<th></th>
+				<th class="td1">商品名</th>
+				<th class="td2">値段</th>
+				<th class="td3">ジャンル</th>
+<!-- 				<th></th> -->
 			</tr>
+			</thead>
+			<tbody>
 			<%
 				for (SweetsBean sweets : sweetsList) {
 			%>
 			<tr>
 				
-				<td><%=sweets.getSweets_name()%></td>
-				<td><%=sweets.getSweets_value()%></td>
-				<td><%=sweets.getSweets_genre()%></td>
-				<td>
+				<td class="td1"><%=sweets.getSweets_name()%></td>
+				<td class="td2"><%=sweets.getSweets_value()%></td>
+				<td class="td3"><%=sweets.getSweets_genre()%></td>
+				<td class="td4">
 				
 					<form action="CheckDeleteSweets.jsp" method="POST">
 						<input type="hidden" name="sweets_id" value="<%=sweets.getSweets_id()%>">
@@ -46,8 +50,8 @@
 			<% 
 			}
 			%>
-		</table>
-		</div>
+			</tbody>
+			</table>
 		</div>
 	</div>
 </body>
