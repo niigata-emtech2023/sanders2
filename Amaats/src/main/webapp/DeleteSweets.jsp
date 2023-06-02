@@ -14,8 +14,8 @@
 	   	 <% 
 	   	 List<SweetsBean> sweetsList = (List<SweetsBean>)request.getAttribute("beanList");
 	   	 %>
-	    
-	    <table>
+	    <div align = "center">
+	    <table border = 1>
 			<tr>
 				<th>商品名</th>
 				<th>値段</th>
@@ -46,7 +46,8 @@
 			<% 
 			}
 			%>
-			</table>
+		</table>
+		</div>
 		</div>
 	</div>
 </body>

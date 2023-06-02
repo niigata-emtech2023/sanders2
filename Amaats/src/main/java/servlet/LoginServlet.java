@@ -96,6 +96,8 @@ public class LoginServlet extends HttpServlet {
 					
 				} catch (SQLException e3) {
 					e3.printStackTrace();
+					request.setAttribute("id", request.getParameter("id"));
+					request.setAttribute("password", request.getParameter("password"));
 					rd = request.getRequestDispatcher("Login.jsp");
 					request.setAttribute("alert", "ログインIDまたはパスワードが間違っています。");
 					
