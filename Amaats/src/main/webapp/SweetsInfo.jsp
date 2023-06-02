@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Amaats 商品詳細ページ</title>
-<link rel = "stylesheet" href = "css/style_base.css">
+<link rel = "stylesheet" href = "css/style_base2.css">
 <link rel = "stylesheet" href = "css/style_table.css">
 </head>
 <body>
@@ -48,6 +48,7 @@
 				<div class="textsize">口コミ登録</div><br>
 				<textarea name="review_text" cols="40" rows="4" id="reviewarea"></textarea>
 				<input type="hidden" name ="sweets_id" value="<%=bean.getSweets_id()%>">
+				<br>
 				<input type="submit" value="登録" class="send">
 			</form>
 				
