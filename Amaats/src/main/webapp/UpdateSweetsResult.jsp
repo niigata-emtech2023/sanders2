@@ -16,24 +16,17 @@
 			int processingNumber = (Integer) request.getAttribute("processingNumber");
 			if (processingNumber > 0) {
 		%>
-		次のデータを変更登録しました。<br>
+		商品情報を変更しました。<br>
 		<%
 			} else {
 		%>
-		次のデータを変更登録できませんでした。<br>
+		商品情報を変更できませんでした。<br>
 		<%
 			}
 		%>
-		<jsp:useBean id="sweets" scope="session" class="model.entity.SweetsBean" />
-		：<jsp:getProperty name="sweets" property="sweets_id" /><br>
-		：<jsp:getProperty name="sweets" property="sweets_name" /><br>
-		：<jsp:getProperty name="sweets" property="sweets_value" /><br>
-		：<jsp:getProperty name="sweets" property="shop_id" /><br>
-	//
-		<form action="sweetsList.jsp" method="POST">
+		<form action="show-update-sweets-list-servlet" method="POST">
 			<input type="submit" value="一覧画面に戻る">
 		</form>
-	//
 	</div>
 	</div>
 </body>
