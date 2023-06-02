@@ -26,6 +26,19 @@ input[type=text] {
 	font-size: 20px;
 }
 
+
+.header {
+	
+ 	background-color: #ffaaaa;
+	top: 0;
+	left: 0;
+	height: 100px;
+	
+}
+
+
+
+
 /* .footer { */
 /* 	position: absolute; */
 /* 	bottom: 0px; */
