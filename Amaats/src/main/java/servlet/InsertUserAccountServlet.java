@@ -44,17 +44,46 @@ public class InsertUserAccountServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		AccountDAO adao = new AccountDAO();
 		RequestDispatcher rd;
+		boolean flag = true;
 		
 		try {
 			
-			UserBean ub = new UserBean();
-			ub.setUser_id(request.getParameter("user_id"));
-			ub.setUser_name(request.getParameter("user_name"));
-			ub.setPassword(request.getParameter("password"));
-			ub.setUser_address(request.getParameter("user_address"));
-			adao.insertNewUser(ub);
+			if (request.getParameter("user_id").length() > 10 || request.getParameter("user_id").length() <= 0) {
+				flag = false;
+			}
+			if (request.getParameter("user_name").length() > 32 || request.getParameter("user_name").length() <= 0) {
+				flag = false;
+			}
+			if (request.getParameter("password").length() > 16 || request.getParameter("password").length() <= 0) {
+				flag = false;
+			}
+			if (request.getParameter("user_address").length() > 10 || request.getParameter("user_address").length() <= 0 ) {
+				flag = false;
+			}
+			if (!request.getParameter("password").equals(request.getParameter("passcon"))) {
+				flag = false;
+			}
 			
-			rd = request.getRequestDispatcher("InsertUserAccountResult.jsp");
+			if (flag) {
+				UserBean ub = new UserBean();
+				ub.setUser_id(request.getParameter("user_id"));
+				ub.setUser_name(request.getParameter("user_name"));
+				ub.setPassword(request.getParameter("password"));
+				ub.setUser_address(request.getParameter("user_address"));
+				
+				adao.insertNewUser(ub);
+				rd = request.getRequestDispatcher("InsertUserAccountResult.jsp");
+			} else {
+				request.setAttribute("alert", "入力内容に不備があります。");
+				request.setAttribute("user_id", request.getParameter("user_id"));
+				request.setAttribute("user_name", request.getParameter("user_name"));
+				request.setAttribute("password", request.getParameter("password"));
+				request.setAttribute("passcon", request.getParameter("passcon"));
+				request.setAttribute("user_address", request.getParameter("user_address"));
+				rd = request.getRequestDispatcher("InsertUserAccount.jsp");
+			}
+			
+				
 			
 		} catch (SQLException e) {
 			
