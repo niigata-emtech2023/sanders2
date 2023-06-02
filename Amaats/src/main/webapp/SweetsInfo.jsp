@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Amaats 商品詳細ページ</title>
 <link rel = "stylesheet" href = "css/style_base.css">
+<link rel = "stylesheet" href = "css/style_table.css">
 </head>
 <body>
 	<div class = "wrapper">
@@ -46,31 +47,31 @@
 		    <input type="submit" value="変更する" class="send">
 		</form>
 		<%}%>
-		
 		<form action="ReviewServlet" method="POST">
 			<div class="textsize">口コミ登録</div><br>
 			<textarea name="review_text" cols="40" rows="4" id="reviewarea">
 			</textarea>
 			<input type="submit" value="登録" class="send">
 		</form>
-		
+			
 		<%
 		List<ReviewBean> reviewList = (List<ReviewBean>)request.getAttribute("reviewList");
-		
+			
 		if(reviewList.size() != 0){%>
 		<h3>口コミ</h3>
-		
+			
 		<%for(ReviewBean review : reviewList){%>
 			<tr>
-				<td><%=review.getUser_id() %></td>
-				<td><%=review.getReview_text() %></td>
+				<td class="td1"><%=review.getUser_id() %></td>
+				<td class="td2"><%=review.getReview_text() %></td>
 			</tr>
 		<% } %>
-		
+			
 		<%}else{
 		%>口コミはまだありません<%
 		}
 		%>
+		
 		
 		<form action="show-sweets-list-servlet" method="POST">
 			<input type="submit" value="一覧表示" id="allbutton">

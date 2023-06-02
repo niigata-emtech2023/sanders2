@@ -136,13 +136,21 @@ input[type=text],[type=password]{
 #pathimg {
 	width: 500px;
 	height: 500px;
-	margin-left: -100px;
+	margin-left: -130px;
 }
 
 #allbutton {
 	width: 150px;
 	height: 40px;
 }
+
+#reviewarea {
+	margin-left: 335px;
+    width: 500px;
+    height: 200px;
+    font-size: 30px;
+}
+
 /* .return { */
 /* 	margin-left: 300px; */
 /* 	float: left; */
