@@ -48,12 +48,10 @@
 		<%}%>
 		
 		<form action="ReviewServlet" method="POST">
-			<div class="flex">
-			    <div class="textsize">口コミ登録</div><br>
-			    <textarea name="review_text" cols="40" rows="4" id="reviewarea">
-			    </textarea>
-			    <input type="submit" value="登録" class="send">
-			</div>
+			<div class="textsize">口コミ登録</div><br>
+			<textarea name="review_text" cols="40" rows="4" id="reviewarea">
+			</textarea>
+			<input type="submit" value="登録" class="send">
 		</form>
 		
 		<%
@@ -77,7 +75,6 @@
 		<form action="show-sweets-list-servlet" method="POST">
 			<input type="submit" value="一覧表示" id="allbutton">
 		</form>
-	
 		
 		</div>
 	<div class="footer"><%@ include file="footer.jsp" %></div>
