@@ -11,10 +11,31 @@
 <body class = "footer">
 	<% String AuthoFoot = (String) session.getAttribute("authority");
 			if (AuthoFoot.equals("user")) {%>
+	<% String genre;
+	try {  
+			genre = (String) request.getAttribute("genre");
+			if (genre.equals(null)) {
+				genre = "ジャンル検索";
+			}
+		} catch (NullPointerException e) { genre = "ジャンル検索"; }%>
+	<%  String minvalue; 
+	try {  
+			minvalue = (String) request.getAttribute("minvalue");
+			if (minvalue.equals(null)) {
+				minvalue = "値段下限";
+			}
+		} catch (NullPointerException e) { minvalue = "値段下限"; }%>
+	<%  String maxvalue; 
+	try {  
+			maxvalue = (String) request.getAttribute("maxvalue");
+			if (maxvalue.equals(null)) {
+				maxvalue = "値段上限";
+			}
+		} catch (NullPointerException e) { maxvalue = "値段上限"; }%>
 	<div style = "display:inline-flex">
 	<form action = "search-genre-servlet" method = "POST">
 		<select name = "genre" class="genre">
-       		<option value="default">ジャンル検索</option>
+       		<option value="<%=genre%>"><%=genre%></option>
         	<option value="ケーキ">ケーキ</option>
         	<option value="チョコレート">チョコレート</option>
         	<option value="クッキー">クッキー</option>
@@ -26,8 +47,8 @@
 		<input type = "submit" value = "検索" class="searchbutton">
 	</form>　　　　　
 	<form action = "search-value-servlet" method = "POST">
-			価格：<input type = "text" name = "minvalue" class="price">～
-			<input type = "text" name = "maxvalue" class="price">
+			値段：<input type = "text" name = "minvalue" value = "<%=minvalue%>" class="price"> ～
+			<input type = "text" name = "maxvalue" value = "<%=maxvalue%>" class="price">
 			<input type = "submit" value = "検索" class="searchbutton">
 	</form>
 	</div>

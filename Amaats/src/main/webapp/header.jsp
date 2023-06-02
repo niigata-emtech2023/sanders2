@@ -10,13 +10,19 @@
 <link rel="stylesheet" href="css/header.css">
 </head>
 <body>
-	
+	<% String name; 
+	try {  
+			name = (String) request.getAttribute("sweets_name");
+			if (name.equals(null)) {
+				name = "名前検索";
+			}
+		} catch (NullPointerException e) { name = "名前検索"; }%>
 	<div style = "text-align:center">
 		<a href = "show-sweets-list-servlet"><img src = "image/amaats_logo.png" alt = "Amaats" id="logobutton"></a>
 		<% String Autho = (String) session.getAttribute("authority");
 			if (Autho.equals("user")) {%>
 		<form action = "search-name-servlet" method = "POST">
-			<input type = "text" name = "sweets_name" id="searchtext">
+			<input type = "text" name = "sweets_name" id="searchtext" value= "<%=name%>">
 			<input type = "submit" value = "検索" class="searchbutton">
 		</form>
 		<%} %>

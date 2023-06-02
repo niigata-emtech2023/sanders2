@@ -53,7 +53,7 @@
 				%>
 				</tbody>
 			</table>
-			<% } catch (NullPointerException e) { %>
+			<% } catch (NullPointerException | IndexOutOfBoundsException e) { %>
 			該当する商品はありませんでした。<br>
 			<% } %>
 		</div>

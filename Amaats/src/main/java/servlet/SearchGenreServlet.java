@@ -62,6 +62,7 @@ public class SearchGenreServlet extends HttpServlet {
 		/* フォワード */
 		RequestDispatcher rd = request.getRequestDispatcher("SearchResult.jsp");
 		request.setAttribute("sweetsList", sweetsList);
+		request.setAttribute("genre", request.getParameter("genre"));
 		rd.forward(request, response);
 		
 	}

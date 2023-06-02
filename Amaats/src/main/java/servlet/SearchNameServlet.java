@@ -62,6 +62,7 @@ public class SearchNameServlet extends HttpServlet {
 		/* フォワード */
 		RequestDispatcher rd = request.getRequestDispatcher("SearchResult.jsp");
 		request.setAttribute("sweetsList", sweetsList);
+		request.setAttribute("sweets_name", request.getParameter("sweets_name"));
 		rd.forward(request, response);
 		
 	}
