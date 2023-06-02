@@ -137,6 +137,7 @@ input[type=text],[type=password]{
 	width: 500px;
 	height: 500px;
 	margin-left: -130px;
+	float: left;
 }
 
 #allbutton {
@@ -145,8 +146,9 @@ input[type=text],[type=password]{
 }
 
 #reviewarea {
-	margin-left: 380px;
-    width: 700px;
+/* 	margin-left: 380px; */
+	float: right;
+    width: 600px;
     height: 150px;
     font-size: 30px;
 }
@@ -158,6 +160,9 @@ input[type=text],[type=password]{
 	margin-top: 10px;
 }
 
+#reviewnull {
+	font-size: 20px;
+}
 
 /* .return { */
 /* 	margin-left: 300px; */
