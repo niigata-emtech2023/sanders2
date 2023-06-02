@@ -76,7 +76,7 @@ public class CheckInsertShopAccountServlet extends HttpServlet {
 				
 				request.setAttribute("shop_name", request.getParameter("shop_name"));
 				request.setAttribute("shop_id", request.getParameter("shop_id"));
-				request.setAttribute("password", request.getParameter("shop_password"));
+				request.setAttribute("shop_password", request.getParameter("shop_password"));
 				request.setAttribute("passcon", request.getParameter("passcon"));
 				rd = request.getRequestDispatcher("InsertShopAccount.jsp");
 				request.setAttribute("alert", "入力情報に不備があります。");
