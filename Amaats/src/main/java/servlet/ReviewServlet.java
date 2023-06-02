@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.dao.ReviewDAO;
 import model.entity.ReviewBean;
@@ -34,17 +35,17 @@ public class ReviewServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// リクエストオブジェクトのエンコーディング方式の指定
 		request.setCharacterEncoding("UTF-8");
+		
+		HttpSession session = request.getSession();
 
 		// リクエストパラメータの取得
-		int review_id =Integer.parseInt(request.getParameter("review_id"));
 		String review_text = request.getParameter("review_text");
-		String user_id = request.getParameter("user_id");
+		String user_id = (String) session.getAttribute("session_id");
 		int sweets_id = Integer.parseInt(request.getParameter("sweets_id"));
 		
 		
 		ReviewBean review = new ReviewBean();
 		
-		review.setReview_id(review_id);
 		review.setReview_text(review_text);
 		review.setUser_id(user_id);
 		review.setSweets_id(sweets_id);

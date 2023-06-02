@@ -58,7 +58,7 @@
 		    <input type="submit" value="カートに入れる">
 		</form>
 		
-		<form action="ReviewServlet" method="POST">
+		<form action="review-servlet" method="POST">
 		    口コミ登録<br>
 		    <textarea name="review_text" cols="40" rows="4">
 		    </textarea>
