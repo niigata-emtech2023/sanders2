@@ -9,6 +9,8 @@
 <link rel="stylesheet" href="css/header.css">
 </head>
 <body class = "footer">
+	<% String AuthoFoot = (String) session.getAttribute("authority");
+			if (AuthoFoot.equals("user")) {%>
 	<div style = "display:inline-flex">
 	<form action = "search-genre-servlet" method = "POST">
 		<select name = "genre" class="genre">
@@ -29,5 +31,6 @@
 			<input type = "submit" value = "検索" class="searchbutton">
 	</form>
 	</div>
+	<% }%>
 </body>
 </html>

@@ -38,8 +38,6 @@
 				</form>
 			</div>
 		</div>
-
-		<div class = "footer"><%@ include file="footer.jsp" %></div>
 	</div>
 </body>
 </html>

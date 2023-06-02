@@ -43,7 +43,6 @@ public class ReviewServlet extends HttpServlet {
 		String user_id = (String) session.getAttribute("session_id");
 		int sweets_id = Integer.parseInt(request.getParameter("sweets_id"));
 		
-		
 		ReviewBean review = new ReviewBean();
 		
 		review.setReview_text(review_text);
