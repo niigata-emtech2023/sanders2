@@ -12,7 +12,7 @@
 	    <div class = "header"><%@ include file="header.jsp" %></div>
 	    <div class="contents">
 	    	<div class="textleft">
-			    この内容で商品を登録しますがよろしいですか？
+			    この内容で商品を登録しますがよろしいですか？<br>
 			    <% SweetsBean sb = (SweetsBean) request.getAttribute("bean"); %>
 			    
 			    商品名：<%=sb.getSweets_name() %><br>

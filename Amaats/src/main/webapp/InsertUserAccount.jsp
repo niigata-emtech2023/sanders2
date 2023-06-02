@@ -10,7 +10,7 @@
 <body>
 		<% String user_id; String user_name; String password; String passcon; String user_address;
 		try {  
-			user_id = (String) request.getAttribute("id");
+			user_id = (String) request.getAttribute("user_id");
 			if (user_id.equals(null)) {
 				user_id = "";
 			}

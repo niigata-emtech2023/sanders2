@@ -50,7 +50,7 @@ public class CheckInsertSweetsInfoServlet extends HttpServlet {
 			System.out.println(request.getParameter("sweets_value"));
 			System.out.println(request.getParameter("sweets_genre"));
 			System.out.println(request.getParameter("sweets_info"));
-			if(request.getParameter("sweets_name").length()>32){
+			if(request.getParameter("sweets_name").length()>32 || request.getParameter("sweets_name").length()<=0){
 				flag=false;
 			}
 			if(Integer.parseInt(request.getParameter("sweets_value")) <= 0) {
@@ -60,7 +60,7 @@ public class CheckInsertSweetsInfoServlet extends HttpServlet {
 				flag=false;
 			}
 			
-		} catch (NullPointerException e) {
+		} catch (NullPointerException | NumberFormatException e) {
 			e.printStackTrace();
 			flag = false;
 			
@@ -79,6 +79,10 @@ public class CheckInsertSweetsInfoServlet extends HttpServlet {
 			rd=request.getRequestDispatcher("CheckInsertSweets.jsp");
 		}else {
 			request.setAttribute("alert","入力情報に不備があります");
+			request.setAttribute("sweets_name", request.getParameter("sweets_name"));
+			request.setAttribute("sweets_genre", request.getParameter("sweets_genre"));
+			request.setAttribute("sweets_value", request.getParameter("sweets_value"));
+			request.setAttribute("sweets_info", request.getParameter("sweets_info"));
 			rd=request.getRequestDispatcher("InsertSweets.jsp");
 		}
 		
@@ -109,9 +113,11 @@ public class CheckInsertSweetsInfoServlet extends HttpServlet {
 		case "sweets7":
 			genre = "和菓子";
 			break;
-		default:
+		case "sweets8":
 			genre = "その他";
 			break;
+		default:
+			genre = sweets_genre;
 		}
 		
 		return genre;
