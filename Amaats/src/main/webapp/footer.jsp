@@ -6,9 +6,11 @@
 <meta charset="UTF-8">
 <!-- <link rel = "stylesheet" href = "style.css"> -->
 <!-- <link rel="stylesheet" href="css/style.base.css"> -->
-<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/footer.css">
 </head>
-<body class = "footer">
+<!-- <body class = "footer"> -->
+<body>
+	<div class="position">
 	<% String AuthoFoot = (String) session.getAttribute("authority");
 			if (AuthoFoot.equals("user")) {%>
 	<% String genre;
@@ -53,5 +55,6 @@
 	</form>
 	</div>
 	<% }%>
+	</div>
 </body>
 </html>

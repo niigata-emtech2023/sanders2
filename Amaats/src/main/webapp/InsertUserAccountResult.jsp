@@ -5,16 +5,16 @@
 <head>
 <meta charset="UTF-8">
 <title>ユーザー新規登録確認画面</title>
-<link rel = "stylesheet" href = "style.css">
+<link rel = "stylesheet" href = "css/style_base.css">
 </head>
 <body>
-	<div id = "wrapper">
-		<div id = "contents">
+	<div class = "wrapper">
+		<div class = "contents">
 			<form action="Login.jsp" method="POST">
 		 	
-				 登録が完了しました。<br>
+				 <div class="textsize">登録が完了しました。</div><br>
 			 
-		 		<input type ="submit" value="戻る">
+		 		<input type ="submit" value="戻る" class="send">
 		 	</form>
 	 	</div>
  	</div>
