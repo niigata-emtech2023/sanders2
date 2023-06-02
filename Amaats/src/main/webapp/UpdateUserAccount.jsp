@@ -19,13 +19,14 @@
 		<div class="header"><%@ include file="header.jsp" %>
 		</div>
 		<div class = "contents">
+		<h3>ユーザーアカウント編集画面</h3>
 			<form action="check-user-update-servlet" method="post">
-				<div class="textleft">
-					ログインID：<%=request.getParameter("user_id")%><br>
-					氏名：<input type="text" name="user_name" value="<%=user_name%>"><br>
-					パスワード：<input type="password" name="password" value="<%=password%>"><br>
-					好きなジャンル：<input type="text" name="user_genre"value="<%=user_genre%>"><br>
-					住所：<input type="text" name="user_address"value="<%=user_address%>"><br>
+				<div class="textright2">
+					<span id="textcenter6">ログインID：<%=request.getParameter("user_id")%></span><br>
+					氏名：<input type="text" name="user_name" value="<%=user_name%>" id="textcenter"><br>
+					パスワード：<input type="password" name="password" value="<%=password%>" id="textcenter2"><br>
+					好きなジャンル：<input type="text" name="user_genre"value="<%=user_genre%>" id="textcenter3"><br>
+					住所：<input type="text" name="user_address"value="<%=user_address%>" id="textcenter4"><br>
 				</div>
 				<input type="hidden" name="user_id" value="<%=request.getParameter("user_id")%>">
 				<br>
