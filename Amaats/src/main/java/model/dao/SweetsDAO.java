@@ -106,11 +106,11 @@ public class SweetsDAO {
 			String sweetsInfo = sweets.getSweets_info();
 			
 			// プレースホルダへの値の設定
-			pstmt.setString(1, sweetsName);
-			pstmt.setInt(2, sweetsValue);
-			pstmt.setString(3, sweetsGenre);
-			pstmt.setString(4, sweetsInfo);
-			pstmt.setInt(5, sweetsId);
+			pstmt.setString(1, sweetsName); System.out.println(sweetsName);
+			pstmt.setInt(2, sweetsValue); System.out.println(sweetsValue);
+			pstmt.setString(3, sweetsGenre); System.out.println(sweetsGenre);
+			pstmt.setString(4, sweetsInfo); System.out.println(sweetsInfo);
+			pstmt.setInt(5, sweetsId); System.out.println(sweetsId);
 
 			// SQLステートメントの実行
 			processingNumber = pstmt.executeUpdate();

@@ -49,11 +49,6 @@ public class CheckUpdateSweetsServlet extends HttpServlet {
 		sb.setSweets_value(Integer.parseInt(request.getParameter("sweets_value")));
 		sb.setSweets_info(request.getParameter("sweets_info"));
 		
-		try {
-			request.setAttribute("pict", request.getPart("pict"));
-		} catch (NullPointerException e) {
-			request.setAttribute("pict", null);
-		}
 		request.setAttribute("bean", sb);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("UpdateSweetsCheck.jsp");

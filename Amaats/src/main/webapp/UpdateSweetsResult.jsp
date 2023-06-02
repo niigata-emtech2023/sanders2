@@ -34,9 +34,7 @@
 			<input type="submit" value="一覧画面に戻る">
 		</form>
 	//
-		<% session.invalidate(); %>
 	</div>
-	<div class="footer"><jsp:include page="footer.jsp" /></div>
 	</div>
 </body>
 </html>
