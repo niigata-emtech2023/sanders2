@@ -92,7 +92,7 @@ public class SweetsDAO {
 	public int updateSweets(SweetsBean sweets) throws SQLException, ClassNotFoundException {
 		int processingNumber = 0; //処理件数
 
-		String sql = "UPDATE m_sweets SET sweets_name = ?, sweets_value = ?, sweets_grene = ?, sweets_info = ? WHERE sweets_id = ?";
+		String sql = "UPDATE m_sweets SET sweets_name = ?, sweets_value = ?, sweets_genre = ?, sweets_info = ? WHERE sweets_id = ?";
 
 		// データベースへの接続の取得、PreparedStatementの取得
 		try (Connection con = ConnectionManager.getConnection();
