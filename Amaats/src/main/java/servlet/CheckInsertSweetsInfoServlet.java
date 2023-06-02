@@ -50,7 +50,7 @@ public class CheckInsertSweetsInfoServlet extends HttpServlet {
 			System.out.println(request.getParameter("sweets_value"));
 			System.out.println(request.getParameter("sweets_genre"));
 			System.out.println(request.getParameter("sweets_info"));
-			if(request.getParameter("sweets_name").length()>32){
+			if(request.getParameter("sweets_name").length()>32 || request.getParameter("sweets_name").length()<=0){
 				flag=false;
 			}
 			if(Integer.parseInt(request.getParameter("sweets_value")) <= 0) {
@@ -60,7 +60,7 @@ public class CheckInsertSweetsInfoServlet extends HttpServlet {
 				flag=false;
 			}
 			
-		} catch (NullPointerException e) {
+		} catch (NullPointerException | NumberFormatException e) {
 			e.printStackTrace();
 			flag = false;
 			

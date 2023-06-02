@@ -19,7 +19,6 @@
 			    SweetsBean bean = (SweetsBean) request.getAttribute("bean");
 			    %>
 			    
-			    商品ID：<%=bean.getSweets_id()%><br>
 			    商品名：<%=bean.getSweets_name()%><br>
 			    カテゴリ：<%=bean.getSweets_genre()%><br>
 			    価格：<%=bean.getSweets_value()%><br>

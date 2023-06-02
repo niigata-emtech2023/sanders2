@@ -371,6 +371,7 @@ public class SweetsDAO {
 					sb.setSweets_value(res.getInt("sweets_value"));
 					sb.setSweets_genre(res.getString("sweets_genre"));
 					sb.setShop_id(res.getString("shop_id"));
+					sb.setSweets_info(res.getString("sweets_info"));
 					sb.setPath(res.getString("path"));
 
 			}

@@ -41,13 +41,12 @@
 				String Authority = (String) session.getAttribute("authority");
 				if (Authority.equals("shop") && session_id.equals(bean.getShop_id())) {%>
 			<form action="update-sweets-from-servlet" method="POST">
-			    <input type="submit" value="変更する" class="send">
+			    <input type="submit" value="編集" class="send">
 			</form>
 			<%}%>
 			<form action="review-servlet" method="POST">
 				<div class="textsize">口コミ登録</div><br>
-				<textarea name="review_text" cols="40" rows="4" id="reviewarea">
-				</textarea>
+				<textarea name="review_text" cols="40" rows="4" id="reviewarea"></textarea>
 				<input type="hidden" name ="sweets_id" value="<%=bean.getSweets_id()%>">
 				<input type="submit" value="登録" class="send">
 			</form>
