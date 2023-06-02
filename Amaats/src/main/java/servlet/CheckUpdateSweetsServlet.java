@@ -79,8 +79,11 @@ public class CheckUpdateSweetsServlet extends HttpServlet {
 		case "sweets7":
 			genre = "和菓子";
 			break;
-		default:
+		case "sweets8":
 			genre = "その他";
+			break;
+		default:
+			genre = sweets_genre;
 			break;
 		}
 		

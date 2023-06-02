@@ -13,7 +13,7 @@
 		 <div id="contents">
 			 <form action="show-delete-sweets-servlet" method="POST">
 			 
-			 削除が完了しました。
+			 削除が完了しました。<br>
 			 
 			 <input type ="submit" value="戻る">
 			 </form>

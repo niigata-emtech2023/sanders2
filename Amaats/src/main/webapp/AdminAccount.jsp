@@ -17,6 +17,7 @@
 		    <div class="textsize">ログインID：<%=bean.getAdmin_id() %><br></div>
 		    
 		    <form action="UpdateAdminAccount.jsp" method="POST">
+		    	<input type = "hidden" name = "admin_id" value = "<%=bean.getAdmin_id() %>">
 		        <input type="submit" value="編集する" class="send">
 		    </form>
 	    </div>

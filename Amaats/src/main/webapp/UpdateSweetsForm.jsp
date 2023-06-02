@@ -12,14 +12,22 @@
 		<div class="header"><%@ include file="header.jsp"%>
 		</div>
 		<div id = "contents">
-			<% SweetsBean sb = (SweetsBean) request.getAttribute("bean");%>
+			<% SweetsBean sb = (SweetsBean) request.getAttribute("bean");
+				String sweets_info = sb.getSweets_info();
+				try {
+					if (sweets_info.equals(null)) {
+						sweets_info = "";
+					}
+				} catch (NullPointerException e) {
+					sweets_info = "";
+				}%>
 		
 			<form action="check-update-sweets-servlet" method="post">
 				商品ID：<%=sb.getSweets_id() %><br>
 				商品名：<input type="text" name="sweets_name" value="<%=sb.getSweets_name() %>"><br>
 				値段：<input type="text" name="sweets_value" value="<%=sb.getSweets_value() %>"><br>
 				ジャンル：<select name="sweets_genre">
-					<option value="default"><%=sb.getSweets_genre() %></option>
+					<option value="<%=sb.getSweets_genre() %>"><%=sb.getSweets_genre() %></option>
 					<option value="sweets2">ケーキ</option>
 					<option value="sweets3">チョコレート</option>
 					<option value="sweets4">クッキー</option>
@@ -29,7 +37,7 @@
 					<option value="sweets8">その他</option>
 				</select><br>
 			    商品情報：<br>
-			    <textarea name="sweets_info" cols="40" rows="5"><%=sb.getSweets_info() %></textarea><br>
+			    <textarea name="sweets_info" cols="40" rows="5"><%=sweets_info %></textarea><br>
 			    <input type = "hidden" name = "id" value = "<%=sb.getSweets_id()%>">
 			    <input type = "submit" value = "更新">
 			</form>
