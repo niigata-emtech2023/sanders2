@@ -14,7 +14,7 @@
 	    <div class = "contents">
 		    <form action="show-insert-sweets-servlet" method="POST">
 		    <div class="textleft">
-			    以下の内容で商品の登録が完了しました
+			    以下の内容で商品の登録が完了しました<br>
 			    <%
 			    SweetsBean bean = (SweetsBean) request.getAttribute("bean");
 			    %>
