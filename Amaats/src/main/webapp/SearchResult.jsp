@@ -17,7 +17,7 @@
 				List<SweetsBean> sweetsList
 					= (List<SweetsBean>) request.getAttribute("sweetsList");
 			%>
-			<% try { sweetsList.get(1);%>
+			<% try { sweetsList.get(0);%>
 			<table>
 				<caption>検索結果一覧</caption>
 				<thead>

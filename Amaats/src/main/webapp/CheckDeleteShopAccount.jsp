@@ -26,12 +26,12 @@
 		</div>
 			<div style = "display:inline-flex">
 				<form action="show-delete-user-account-servlet" method="POST">
-					<input type="submit" value="いいえ" id="no" class="send">
+					<input type="submit" value="戻る" id="no" class="send">
 				</form>
 				<form action="delete-account-servlet" method="POST">
 					<input type="hidden" name="type" value="shop">
 					<input type="hidden" name="shop_id" value="<%=request.getParameter("shop_id")%>">
-					<input type="submit" value="はい" id="yes" class="send">
+					<input type="submit" value="削除" id="yes" class="send">
 				</form>
 			</div>
 		</div>
