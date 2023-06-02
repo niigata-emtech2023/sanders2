@@ -52,8 +52,8 @@ public class ReviewDAO {
 		//商品の追加
 		// データベースへの接続の取得、PreparedStatementの取得
 		try (Connection con = ConnectionManager.getConnection();
-				PreparedStatement pstmt = con.prepareStatement("INSERT INTO t_review VALUES (100, ?, ?, ?)")) {
-//(review_text, user_id, sweets_id)
+				PreparedStatement pstmt = con.prepareStatement("INSERT INTO t_review(review_text, user_id, sweets_id) VALUES (?, ?, ?)")) {
+			
 			// DTOからのデータの取り出し
 			String review_text = review.getReview_text();
 			String  user_id = review.getUser_id();

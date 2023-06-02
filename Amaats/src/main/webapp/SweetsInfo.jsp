@@ -61,7 +61,7 @@
 				<tr>
 					<td class="td1"><%=review.getUser_id() %></td>
 					<td class="td2"><%=review.getReview_text() %></td>
-				</tr>
+				</tr><br>
 			<% } %>
 				
 			<%}else{
