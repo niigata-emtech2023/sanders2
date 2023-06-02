@@ -26,7 +26,7 @@
 						<th class="td2">値段</th>
 						<th class="td3">ジャンル</th>
 						<th class="td4">店舗ID</th>
-						<th></th>
+<!-- 						<th></th> -->
 					</tr>
 				</thead>
 				<tbody>
