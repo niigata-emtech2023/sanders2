@@ -28,7 +28,6 @@
 		    <input type ="submit" value="戻る" class="send">
 		    </form>
 	    </div>
-	    <div class="footer"><%@ include file="footer.jsp" %></div>
 	</div>
 </body>
 </html>

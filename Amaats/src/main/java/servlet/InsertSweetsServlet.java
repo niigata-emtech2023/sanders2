@@ -54,19 +54,21 @@ public class InsertSweetsServlet extends HttpServlet {
 				
 				SweetsBean bean = new SweetsBean();
 				
-				bean.setSweets_id(Integer.parseInt(request.getParameter("sweets_id")));
-				bean.setSweets_name(request.getParameter("sweets=name"));
+				bean.setSweets_name(request.getParameter("sweets_name"));
 				bean.setSweets_value(Integer.parseInt(request.getParameter("sweets_value")));
 				bean.setSweets_genre(request.getParameter("sweets_genre"));
-				bean.setShop_id(request.getParameter("shop_id"));
+				bean.setShop_id((String) session.getAttribute("session_id"));
+				bean.setSweets_info(request.getParameter("sweets_info"));
 				
 				sdao.insertSweets(bean);
+				
+				request.setAttribute("bean", bean);
 				
 				rd = request.getRequestDispatcher("SweetsInsertResult.jsp");
 				
 			} catch (SQLException | ClassNotFoundException e) {
-				
-				rd =request.getRequestDispatcher("InsertSweet.jap");
+				e.printStackTrace();
+				rd =request.getRequestDispatcher("InsertSweets.jsp");
 				request.setAttribute("alert", "データベース操作で問題が発生しました");
 				
 			}

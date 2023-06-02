@@ -21,10 +21,10 @@
 
 		    <div style="display:inline-flex">
 		    <form action="insert-sweets-servlet" method="POST">
-		    <input type = "hidden" name = "sweets_name" value = "<%=sb.getSweets_name()%>>" >
-		    <input type = "hidden" name = "sweets_genre" value = "<%=sb.getSweets_name()%>>" >
-		    <input type = "hidden" name = "sweets_value" value = "<%=sb.getSweets_name()%>>" >
-		    <input type = "hidden" name = "sweets_info" value = "<%=sb.getSweets_name()%>>" >
+		    <input type = "hidden" name = "sweets_name" value = "<%=sb.getSweets_name()%>" >
+		    <input type = "hidden" name = "sweets_genre" value = "<%=sb.getSweets_genre()%>" >
+		    <input type = "hidden" name = "sweets_value" value = "<%=sb.getSweets_value()%>" >
+		    <input type = "hidden" name = "sweets_info" value = "<%=sb.getSweets_info()%>" >
 		    <input type ="submit" value="はい">
 		    </form>
 		    
@@ -33,7 +33,6 @@
 		    </form>
 		    </div>
 		</div>
-		<div class = "footer"><%@ include file="footer.jsp" %></div>
 	</div>
 </body>
 </html>
