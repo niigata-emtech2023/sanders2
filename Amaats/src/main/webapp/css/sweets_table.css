@@ -1,6 +1,7 @@
 table{
    margin:20px auto;
-   border:solid 1px;	
+   border:solid 1px;
+    background-color: #f0ffff;		
 }
 
 thead {
@@ -8,7 +9,8 @@ thead {
   text-align: center;
   width: 520px;
   height: 30px;
-   background-color: #F6BABC; 
+   background-color: #f0ffff; 	
+   /*background-color: #F6BABC; */
 }
 
 tbody {
