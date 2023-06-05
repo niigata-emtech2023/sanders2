@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>編集商品選択</title>
 <link rel = "stylesheet" href = "css/style_base.css">
-<link rel = "stylesheet" href = "css/updatesweets.css">
+<link rel = "stylesheet" href = "css/sweets.css">
 </head>
 <body>
 <div class="wrapper">
