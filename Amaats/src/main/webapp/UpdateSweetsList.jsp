@@ -6,13 +6,13 @@
 <meta charset="UTF-8">
 <title>編集商品選択</title>
 <link rel = "stylesheet" href = "css/style_base.css">
-<link rel = "stylesheet" href = "css/sweets_table.css">
+<link rel = "stylesheet" href = "css/updatesweets.css">
 </head>
 <body>
-<div id="wrapper">
+<div class="wrapper">
 		<div class="header"><%@ include file="header.jsp"%>
 		</div>
-		<div id="contents">
+		<div class="contents">
 			<%
 				List<SweetsBean> sweetsList
 					= (List<SweetsBean>) request.getAttribute("beanList");
@@ -25,8 +25,6 @@
 						<th class="td1">商品名</th>
 						<th class="td2">値段</th>
 						<th class="td3">ジャンル</th>
-						<th></th>
-						<th></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -37,7 +35,7 @@
 						<td class="td1"><%=sweets.getSweets_name()%></td>
 						<td class="td2"><%=sweets.getSweets_value()%></td>
 						<td class="td3"><%=sweets.getSweets_genre()%></td>
-						<td>
+						<td class="td4">
 
 							<form action="show-update-sweets-servlet" method="POST">
 								<input type="hidden" name="sweets_id" value="<%=sweets.getSweets_id()%>">
@@ -49,7 +47,7 @@
 								<input type="submit" value="編集">
 							</form>
 						</td>
-						<td>
+						<td class="td5">
 							<form action = "SelectImage.jsp" method = "POST">
 								<input type="hidden" name="sweets_id" value="<%=sweets.getSweets_id()%>">
 								<input type="hidden" name="sweets_name" value="<%=sweets.getSweets_name()%>">
