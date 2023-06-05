@@ -86,6 +86,12 @@ input[type=text],[type=password]{
 	margin-top: 10px;
 }
 
+.send3 {
+	width: 130px;
+	height: 30px;
+	margin-top: 10px;
+}
+
 .logouttext {
 	font-size: 25px;
 	padding: 40px;

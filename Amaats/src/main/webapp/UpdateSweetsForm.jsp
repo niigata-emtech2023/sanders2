@@ -46,7 +46,7 @@
 		
 			<form action="sweets-info-servlet" method="POST">
 				<input type="hidden" name="sweetsId" value="<%=sb.getSweets_id()%>"> 
-				<input type="submit" value="詳細表示画面に戻る" class="send">
+				<input type="submit" value="詳細表示画面に戻る" class="send3">
 			</form>
 		</div>
 	</div>

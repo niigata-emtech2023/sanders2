@@ -5,18 +5,18 @@
 <head>
 <meta charset="UTF-8">
 <title>商品情報-変更登録結果</title>
-<link rel = "stylesheet" href = "style.css">
+<link rel = "stylesheet" href = "css/style_base.css">
 </head>
 <body>
-	<div id = "wrapper">
+	<div class = "wrapper">
 	<div class="header"><%@ include file="header.jsp" %>
 	</div>
-	<div id = "contents">
+	<div class = "contents">
 		<%
 			int processingNumber = (Integer) request.getAttribute("processingNumber");
 			if (processingNumber > 0) {
 		%>
-		商品情報を変更しました。<br>
+		<div class="textleft">商品情報を変更しました。<br></div>
 		<%
 			} else {
 		%>
